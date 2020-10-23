@@ -5,7 +5,7 @@ var Producto = require('../models/producto');
 function registrar(req, res) {
     let data = req.body;
     var experiencia = new Experiencia();
-    experiencia.idcliente = data.idcliente;
+    experiencia.idpostulante = data.idpostulante;
     experiencia.iduser = data.iduser;
 
     experiencia.save((err, venta_save) => {
@@ -58,9 +58,9 @@ function registrar(req, res) {
 }
 
 function datos_venta(req, res) {
-    var id = req.params['id'];
+    var id = req.params['id']; 
 
-    Experiencia.findById(id).populate('idcliente').populate('iduser').exec((err, data_venta) => {
+    Experiencia.findById(id).populate('idpostulante').populate('iduser').exec((err, data_venta) => {
         if (data_venta) {
             DetalleExperiencia.find({ experiencia: data_venta._id }).populate('idproducto').exec({ idexperiencia: id }, (err, data_detalle) => {
                
@@ -83,9 +83,10 @@ function datos_venta(req, res) {
 }
 
 function listado_venta(req, res) {
-    Experiencia.find().populate('idcliente').populate('iduser').exec((err, data_ventas) => {
+    Experiencia.find().populate('idpostulante').populate('iduser').exec((err, data_ventas) => {
+        
         if (data_ventas) {
-            res.status(200).send({ ventas: data_ventas });
+            res.status(200).send({ experiencias: data_ventas });
         } else {
             res.status(404).send({ message: "No hay ningun registro de experiencia" });
         }

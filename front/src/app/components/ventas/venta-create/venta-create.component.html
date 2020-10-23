@@ -36,16 +36,16 @@
                                         </div>
                                         <div class="col-lg-4 form-group">
                                             <label><b>Seleccione postulante</b></label>
-                                            <select name="" class="form-control" #idcliente="ngModel" name="idcliente"
-                                                [(ngModel)]="venta.idcliente">
+                                            <select name="" class="form-control" #idpostulante="ngModel" name="idpostulante"
+                                                [(ngModel)]="venta.idpostulante">
                                                 <option value="">SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of clientes">
+                                                <option value="{{item._id}}" *ngFor="let item of postulantes">
                                                     {{item.ci}}</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-2 form-group">
 
-                                            <a [routerLink]="['/cliente/registrar']" class="btn btn-primary">Nuevo
+                                            <a [routerLink]="['/postulante/registrar']" class="btn btn-primary">Nuevo
                                                 postulante</a>
                                         </div>
                                         <div class="col-lg-2 form-group">

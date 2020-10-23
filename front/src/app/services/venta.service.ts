@@ -18,16 +18,16 @@ export class VentaService {
 
   get_ventas():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'postulantes',{headers:headers});
+    return this._http.get(this.url+'experiencias',{headers:headers});
   }
 
   save_data(data):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url+'postulante/registrar',data,{headers:headers});
+    return this._http.post(this.url+'experiencia/registrar',data,{headers:headers});
   }
 
   data_venta(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'postulante/'+id,{headers:headers});
+    return this._http.get(this.url+'experiencia/'+id,{headers:headers});
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { PostulanteService } from 'src/app/services/postulante.service';
 import { Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -16,9 +16,9 @@ import { VentaService } from 'src/app/services/venta.service';
 export class VentaCreateComponent implements OnInit {
 
   public identity;
-  public clientes : any;
+  public postulantes : any;
   public venta : any = {
-    idcliente : '',
+    idpostulante : '',
   };
   public productos;
   public producto : any = {
@@ -34,7 +34,7 @@ export class VentaCreateComponent implements OnInit {
 
   constructor(
     private _userService:UserService,
-    private _clienteService:ClienteService,
+    private _postulanteService:PostulanteService,
     private _productoService : ProductoService,
     private _router:Router,
     private _ventaService : VentaService,
@@ -44,9 +44,9 @@ export class VentaCreateComponent implements OnInit {
 
   ngOnInit() {
     if(this.identity){
-      this._clienteService.get_clientes().subscribe(
+      this._postulanteService.get_postulantes().subscribe(
         response=>{
-          this.clientes = response.clientes;
+          this.postulantes = response.postulantes;
         },
         error=>{
 
@@ -103,7 +103,6 @@ export class VentaCreateComponent implements OnInit {
             sueldoFinal: detalleForm.value.sueldoFinal,
             motivoCambioTrabajo: detalleForm.value.motivoCambioTrabajo,
             nombreJefeDirecto: detalleForm.value.nombreJefeDirecto,
-
             puestoJefe: detalleForm.value.puestoJefe,
             solicitarInfo: detalleForm.value.solicitarInfo,
             
@@ -131,9 +130,9 @@ export class VentaCreateComponent implements OnInit {
 
   onSubmit(ventaForm){
     if(ventaForm.valid){
-      if(ventaForm.value.idcliente != ''){
+      if(ventaForm.value.idpostulante != ''){
         let data = {
-          idcliente: ventaForm.value.idcliente,
+          idpostulante: ventaForm.value.idpostulante,
           iduser: this.identity._id,
           detalles: this.data_detalle
         }

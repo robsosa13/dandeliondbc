@@ -1,4 +1,4 @@
-export class Cliente{
+export class Postulante{
     constructor(
         public _id:string,
         public nombres:string,

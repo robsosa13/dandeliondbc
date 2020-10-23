@@ -12,7 +12,7 @@
 
                 <div class="header">
                     <h1 class="header-title">
-                        Clientes
+                        postulantes
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -40,26 +40,26 @@
                         <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title">Datos del cliente</h5>
+                                    <h5 class="card-title">Datos del postulante</h5>
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Nombres del cliente</b></label>
-                                                <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="cliente.nombres" placeholder="Nombres completos" required>
+                                                <label><b>Nombres del postulante</b></label>
+                                                <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="postulante.nombres" placeholder="Nombres completos" required>
                                             </div>
                                        </div>
                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Correo del cliente</b></label>
-                                                <input type="email" class="form-control" #correo="ngModel" name="correo" [(ngModel)]="cliente.correo" placeholder="Correo Electrónico" required>
+                                                <label><b>Correo del postulante</b></label>
+                                                <input type="email" class="form-control" #correo="ngModel" name="correo" [(ngModel)]="postulante.correo" placeholder="Correo Electrónico" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>DNI del cliente</b></label>
-                                                <input type="number" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="cliente.dni" placeholder="Numero del D.I" required>
+                                                <input type="number" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="postulante.dni" placeholder="Numero del D.I" required>
                                             </div>
                                         </div>
                                    </div>

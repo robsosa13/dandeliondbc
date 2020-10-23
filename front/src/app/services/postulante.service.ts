@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
+export class PostulanteService {
 
   public url;
 
@@ -16,28 +16,28 @@ export class ClienteService {
     this.url = GLOBAL.url;
   }
 
-  get_clientes():Observable<any>{
+  get_postulantes():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'clientes',{headers:headers});
+    return this._http.get(this.url+'postulantes',{headers:headers});
   }
 
-  insert_cliente(data):Observable<any>{
+  insert_postulante(data):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url+'cliente/registrar',data,{headers:headers});
+    return this._http.post(this.url+'postulante/registrar',data,{headers:headers});
   }
 
-  get_cliente(id):Observable<any>{
+  get_postulante(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'cliente/'+id,{headers:headers});
+    return this._http.get(this.url+'postulante/'+id,{headers:headers});
   }
 
-  update_cliente(data):Observable<any>{
+  update_postulante(data):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.put(this.url+'cliente/editar/'+data._id,data,{headers:headers});
+    return this._http.put(this.url+'postulante/editar/'+data._id,data,{headers:headers});
   }
 
-  delete_cliente(id):Observable<any>{
+  delete_postulante(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.delete(this.url+'/cliente/eliminar/'+id,{headers:headers});
+    return this._http.delete(this.url+'/postulante/eliminar/'+id,{headers:headers});
   }
 }

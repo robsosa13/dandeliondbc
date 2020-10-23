@@ -30,7 +30,7 @@
                                    
                                     <div class="col-lg-6">
                                     
-                                        <a [routerLink]="['/postulante/registrar']"  class="btn btn-primary">Experiencia Laboral</a>
+                                        <a [routerLink]="['/experiencia/registrar']"  class="btn btn-primary">Experiencia Laboral</a>
                                     </div>
                                 </div>
                                 <!-- <div class="form-row">
@@ -57,18 +57,18 @@
                                     </tr>
                                 </thead>
                                 <tbody >
-                                    <tr *ngFor="let item of ventas ">
+                                    <tr *ngFor="let item of experiencias ">
                                         <td>
-                                           {{item.idcliente.nombre}}  {{item.idcliente.apellidoPaterno}}
+                                           {{item.idpostulante.nombre}}  {{item.idpostulante.apellidoPaterno}}
                                         </td>
                                         <!-- <td>
                                             {{item.iduser.nombres}} {{item.iduser.apellidos}}
                                          </td> -->
                                          <td>
-                                            {{item.idcliente.ci}}  
+                                            {{item.idpostulante.ci}}  
                                          </td>
                                          <td>
-                                            {{item.idcliente.profesion}}  
+                                            {{item.idpostulante.profesion}}  
                                          </td>
                                         <td>{{item.fecha | date: 'MMM d, y, h:mm:ss a'}}</td>
                                       
@@ -78,7 +78,7 @@
                                                     <i class="fas fa-cog"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" [routerLink]="['/postulante/',item._id]" >Detalle de postulante</a>
+                                                    <a class="dropdown-item" [routerLink]="['/experiencia/',item._id]" >Detalle de postulante</a>
                                                     
                                                 </div>
                                             </div>

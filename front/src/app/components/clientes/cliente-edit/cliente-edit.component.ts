@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { PostulanteService } from 'src/app/services/postulante.service';
 
 @Component({
   selector: 'app-cliente-edit',
@@ -10,12 +10,12 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class ClienteEditComponent implements OnInit {
 
   public id;
-  public cliente : any = {};
+  public postulante : any = {};
   public success_message;
 
   constructor(
     private _route : ActivatedRoute,
-    private _clienteService :ClienteService
+    private _postulanteService :PostulanteService
   ) { }
 
   ngOnInit() {
@@ -23,10 +23,10 @@ export class ClienteEditComponent implements OnInit {
       params=>{
         this.id = params['id'];
 
-        this._clienteService.get_cliente(this.id).subscribe(
+        this._postulanteService.get_postulante(this.id).subscribe(
           response =>{
             console.log(response);
-            this.cliente = response.cliente;
+            this.postulante = response.postulante;
           },
           error=>{
 
@@ -43,7 +43,7 @@ export class ClienteEditComponent implements OnInit {
   onSubmit(clienteForm){
     if(clienteForm.valid){
       
-      this._clienteService.update_cliente({
+      this._postulanteService.update_postulante({
         _id: this.id,
         nombres: clienteForm.value.nombres,
         correo: clienteForm.value.correo,

@@ -11,7 +11,7 @@ import { VentaService } from 'src/app/services/venta.service';
 export class VentaIndexComponent implements OnInit {
 
   public identity;
-  public ventas;
+  public experiencias;
   filterpost='';
   constructor(
     private _userService : UserService,
@@ -26,8 +26,8 @@ export class VentaIndexComponent implements OnInit {
       //USUARIO AUTENTICADO
       this._ventaService.get_ventas().subscribe(
         response=>{
-          this.ventas = response.ventas;
-          console.log(this.ventas);
+          this.experiencias = response.experiencias;
+          console.log(this.experiencias);
           
         },
         error=>{

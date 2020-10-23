@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { PostulanteService } from 'src/app/services/postulante.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
 
@@ -10,17 +10,17 @@ import Swal from 'sweetalert2';
 })
 export class ClienteIndexComponent implements OnInit {
 
-  public clientes;
+  public postulantes;
 
   constructor(
-    private _clienteService: ClienteService
+    private _postulanteService: PostulanteService
   ) { }
 
   ngOnInit() {
-    this._clienteService.get_clientes().subscribe(
+    this._postulanteService.get_postulantes().subscribe(
       response=>{
-        this.clientes = response.clientes;
-        console.log(this.clientes);
+        this.postulantes = response.postulantes;
+        console.log(this.postulantes);
         
       },
       error=>{
@@ -46,11 +46,11 @@ export class ClienteIndexComponent implements OnInit {
           'success'
         )
 
-        this._clienteService.delete_cliente(id).subscribe(
+        this._postulanteService.delete_postulante(id).subscribe(
           resposen=>{
-            this._clienteService.get_clientes().subscribe(
+            this._postulanteService.get_postulantes().subscribe(
               response=>{
-                this.clientes = response.clientes;
+                this.postulantes = response.postulantes;
               },
               error=>{
 

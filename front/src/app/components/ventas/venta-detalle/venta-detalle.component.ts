@@ -30,9 +30,12 @@ export class VentaDetalleComponent implements OnInit {
   ngOnInit() {
     if(this.identity){
       this._route.params.subscribe(params=>{
+        console.log('ok')
         this.id = params['id'];
         this._ventaService.data_venta(this.id).subscribe(
           response=>{
+            console.log('1', response.data.experiencia)
+            console.log('2exp',response.data.detalles)
             this.venta = response.data.experiencia;
             this.detalle_venta = response.data.detalles;
           },

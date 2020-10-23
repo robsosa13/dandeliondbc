@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from "../../../models/Cliente";
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Postulante } from "../../../models/Postulante";
+import { PostulanteService } from 'src/app/services/postulante.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,22 +10,23 @@ import { Router } from '@angular/router';
 })
 export class ClienteCreateComponent implements OnInit {
 
-  public cliente;
+  public postulante;
 
   constructor(
-    private _clienteService: ClienteService,
+    private _postulanteService: PostulanteService,
     private _router: Router
   ) {
-    this.cliente = new Cliente('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','');
+    this.postulante = new Postulante('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','');
   }
 
   ngOnInit() {
   }
 
   onSubmit(clienteForm) {
+
     if (clienteForm.valid) {
 
-      this._clienteService.insert_cliente({
+      this._postulanteService.insert_postulante({
         nombres: clienteForm.value.nombres,
         apellidoPaterno: clienteForm.value.apellidoPaterno,
         apellidoMaterno: clienteForm.value.apellidoMaterno,
@@ -44,7 +45,7 @@ export class ClienteCreateComponent implements OnInit {
         profesion: clienteForm.value.profesion
       }).subscribe(
         response => {
-          this._router.navigate(['clientes']);
+          this._router.navigate(['postulantes']);
 
         },
         error => {

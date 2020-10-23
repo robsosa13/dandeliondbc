@@ -7,8 +7,8 @@ var port = process.env.PORT ||  4201;
 var user_routes = require('./routes/user');
 var categoria_routes = require('./routes/categoria');
 var producto_routes = require('./routes/producto');
-var cliente_routes = require('./routes/cliente');
-var postulante_routes = require('./routes/experiencia');
+var postulante_routes = require('./routes/postulante');
+var experiencia_routes = require('./routes/experiencia');
 var activo_routes = require('./routes/activo');
 var empresa_routes = require('./routes/empresa');
 
@@ -46,10 +46,12 @@ app.use((req,res,next)=>{
 app.use('/api',user_routes);
 app.use('/api',categoria_routes);
 app.use('/api',producto_routes);
-app.use('/api',cliente_routes);
-app.use('/api',postulante_routes);
+//app.use('/api',cliente_routes);
+app.use('/api',experiencia_routes);
 app.use('/api',activo_routes);
 app.use('/api',empresa_routes);
+app.use('/api',postulante_routes);
+
 
 
 
