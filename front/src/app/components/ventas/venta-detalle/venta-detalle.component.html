@@ -1,0 +1,179 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Postulantes
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Principal</a></li>
+                            <li class="breadcrumb-item"><a>Detalle de postulante</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-12 form-group">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Datos de Postulante</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label><b>Nombre Completo</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.nombres}} {{venta.idcliente.apellidoPaterno}} {{venta.idcliente.apellidoMaterno}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Edad</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.edad}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Domicilio</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.domicilio}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Sexo</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.sexo}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Ciudad</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.ciudad}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Lugar de Nacimiento</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.lugarNacimiento}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Fecha de Nacimiento</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.FechaNacimiento}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>NAcionalidad</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.naionalidad}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Cedula de identidad</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.ci}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Estado Civil</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.estadoCivil}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Vive con </b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.viveCon}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>PErsonas que dependen de usted</b></label>
+                                        <input type="text" class="form-control" readonly value="{{venta.idcliente.personaDependencia}}">
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Experiencia laboral</h5>
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Nombre de Empresa</th>
+                                        <th class="text-center">Entró </th>
+                                        <th class="text-center">Salió</th>
+                                        <th class="text-center">Direccion</th>
+                                        <th class="text-center">Telefono</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of detalle_venta">
+                                    <td class="text-center">{{item.nombreEmpresa}}</td>
+                                    <td class="text-center">{{item.tiempoServicioDesde}}</td>
+                                    <td class="text-center">{{item.tiempoServicioHasta}}</td>
+                                    <td class="text-center">{{item.direccion}}</td>
+                                    <td class="text-center">{{item.telefono}}</td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Experiencia laboral</h5>
+    
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Nombre de Empresa</th>
+                                        <th class="text-center">Puesto desempeniado</th>
+                                        <th class="text-center">Sueldo inicial</th>
+                                        <th class="text-center">Sueldo Final</th>
+                                        <th class="text-center">Motivo cambio de trabajo inicial</th>
+                                    
+                                      
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of detalle_venta">
+                                    <td class="text-center">{{item.nombreEmpresa}}</td>
+                                    <td class="text-center">{{item.puestoDesempenado}}</td>
+                                  
+                                    <td class="text-center">{{item.sueldoInicial}}</td>
+                                    <td class="text-center">{{item.sueldoFinal}}</td>
+                                    <td class="text-center">{{item.motivoCambioTrabajo}}</td>
+                        
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Experiencia laboral</h5>
+    
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Nombre de Empresa</th>
+                                        <th class="text-center">Nombre jefe Directo</th>
+                                        <th class="text-center">Puesto jefe Directo</th>
+                                        <th class="text-center">Solicitar informacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of detalle_venta">
+                                    <td class="text-center">{{item.nombreEmpresa}}</td>
+                                    <td class="text-center">{{item.nombreJefeDirecto}}</td>
+                                    <td class="text-center">{{item.puestoJefe}}</td>
+                                    <td class="text-center">{{item.solicitarInfo}}</td>
+                                  
+                                 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+           
+                </div>
+
+
+
+               
+            </div>
+        </main>
+       
+    </div>
+</div>
