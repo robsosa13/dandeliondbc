@@ -1,1 +1,124 @@
-<p>empresa-create works!</p>
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Postulantes
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/empresas']">Empresas</a></li>
+                            <li class="breadcrumb-item"><a>Registrar Empresa</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 col-xl-12">
+                        <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Listado Empresas</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Numero de Empresa</b></label>
+                                                <input type="text" class="form-control" #numeroEmpresa="ngModel"
+                                                    name="numeroEmpresa" [(ngModel)]="empresa.numeroEmpresa"
+                                                    placeholder="Numero de Empresa" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nombre de Empresa</b></label>
+                                                <input type="text" class="form-control" #nombreEmpresa="ngModel"
+                                                    name="nombreEmpresa" [(ngModel)]="empresa.nombreEmpresa"
+                                                    placeholder="Nombre de Empresa" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Direccion </b></label>
+                                                <input type="text" class="form-control" #direccion="ngModel"
+                                                    name="direccion" [(ngModel)]="empresa.direccion"
+                                                    placeholder="Direccion de Empresa" required>
+                                            </div>
+                                        </div>
+                                   
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Contacto</b></label>
+                                                <input type="text" class="form-control" #contacto="ngModel"
+                                                    name="contacto" [(ngModel)]="empresa.contacto"
+                                                    placeholder="Contacto" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b> Telefono</b></label>
+                                                <input type="number" class="form-control" #telefono="ngModel" name="telefono"
+                                                    [(ngModel)]="empresa.telefono" placeholder="Telefono" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Estado de LLamadas</b></label>
+                                                <input type="number" class="form-control" #llamadasEstado="ngModel" name="llamadasEstado"
+                                                    [(ngModel)]="empresa.llamadasEstado" placeholder="Edad " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Correo</b></label>
+                                                <input type="text" class="form-control" #correo="ngModel" name="correo"
+                                                    [(ngModel)]="empresa.correo" placeholder="Correo Empresa " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Etapa de Venta</b></label>
+                                                <input type="text" class="form-control" #etapaVenta="ngModel" name="etapaVenta"
+                                                    [(ngModel)]="empresa.etapaVenta" placeholder="Correo Empresa " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Medio de Comunicacion</b></label>
+                                                <input type="text" class="form-control" #medioComunicacion="ngModel" name="medioComunicacion"
+                                                    [(ngModel)]="empresa.medioComunicacion" placeholder="Medio de COmunicacion " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Estado de Seguimiento</b></label>
+                                                <input type="text" class="form-control" #estadoSeguimiento="ngModel" name="estadoSeguimiento"
+                                                    [(ngModel)]="empresa.estadoSeguimiento" placeholder="Estado de Seguimiento" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success" type="submit">Registrar Empresa</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>

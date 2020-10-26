@@ -13,21 +13,22 @@ export class EmpresaIndexComponent implements OnInit {
   public empresas;
 
   constructor(
-    //private _empresaService: EmpresaService
+    private _empresaService: EmpresaService
   ) { }
 
   ngOnInit() {
-    // this._empresaService.getEmpresas().subscribe(
-    //   response=>{
-    //     this.empresas = response.empresas;
-    //     console.log(this.empresas);
+    this._empresaService.getEmpresas().subscribe(
+      response=>{
+        this.empresas = response.empresas;
+        console.log(this.empresas);
         
-    //   },
-    //   error=>{
+      },
+      error=>{
 
-    //   }
-    // )
+      }
+    )
   }
+
 
   // eliminar(id){
   //   Swal.fire({

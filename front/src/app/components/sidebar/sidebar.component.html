@@ -34,6 +34,16 @@
                         <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos</span>
                     </a>
                 </li>
+                <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                    <a class="sidebar-link" [routerLink]="['/personals']"  >
+                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personal</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                    <a class="sidebar-link" [routerLink]="['/asignaciones']"  >
+                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Asignacion de Activos</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/postulantes']"  >
@@ -45,7 +55,11 @@
                         <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personas Datos</span>
                     </a>
                 </li>
-
+                <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                    <a class="sidebar-link" [routerLink]="['/empresas']"  >
+                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Empresas</span>
+                    </a>
+                </li>
                 <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
                     <a class="sidebar-link" [routerLink]="['/usuarios']"  >
                         <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Usuarios</span>

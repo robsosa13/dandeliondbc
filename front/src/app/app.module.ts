@@ -30,9 +30,13 @@ import { ActivoIndexComponent } from './components/activos/activo-index/activo-i
 import { AsignacionCreateComponent } from './components/asignaciones/asignacion-create/asignacion-create.component';
 import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
 import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
-// import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
+import { PersonalCreateComponent } from './components/personal/personal-create/personal-create.component';
+import { PersonalIndexComponent } from './components/personal/personal-index/personal-index.component';
+import { PersonalEditComponent } from './components/personal/personal-edit/personal-edit.component';
+import { PersonalDetailComponent } from './components/personal/personal-detail/personal-detail.component';
+import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
-//import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component'
+import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component'
 //import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
 
 
@@ -61,9 +65,13 @@ import { AsignacionIndexComponent } from './components/asignaciones/asignacion-i
     AsignacionCreateComponent,
     AsignacionDetailComponent,
     AsignacionIndexComponent,
-    // EmpresaCreateComponent,
+    PersonalCreateComponent,
+    PersonalIndexComponent,
+    PersonalEditComponent,
+    PersonalDetailComponent,
+     EmpresaCreateComponent,
     // EmpresaEditComponent,
-   // EmpresaIndexComponent
+   EmpresaIndexComponent
 
 
   ],

@@ -16,45 +16,49 @@ import { VentaCreateComponent } from './components/ventas/venta-create/venta-cre
 import { VentaDetalleComponent } from './components/ventas/venta-detalle/venta-detalle.component';
 import { ActivoIndexComponent } from './components/activos/activo-index/activo-index.component';
 import { ActivoCreateComponent } from './components/activos/activo-create/activo-create.component';
-import {ActivoEditComponent } from './components/activos/activo-edit/activo-edit.component';
+import { ActivoEditComponent } from './components/activos/activo-edit/activo-edit.component';
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
-// import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
-//import { EmpresaIndexComponent  } from './components/empresas/empresa-index/empresa-index.component';
+import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
+ import { EmpresaIndexComponent  } from './components/empresas/empresa-index/empresa-index.component';
 
 import { AsignacionCreateComponent } from './components/asignaciones/asignacion-create/asignacion-create.component';
 import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
-
 import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
+import { PersonalIndexComponent } from './components/personal/personal-index/personal-index.component';
+import { PersonalCreateComponent } from './components/personal/personal-create/personal-create.component';
+// import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
+// import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
 
 
 
-const appRoute : Routes = [
-    {path: '', component: LoginComponent},
-    {path: 'dashboard',component: DashboardComponent},
-    {path: 'productos',component: ProductoIndexComponent},
-    {path: 'producto/registrar',component: ProductoCreateComponent},
-    {path: 'producto/editar/:id',component: ProductoEditComponent},
-    {path: 'postulantes', component: ClienteIndexComponent},
-    {path: 'postulante/registrar', component: ClienteCreateComponent},
-    {path: 'postulante/editar/:id', component: ClienteEditComponent},
-    {path: 'usuarios',component: UserIndexComponent},
-    {path: 'usuarios/registrar', component: UserCreateComponent},
-    {path: 'usuario/editar/:id', component: UserEditComponent},
-    {path: 'experiencias',component: VentaIndexComponent},
-    {path: 'experiencia/registrar',component: VentaCreateComponent},
-    {path: 'experiencia/:id',component: VentaDetalleComponent},
-    {path: 'activos',component: ActivoIndexComponent},
-    {path: 'activo/registrar',component: ActivoCreateComponent},
-    {path: 'activo/editar/:id',component: ActivoEditComponent},
-
-    {path: 'asignaciones',component: AsignacionIndexComponent},
-    {path: 'asignacion/registrar',component: AsignacionCreateComponent},
-    {path: 'asignacion/:id',component: AsignacionDetailComponent},
-    // { path: 'empresas', component: EmpresaIndexComponent }
+const appRoute: Routes = [
+    { path: '', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'productos', component: ProductoIndexComponent },
+    { path: 'producto/registrar', component: ProductoCreateComponent },
+    { path: 'producto/editar/:id', component: ProductoEditComponent },
+    { path: 'postulantes', component: ClienteIndexComponent },
+    { path: 'postulante/registrar', component: ClienteCreateComponent },
+    { path: 'postulante/editar/:id', component: ClienteEditComponent },
+    { path: 'usuarios', component: UserIndexComponent },
+    { path: 'usuarios/registrar', component: UserCreateComponent },
+    { path: 'usuario/editar/:id', component: UserEditComponent },
+    { path: 'experiencias', component: VentaIndexComponent },
+    { path: 'experiencia/registrar', component: VentaCreateComponent },
+    { path: 'experiencia/:id', component: VentaDetalleComponent },
+    { path: 'activos', component: ActivoIndexComponent },
+    { path: 'activo/registrar', component: ActivoCreateComponent },
+    { path: 'activo/editar/:id', component: ActivoEditComponent },
+    { path: 'asignaciones', component: AsignacionIndexComponent },
+    { path: 'asignacion/registrar', component: AsignacionCreateComponent },
+    { path: 'asignacion/:id', component: AsignacionDetailComponent },
+    { path: 'empresas', component: EmpresaIndexComponent },
     // { path: 'edit-empresa/:id', component: EmpresaEditComponent },
-    // { path: 'create-empresa', component: EmpresaCreateComponent },
+    { path: 'save-empresa', component: EmpresaCreateComponent },
+    { path: 'personals', component: PersonalIndexComponent },
+    { path: 'personal/registrar', component: PersonalCreateComponent },
 ]
 
 
-export const appRoutingProviders : any[] = [];
-export const routing:ModuleWithProviders = RouterModule.forRoot(appRoute);
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);

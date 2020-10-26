@@ -1,0 +1,103 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Personal DBC
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/personals']">Personals</a></li>
+                            <li class="breadcrumb-item"><a>Registrar Personal</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 col-xl-12">
+                        <form #personalForm="ngForm" (ngSubmit)="onSubmit(personalForm)">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Listado personal</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nombres</b></label>
+                                                <input type="text" class="form-control" #nombre="ngModel" name="nombre"
+                                                    [(ngModel)]="personal.nombre " placeholder="Nombre" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Segundo Nombre</b></label>
+                                                <input type="text" class="form-control" #nombreS="ngModel"
+                                                    name="nombreS" [(ngModel)]="personal.nombreS"
+                                                    placeholder="Apellido Paterno" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Apellido Paterno </b></label>
+                                                <input type="text" class="form-control" #apellidoP="ngModel"
+                                                    name="apellidoP" [(ngModel)]="personal.apellidoP"
+                                                    placeholder="Apellido Patenro" required>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Apellido Materno</b></label>
+                                                <input type="text" class="form-control" #apellidoM="ngModel"
+                                                    name="apellidoM" [(ngModel)]="personal.apellidoM"
+                                                    placeholder="Apellido Materno" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Cedula de identidad</b></label>
+                                                <input type="number" class="form-control" #ci="ngModel" name="ci"
+                                                    [(ngModel)]="personal.ci" placeholder="Cedula de Identidad"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Cargo</b></label>
+                                                <input type="text" class="form-control" #cargo="ngModel" name="cargo"
+                                                    [(ngModel)]="personal.cargo" placeholder="Cargo " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Profesion</b></label>
+                                                <input type="text" class="form-control" #profesion="ngModel"
+                                                    name="profesion" [(ngModel)]="personal.profesion"
+                                                    placeholder="Profesion" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success" type="submit">Registrar Personal</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>
