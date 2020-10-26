@@ -21,6 +21,11 @@ import {ActivoEditComponent } from './components/activos/activo-edit/activo-edit
 // import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
 //import { EmpresaIndexComponent  } from './components/empresas/empresa-index/empresa-index.component';
 
+import { AsignacionCreateComponent } from './components/asignaciones/asignacion-create/asignacion-create.component';
+import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
+
+import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
+
 
 
 const appRoute : Routes = [
@@ -41,6 +46,10 @@ const appRoute : Routes = [
     {path: 'activos',component: ActivoIndexComponent},
     {path: 'activo/registrar',component: ActivoCreateComponent},
     {path: 'activo/editar/:id',component: ActivoEditComponent},
+
+    {path: 'asignaciones',component: AsignacionIndexComponent},
+    {path: 'asignacion/registrar',component: AsignacionCreateComponent},
+    {path: 'asignacion/:id',component: AsignacionDetailComponent},
     // { path: 'empresas', component: EmpresaIndexComponent }
     // { path: 'edit-empresa/:id', component: EmpresaEditComponent },
     // { path: 'create-empresa', component: EmpresaCreateComponent },

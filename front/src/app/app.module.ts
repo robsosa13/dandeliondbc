@@ -27,6 +27,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ActivoCreateComponent } from './components/activos/activo-create/activo-create.component';
 import { ActivoEditComponent } from './components/activos/activo-edit/activo-edit.component';
 import { ActivoIndexComponent } from './components/activos/activo-index/activo-index.component';
+import { AsignacionCreateComponent } from './components/asignaciones/asignacion-create/asignacion-create.component';
+import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
+import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
 // import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
 //import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component'
@@ -55,6 +58,9 @@ import { ActivoIndexComponent } from './components/activos/activo-index/activo-i
     ActivoCreateComponent,
     ActivoEditComponent,
     ActivoIndexComponent,
+    AsignacionCreateComponent,
+    AsignacionDetailComponent,
+    AsignacionIndexComponent,
     // EmpresaCreateComponent,
     // EmpresaEditComponent,
    // EmpresaIndexComponent
