@@ -30,7 +30,8 @@ import { PersonalCreateComponent } from './components/personal/personal-create/p
 // import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
 // import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
 
-
+import { ExpeAddComponent } from './components/ventas/expe-add/expe-add.component';
+import { VentaEditComponent } from './components/ventas/venta-edit/venta-edit.component';
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -59,6 +60,10 @@ const appRoute: Routes = [
     { path: 'detail-empresa/:id', component: EmpresaDetailComponent },
     { path: 'personals', component: PersonalIndexComponent },
     { path: 'personal/registrar', component: PersonalCreateComponent },
+    { path: 'personal/registrar', component: PersonalCreateComponent },
+    { path: 'experiencia/adicionar/:id', component: ExpeAddComponent },
+    { path: 'experiencia/detail-edit/:id', component: VentaEditComponent },
+    
 ]
 
 

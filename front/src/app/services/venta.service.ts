@@ -7,27 +7,35 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class VentaService {
-
   public url;
-
   constructor(
     private _http : HttpClient
   ) { 
     this.url = GLOBAL.url;
   }
-
   get_ventas():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'experiencias',{headers:headers});
   }
-
   save_data(data):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'experiencia/registrar',data,{headers:headers});
   }
-
+  adicionar_experiencia(data):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url+'experiencia/adicionar/',data,{headers:headers});//
+  }
   data_venta(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'experiencia/'+id,{headers:headers});
   }
+  get_detalleExperienciaById(id):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'experiencia/data/'+id,{headers:headers});
+  }
+  update_detalleExperiencia(data):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.put(this.url+'experiencia/detail-edit/'+data._id,data,{headers:headers});
+  }
+  
 }

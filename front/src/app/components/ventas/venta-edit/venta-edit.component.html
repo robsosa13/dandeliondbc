@@ -1,0 +1,198 @@
+<div class="wrapper">
+    <app-sidebar style="background: white;"></app-sidebar>
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Registrar experiencia laboral postulante
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard-default.html">Principal</a></li>
+                            <li class="breadcrumb-item"><a>Postulantes</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <!-- <div class="col-12 col-xl-12 form-group">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Datos personales postulante</h5>
+                            </div>
+                            <div class="card-body">
+                                <form #ventaForm="ngForm" (ngSubmit)="onSubmit(ventaForm)">
+                                    <div class="row">
+                                        <div class="col-lg-4 form-group">
+                                            <label><b>Trabajador</b></label>
+                                            <input type="text" class="form-control" readonly
+                                                value="{{identity.nombres}} {{identity.apellidos}}">
+                                        </div>
+                                        <div class="col-lg-4 form-group">
+                                            <label><b>Seleccione postulante</b></label>
+                                            <select name="" class="form-control" #idpostulante="ngModel" name="idpostulante"
+                                                [(ngModel)]="venta.idpostulante">
+                                                <option value="">SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of postulantes">
+                                                    {{item.ci}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <button type="submit" class="btn btn-primary">Editar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-12 col-lg-12" *ngIf="error_message">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div class="alert-message">
+                                {{error_message}}
+                            </div>
+
+                            <button type="button" (click)="close_alert()" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-12 form-group">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Editar experiencia laboral</h5>
+                            </div>
+                            <div class="card-body">
+                                <form #detailExperienciaForm="ngForm" (ngSubmit)= "onSubmit(detailExperienciaForm)">
+                                    <div class="row">
+                                        <div class="col-lg-4 form-group" >
+                                            <label for=""><b>Opcional</b></label>
+                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
+                                                [(ngModel)]="detalle.idproducto"
+                                                (change)="get_data_producto($event.target.value)" >
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of productos">
+                                                    {{item.titulo}}</option>
+                                            </select>
+                                            <!-- <input type="text" readonly  class="form-control" value="{{detailExperiencia.idproducto..stock}}" > -->
+                                        </div>
+                                        <!-- <div class="col-lg-4 form-group" >
+                                            <label for=""><b>Espec</b></label>
+                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
+                                                [(ngModel)]="detalle.idproducto"
+                                                (change)="get_data_producto($event.target.value)">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of productos">
+                                                    {{item.titulo}}</option>
+                                            </select>
+                                        </div> -->
+                                        <!-- <div class="col-lg-3 form-group" >
+                                            <label for=""><b>Opcional</b></label>
+                                            <input type="text" readonly class="form-control" value="{{producto.stock}}" >
+                                        </div > -->
+                                        <div class="col-lg-3 form-group" >
+                                            <label for=""><b>Opcional</b></label>
+                                            <input type="text" #cantidad="ngModel" name="cantidad"
+                                                [(ngModel)]="detailExperiencia.cantidad" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group" >
+                                            <label for=""><b>Nombre Empresa</b></label>
+                                            <input type="text" #nombreEmpresa="ngModel" name="nombreEmpresa"
+                                                [(ngModel)]="detailExperiencia.nombreEmpresa" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="tiempoServicioDesde"><b>Tiempo servicio Desde</b></label>
+                                            <input type="date" class=" form-control" name="tiempoServicioDesde" [(ngModel)]="detailExperiencia.tiempoServicioDesde"
+                                            placeholder="yyyy-MM-dd"  required />
+                                        </div>
+                                        <!-- <div class="col-lg-3 form-group">
+                                            <label for=""><b>Tiempo servicio Desde</b></label>
+                                            <input type="text" #tiempoServicioDesde="ngModel" name="tiempoServicioDesde"
+                                                [(ngModel)]="detalle.tiempoServicioDesde" class="form-control">
+                                        </div> -->
+                                        <!-- <div class="col-lg-3 form-group">
+                                            <label for=""><b>Tiempo servicio Hasta</b></label>
+                                            <input type="text" #tiempoServicioHasta="ngModel" name="tiempoServicioHasta"
+                                                [(ngModel)]="detalle.tiempoServicioHasta" class="form-control">
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="tiempoServicioHasta"><b>Tiempo servicio Hasta</b></label>
+                                            <input type="date" class=" form-control" name="tiempoServicioHasta" [(ngModel)]="detailExperiencia.tiempoServicioHasta"
+                                            placeholder="yyyy-MM-dd"  required />
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Direccion</b></label>
+                                            <input type="text" #direccion="ngModel" name="direccion"
+                                                [(ngModel)]="detailExperiencia.direccion" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Telefono</b></label>
+                                            <input type="number" #telefono="ngModel" name="telefono"
+                                                [(ngModel)]="detailExperiencia.telefono" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Puesto Desempenado</b></label>
+                                            <input type="text" #puestoDesempenado="ngModel" name="puestoDesempenado"
+                                                [(ngModel)]="detailExperiencia.puestoDesempenado" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Sueldo Inicial</b></label>
+                                            <input type="number" #sueldoInicial="ngModel" name="sueldoInicial"
+                                                [(ngModel)]="detailExperiencia.sueldoInicial" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Sueldo Final</b></label>
+                                            <input type="number" #sueldoFinal="ngModel" name="sueldoFinal"
+                                                [(ngModel)]="detailExperiencia.sueldoFinal" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Motivo de cambio de trabajo</b></label>
+                                            <input type="text" #motivoCambioTrabajo="ngModel" name="motivoCambioTrabajo"
+                                                [(ngModel)]="detailExperiencia.motivoCambioTrabajo" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Nombre jefe directo</b></label>
+                                            <input type="text" #nombreJefeDirecto="ngModel" name="nombreJefeDirecto"
+                                                [(ngModel)]="detailExperiencia.nombreJefeDirecto" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label for=""><b>Puesto Jefe</b></label>
+                                            <input type="text" #puestoJefe="ngModel" name="puestoJefe"
+                                                [(ngModel)]="detailExperiencia.puestoJefe" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="solicitarInfo">Solicitar Informacion a la empresa</label>
+                                            <select class="form-control" name="solicitarInfo" [(ngModel)]="detailExperiencia.solicitarInfo" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-3 form-group">
+                                            <label for=""><b>Solicitar Informacion a la empresa</b></label>
+                                            <input type="text" #solicitarInfo="ngModel" name="solicitarInfo"
+                                                [(ngModel)]="detalle.solicitarInfo" class="form-control">
+                                        </div> -->
+                                        <div class="col-lg-2 form-group">
+                                            <label><b>*</b></label>
+                                            <button class="btn btn-primary btn-block" type="submit">Editar</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

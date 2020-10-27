@@ -37,7 +37,9 @@ import { PersonalDetailComponent } from './components/personal/personal-detail/p
 import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
 import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component';
-import { EmpresaDetailComponent } from './components/empresas/empresa-detail/empresa-detail.component'
+import { EmpresaDetailComponent } from './components/empresas/empresa-detail/empresa-detail.component';
+import { VentaEditComponent } from './components/ventas/venta-edit/venta-edit.component';
+import { ExpeAddComponent } from './components/ventas/expe-add/expe-add.component'
 //import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
 
 
@@ -73,7 +75,9 @@ import { EmpresaDetailComponent } from './components/empresas/empresa-detail/emp
      EmpresaCreateComponent,
     // EmpresaEditComponent,
    EmpresaIndexComponent,
-    EmpresaDetailComponent
+    EmpresaDetailComponent,
+    VentaEditComponent,
+    ExpeAddComponent
 
 
   ],

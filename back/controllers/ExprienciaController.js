@@ -19,7 +19,7 @@ function registrar(req, res) {
                 detalleExperiencia.idproducto = element.idproducto;
                 detalleExperiencia.cantidad = element.cantidad;
                 detalleExperiencia.experiencia = venta_save._id;
-                detalleExperiencia.nombreEmpresa = element.nombreEmpresa; 
+                detalleExperiencia.nombreEmpresa = element.nombreEmpresa;
                 detalleExperiencia.tiempoServicioDesde = element.tiempoServicioDesde;
                 detalleExperiencia.tiempoServicioHasta = element.tiempoServicioHasta;
                 detalleExperiencia.direccion = element.direccion;
@@ -31,8 +31,6 @@ function registrar(req, res) {
                 detalleExperiencia.nombreJefeDirecto = element.nombreJefeDirecto;
                 detalleExperiencia.puestoJefe = element.puestoJefe;
                 detalleExperiencia.solicitarInfo = element.solicitarInfo;
-
-
                 detalleExperiencia.save((err, detalle_save) => {
                     if (detalle_save) {
                         Producto.findById({ _id: element.idproducto }, (err, producto_data) => {
@@ -49,31 +47,70 @@ function registrar(req, res) {
                     }
                 });
 
-            }); 
+            });
 
         } else {
             res.send(err);
         }
     });
 }
-
+function adicionar_experiencia(req,res){
+     var data = req.body;
+    // var id = req.params['id'];
+    let detalles = data.detalles;
+            detalles.forEach((element, index) => {
+                var detalleExperiencia = new DetalleExperiencia();
+                // detalleExperiencia.idproducto = "";
+                // detalleExperiencia.cantidad = "";
+                detalleExperiencia.idproducto = element.idproducto;
+                detalleExperiencia.cantidad = element.cantidad;
+                detalleExperiencia.experiencia = element.experiencia;
+                detalleExperiencia.nombreEmpresa = element.nombreEmpresa;
+                detalleExperiencia.tiempoServicioDesde = element.tiempoServicioDesde;
+                detalleExperiencia.tiempoServicioHasta = element.tiempoServicioHasta;
+                detalleExperiencia.direccion = element.direccion;
+                detalleExperiencia.telefono = element.telefono;
+                detalleExperiencia.puestoDesempenado = element.puestoDesempenado;
+                detalleExperiencia.sueldoInicial = element.sueldoInicial;
+                detalleExperiencia.sueldoFinal = element.sueldoFinal;
+                detalleExperiencia.motivoCambioTrabajo = element.motivoCambioTrabajo;
+                detalleExperiencia.nombreJefeDirecto = element.nombreJefeDirecto;
+                detalleExperiencia.puestoJefe = element.puestoJefe;
+                detalleExperiencia.solicitarInfo = element.solicitarInfo;
+                detalleExperiencia.save((err, detalle_save) => {
+                    if (detalle_save) {
+                        Producto.findById({ _id: element.idproducto }, (err, producto_data) => {
+                            if (producto_data) {
+                                Producto.findByIdAndUpdate({ _id: producto_data._id }, { stock: parseInt(producto_data.stock) - parseInt(element.cantidad) }, (err, producto_edit) => {
+                                    res.end();
+                                })
+                            } else {
+                                res.send(err);
+                            }
+                        });
+                    } else {
+                        res.send(err);
+                    }
+                });
+            });
+}
 function datos_venta(req, res) {
-    var id = req.params['id']; 
+    var id = req.params['id'];
 
     Experiencia.findById(id).populate('idpostulante').populate('iduser').exec((err, data_venta) => {
         if (data_venta) {
             DetalleExperiencia.find({ experiencia: data_venta._id }).populate('idproducto').exec({ idexperiencia: id }, (err, data_detalle) => {
-               
+
                 if (data_detalle) {
                     res.status(200).send(
                         {
                             data: {
                                 experiencia: data_venta,
                                 detalles: data_detalle,
-                              
-                               
+
+
                             }
-                          
+
                         }
                     );
                 }
@@ -84,7 +121,7 @@ function datos_venta(req, res) {
 
 function listado_venta(req, res) {
     Experiencia.find().populate('idpostulante').populate('iduser').exec((err, data_ventas) => {
-        
+
         if (data_ventas) {
             res.status(200).send({ experiencias: data_ventas });
         } else {
@@ -92,11 +129,71 @@ function listado_venta(req, res) {
         }
     });
 }
+function get_detalleById(req,res){
+    var data = req.body;
+    var id = req.params['id'];
+
+
+}
+function editarDetalleExperiencia(req, res) {
+    var data = req.body;
+    var id = req.params['id'];
+    DetalleExperiencia.findByIdAndUpdate({ _id: id }, {
+        idproducto :data.idproducto,
+        cantidad : data.cantidad,
+        experiencia : data.experiencia,
+        nombreEmpresa : data.nombreEmpresa,
+        tiempoServicioDesde : data.tiempoServicioDesde,
+        tiempoServicioHasta : data.tiempoServicioHasta,
+        direccion : data.direccion,
+        telefono : data.telefono,
+        puestoDesempenado : data.puestoDesempenado,
+        sueldoInicial : data.sueldoInicial,
+        sueldoFinal : data.sueldoFinal,
+        motivoCambioTrabajo : data.motivoCambioTrabajo,
+        nombreJefeDirecto : data.nombreJefeDirecto,
+        puestoJefe : data.puestoJefe,
+        solicitarInfo : data.solicitarInfo
+
+    }, (err, expe_edit) => {
+
+        if (err) {
+            res.status(500).send({ message: 'Error en el servidor' });
+        } else {
+            if (expe_edit) {
+                res.status(200).send({ detalleExperiencia: expe_edit });
+            } else {
+                res.status(403).send({ message: 'No se edito el registro' });
+            }
+        }
+    });
+}
+function editarExperiencia(req, res) {
+
+    var data = req.body;
+    var id = req.params['id'];
+    Experiencia.findByIdAndUpdate({ _id: id }, {
+        idpostulante: data.idpostulante,
+        iduser: data.iduser
+
+    }, (err, expe_edit) => {
+
+        if (err) {
+            res.status(500).send({ message: 'Error en el servidor' });
+        } else {
+            if (expe_edit) {
+                res.status(200).send({ experiencia: expe_edit });
+            } else {
+                res.status(403).send({ message: 'No se edito el registro' });
+            }
+        }
+    });
+}
 
 function detalles_venta(req, res) {
     var id = req.params['id'];
 
-    DetalleExperiencia.find({ experiencia: id }).populate('idproducto').exec((err, data_detalles) => {
+    DetalleExperiencia.find({ _id: id }).populate('idproducto').exec((err, data_detalles) => {
         if (data_detalles) {
             res.status(200).send({ detalles: data_detalles });
         } else {
@@ -109,5 +206,8 @@ module.exports = {
     registrar,
     datos_venta,
     listado_venta,
-    detalles_venta
+    detalles_venta,
+    editarExperiencia, 
+    editarDetalleExperiencia,
+    adicionar_experiencia
 } 
