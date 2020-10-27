@@ -4,11 +4,11 @@ var Activo = require('../models/activo');
 
 function registrar(req,res){
     let data = req.body;
-    var activo = new Asignacion();
-    activo.idpersonal = data.idpersonal;
-    activo.iduser = data.iduser;
+    var asignacion = new Asignacion();
+    asignacion.idpersonal = data.idpersonal;
+    asignacion.iduser = data.iduser;
 
-    activo.save((err,asignacion_save)=>{
+    asignacion.save((err,asignacion_save)=>{
         if(asignacion_save){
             let detalles = data.detalles;
 
@@ -17,10 +17,13 @@ function registrar(req,res){
                 detalleasignacion.idactivo = element.idactivo;
                 detalleasignacion.cantidad = element.cantidad;
                 detalleasignacion.asignacion = asignacion_save._id;
-
+                console.log('activo ',element.idactivo);
                 detalleasignacion.save((err,detalle_save)=>{
                     if(detalle_save){
+                        //console.log(detalle_save);
+                       // console.log('activo ',element.idactivo);
                         Activo.findById({_id:element.idactivo},(err,activo_data)=>{
+                            console.log('activo ',activo_data);
                             if(activo_data){
                                 Activo.findByIdAndUpdate({_id:activo_data._id},{stock: parseInt(activo_data.stock) - parseInt(element.cantidad)},(err,activo_edit)=>{
                                     res.end();
@@ -28,7 +31,7 @@ function registrar(req,res){
                             }else{
                                 res.send(err);
                             }
-                        });
+                        }); 
                     }else{
                         res.send(err);
                     }
@@ -41,21 +44,41 @@ function registrar(req,res){
         }
     });
 }
+function datos_venta(req,res){
+    var id = req.params['id'];
 
+    Venta.findById(id).populate('idcliente').populate('iduser').exec((err,data_venta)=>{
+        if(data_venta){
+            DetalleVenta.find({venta:data_venta._id}).populate('idproducto').exec({idventa:id},(err,data_detalle)=>{
+                if(data_detalle){
+                    res.status(200).send(
+                        {
+                            data : {
+                                venta: data_venta,
+                                detalles: data_detalle
+                            }
+                        }
+                    );
+                }
+            });
+        }
+    });
+}
 function datos_asignacion(req,res){
     var id = req.params['id'];
     Asignacion.findById(id).populate('idpersonal').populate('iduser').exec((err,data_asignacion)=>{
         if(data_asignacion){
             DetalleAsignacion.find({asignacion:data_asignacion._id}).populate('idactivo').exec({idasignacion:id},(err,data_detalle)=>{
                 if(data_detalle){ 
+                    console.log(data_detalle)
                     res.status(200).send(
                         {
                             data : {
-                                activo: data_asignacion, 
-                                detalles: data_detalle
+                                asignacion: data_asignacion, 
+                                detalles: data_detalle,
                             }
                         }
-                    );
+                    ); 
                 }
             });
         }

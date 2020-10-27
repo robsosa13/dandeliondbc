@@ -20,6 +20,7 @@ import { ActivoEditComponent } from './components/activos/activo-edit/activo-edi
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
 import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
  import { EmpresaIndexComponent  } from './components/empresas/empresa-index/empresa-index.component';
+ import { EmpresaDetailComponent  } from './components/empresas/empresa-detail/empresa-detail.component';
 
 import { AsignacionCreateComponent } from './components/asignaciones/asignacion-create/asignacion-create.component';
 import { AsignacionDetailComponent } from './components/asignaciones/asignacion-detail/asignacion-detail.component';
@@ -55,6 +56,7 @@ const appRoute: Routes = [
     { path: 'empresas', component: EmpresaIndexComponent },
     // { path: 'edit-empresa/:id', component: EmpresaEditComponent },
     { path: 'save-empresa', component: EmpresaCreateComponent },
+    { path: 'detail-empresa/:id', component: EmpresaDetailComponent },
     { path: 'personals', component: PersonalIndexComponent },
     { path: 'personal/registrar', component: PersonalCreateComponent },
 ]

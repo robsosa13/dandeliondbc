@@ -31,24 +31,24 @@
                                 <div class="row">
                                     <div class="col-4 form-group">
                                         <label><b>Personal</b></label>
-                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.nombres}}">
+                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.nombreS}} ">
                                     </div>
                                     <div class="col-4 form-group">
-                                        <label><b>Correo</b></label>
-                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.correo}}">
+                                        <label><b>Cargo</b></label>
+                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.cargo}}">
                                     </div> 
                                     <div class="col-4 form-group">
-                                        <label><b>DNI</b></label>
-                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.dni}}">
+                                        <label><b>Profesion</b></label>
+                                        <input type="text" class="form-control" readonly value="{{asignacion.idpersonal.profesion}}">
                                     </div>
                                     <div class="col-4 form-group">
-                                        <label><b>Trabajador</b></label>
-                                        <input type="text" class="form-control" readonly value="{{asignacion.iduser.nombres}} {{venta.iduser.apellidos}}">
+                                        <label><b>Asignó :</b></label>
+                                        <input type="text" class="form-control" readonly value="{{asignacion.iduser.email}} ">
                                     </div>
-                                    <div class="col-4 form-group">
+                                    <!-- <div class="col-4 form-group">
                                         <label><b>Correo del trabajador</b></label>
                                         <input type="text" class="form-control" readonly value="{{asignacion.iduser.email}}">
-                                    </div> 
+                                    </div>  -->
                            
                                 </div>
                             </div>
@@ -64,15 +64,15 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Producto</th>
-                                        <th class="text-center">Precio Venta</th>
+                                        <th class="text-center">Activo</th>
+                                        <!-- <th class="text-center">Precio Venta</th> -->
                                         <th class="text-center">Cantidad</th>
                                         <!-- <th class="text-center">Subtotal</th> -->
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let item of detalle_asignacion">
                                     <td class="text-center">{{item.idactivo.titulo}}</td>
-                                    <td class="text-center">${{item.idactivo.precio_venta}}</td>
+                                    <!-- <td class="text-center">${{item.idactivo.precio_venta}}</td> -->
                                     <td class="text-center">{{item.cantidad}}</td>
                                     <!-- <td class="text-center">${{(item.idactivo.precio_venta) * (item.cantidad)}}</td> -->
                                 </tbody>

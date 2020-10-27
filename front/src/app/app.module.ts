@@ -36,7 +36,8 @@ import { PersonalEditComponent } from './components/personal/personal-edit/perso
 import { PersonalDetailComponent } from './components/personal/personal-detail/personal-detail.component';
 import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
 // import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
-import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component'
+import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component';
+import { EmpresaDetailComponent } from './components/empresas/empresa-detail/empresa-detail.component'
 //import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
 
 
@@ -71,7 +72,8 @@ import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa
     PersonalDetailComponent,
      EmpresaCreateComponent,
     // EmpresaEditComponent,
-   EmpresaIndexComponent
+   EmpresaIndexComponent,
+    EmpresaDetailComponent
 
 
   ],

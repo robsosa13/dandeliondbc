@@ -45,7 +45,7 @@ var controller = {
                     return res.status(200).send({ empresa });
                 }
         });
-
+ 
     },
     getEmpresas: function (req, res) {
         

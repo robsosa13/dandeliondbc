@@ -83,7 +83,7 @@ export class AsignacionCreateComponent implements OnInit {
     if (detalleForm.valid) {
       if (detalleForm.value.cantidad <= this.activo.stock) {
         this.data_detalle.push({
-          idproducto: detalleForm.value.idproducto,
+          idactivo: detalleForm.value.idactivo,
           cantidad: detalleForm.value.cantidad,
           activo: this.activo.titulo,
           //precio_venta : this.activo.precio_venta

@@ -1,0 +1,83 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Empresas
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Principal</a></li>
+                            <li class="breadcrumb-item"><a>Detalle de Empresa</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-12 form-group">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Datos de Empresa</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label><b>Numero de Empresa</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.numeroEmpresa}} ">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Nombre de Empresa</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.nombreEmpresa}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Direccion</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.direccion}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Contacto</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.contacto}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Telefono</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.telefono}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Estado LLamadas</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.llamadasEstado}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Correo</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.correo}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Etapa Venta</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.etapaVenta}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Medio de Comunicacion</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.medioComunicacion}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Estado de Seguimiento</b></label>
+                                        <input type="text" class="form-control" readonly value="{{empresa.estadoSeguimiento}}">
+                                    </div> 
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+       
+    </div>
+</div>

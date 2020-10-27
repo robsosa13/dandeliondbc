@@ -35,9 +35,10 @@ export class AsignacionDetailComponent implements OnInit {
           response=>{
             this.asignacion = response.data.asignacion;
             this.detalle_asignacion = response.data.detalles;
-          },
+            // console.log('1ss',response.data.activo)
+            // console.log('2ss',response.data.detalles)
+          }, 
           error=>{
-  
           }
         );
       });
