@@ -32,16 +32,17 @@ export class ActivoService {
     fd.append('descripcion',data.descripcion);
     fd.append('imagen',data.imagen);
     fd.append('precio_compra',data.precio_compra);
-    //fd.append('precio_venta',data.precio_venta);
     fd.append('stock',data.stock);
     fd.append('pertenece',data.pertenece);
     fd.append('idcategoria',data.idcategoria);
-   
-
+    fd.append('modelo',data.modelo);
+    fd.append('marca',data.marca);
+    fd.append('nroSerie',data.nroSerie);
+    fd.append('codigoDBC',data.codigoDBC);
+    fd.append('fechaCompra',data.fechaCompra);
+  
     return this._http.post(this.url + 'activo/registrar',fd);
   }
-
-
   get_activo(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'activo/'+id,{headers:headers});
@@ -56,8 +57,11 @@ export class ActivoService {
     //fd.append('precio_venta',data.precio_venta);
     fd.append('pertenece',data.pertenece);
     fd.append('idcategoria',data.idcategoria);
-
-
+    fd.append('modelo',data.modelo);
+    fd.append('marca',data.marca);
+    fd.append('nroSerie',data.nroSerie);
+    fd.append('codigoDBC',data.codigoDBC);
+    fd.append('fechaCompra',data.fechaCompra);
     return this._http.put(this.url + 'activo/editar/'+data._id+'/'+data.img_name,fd);
   }
 

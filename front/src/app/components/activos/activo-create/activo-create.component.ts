@@ -18,7 +18,7 @@ export class ActivoCreateComponent implements OnInit {
   public success_message;
   public error_message;
   constructor( private _activoService : ActivoService,) { 
-    this.activo = new Activo('','','','',1,1,'','');
+    this.activo = new Activo('','','','',1,1,'','','','','','',new Date());
   }
 
   ngOnInit() {
@@ -48,17 +48,21 @@ export class ActivoCreateComponent implements OnInit {
        pertenece: activoForm.value.pertenece,
        stock: activoForm.value.stock,
        idcategoria: activoForm.value.idcategoria,
-
+       modelo: activoForm.value.modelo,
+       marca: activoForm.value.marca,
+       nroSerie: activoForm.value.nroSerie,
+       codigoDBC: activoForm.value.codigoDBC,
+       fechaCompra:activoForm.value.fechaCompra
        
      }).subscribe(
        response =>{
         this.success_message = 'Se registro el activo correctamente';
-        this.activo = new Activo('','','','',1,1,'','');
+        this.activo = new Activo('','','','',1,1,'','','','','','',new Date());
         this.imgSelect = '../../../../assets/img/default.jpg';
        },
        error=>{
          
-       }
+       } 
      );
       
     }else{

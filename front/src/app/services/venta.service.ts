@@ -37,5 +37,4 @@ export class VentaService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.url+'experiencia/detail-edit/'+data._id,data,{headers:headers});
   }
-  
 }

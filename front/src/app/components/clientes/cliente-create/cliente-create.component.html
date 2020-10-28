@@ -145,13 +145,29 @@
                                                     required>
                                             </div>
                                         </div> -->
-                                        <div class="col-lg-4">
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Nacionalidad</b></label>
                                                 <input type="text" class="form-control" #naionalidad="ngModel" name="naionalidad"
                                                     [(ngModel)]="postulante.naionalidad" placeholder="Nacionalidad "
                                                     required>
                                             </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="naionalidad"> Nacionalidad </label>
+                                            <select class="form-control" name="naionalidad"
+                                                [(ngModel)]="postulante.naionalidad" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="argentina">argentina</option>
+                                                <option value="alemana">alemana</option>
+                                                <option value="boliviana">boliviana</option>
+                                                <option value="belga">belga</option>
+                                                <option value="brasileña">brasileña</option>
+                                                <option value="camboyana">camboyana</option>
+                                                <option value="canadiense">canadiense</option>
+                                                <option value="chilena">chilena</option>
+                                                <option value="china">china</option>
+                                            </select>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">

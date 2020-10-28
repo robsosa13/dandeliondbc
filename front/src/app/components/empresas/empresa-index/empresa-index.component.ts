@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class EmpresaIndexComponent implements OnInit {
 
   public empresas;
+  public estado ="";
 
   constructor(
     private _empresaService: EmpresaService
