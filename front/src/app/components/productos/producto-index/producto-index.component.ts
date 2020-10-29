@@ -34,23 +34,18 @@ export class ProductoIndexComponent implements OnInit {
       response =>{
         this.productos = response.productos;
         console.log(this.productos);
-        
       },
       error=>{
-
       }
     );
-
     this._productoService.get_categorias().subscribe(
       response=>{
         this.categorias = response.categorias;
       },
       error=>{
-
       }
     );
   }
-
   search(searchForm){
     this._productoService.get_productos(searchForm.value.filtro).subscribe(
       response =>{

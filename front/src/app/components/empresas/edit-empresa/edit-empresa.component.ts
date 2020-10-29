@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmpresaService } from 'src/app/services/empresa.service';
+
 @Component({
-  selector: 'app-empresa-edit',
-  templateUrl: './empresa-edit.component.html',
-  styleUrls: ['./empresa-edit.component.css']
+  selector: 'app-edit-empresa',
+  templateUrl: './edit-empresa.component.html',
+  styleUrls: ['./edit-empresa.component.css']
 })
-export class EmpresaEditComponent implements OnInit {
+export class EditEmpresaComponent implements OnInit {
 
   public id;
   public empresa : any = {};
@@ -24,7 +25,7 @@ export class EmpresaEditComponent implements OnInit {
         this._empresaService.getEmpresa(this.id).subscribe(
           response =>{
             console.log(response);
-            this.empresa = response.empresa;
+            this.empresa = response.empresa[0];
           },
           error=>{
 
@@ -62,6 +63,5 @@ export class EmpresaEditComponent implements OnInit {
       
     }
   }
-
 
 }

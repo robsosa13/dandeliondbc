@@ -10,21 +10,32 @@ import { Router } from '@angular/router';
 })
 export class EmpresaCreateComponent implements OnInit {
   public empresa;
+  public empresas;
+  public count;
   constructor(
     private _empresaService: EmpresaService,
     private _router: Router
-  ) {
-    this.empresa = new Empresa('', '', '', '','', '', '', '','', '', '');
-  }
 
+  ) {
+    this.empresa = new Empresa('', '', '', '', '', '', '', '', '', '', '');
+  }
   ngOnInit() {
+    this._empresaService.getEmpresas().subscribe(
+      response => {
+        this.empresas = response.empresas;
+        this.count =parseInt(this.empresas.length)+1;
+        //console.log(this.empresas);
+      },
+      error => {
+      }
+    )
   }
   onSubmit(empresaForm) {
-
+     
+    //console.log('numero',  parseInt( this.empresas.length));
     if (empresaForm.valid) {
-
       this._empresaService.insert_empresa({
-        numeroEmpresa: empresaForm.value.numeroEmpresa,
+        numeroEmpresa: 'DBC - '+this.count,
         nombreEmpresa: empresaForm.value.nombreEmpresa,
         direccion: empresaForm.value.direccion,
         contacto: empresaForm.value.contacto,
@@ -36,7 +47,7 @@ export class EmpresaCreateComponent implements OnInit {
         estadoSeguimiento: empresaForm.value.estadoSeguimiento,
       }).subscribe(
         response => {
-         // this._router.navigate(['empresas']);
+          this._router.navigate(['empresas']);
 
         },
         error => {

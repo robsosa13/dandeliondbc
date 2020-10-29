@@ -11,8 +11,9 @@ import Swal from 'sweetalert2';
 export class EmpresaIndexComponent implements OnInit {
 
   public empresas;
+  public data_detalle : Array<any> = [];
   public estado ="";
-
+public data :any;
   constructor(
     private _empresaService: EmpresaService
   ) { }
@@ -30,7 +31,20 @@ export class EmpresaIndexComponent implements OnInit {
     )
   }
 
-
+  search(searchForm){
+    this.data_detalle.push({
+      stardate : searchForm.value.stardate,
+      enddate: searchForm.value.enddate,
+    });
+    this._empresaService.getEmpresabyDate(this.data_detalle).subscribe(
+      response =>{
+        this.empresas = response.empresas;
+        console.log('result',this.empresas);
+      },
+      error=>{
+      }
+    );
+  }
   // eliminar(id){
   //   Swal.fire({
   //     title: 'Estas seguro de eliminarlo?',

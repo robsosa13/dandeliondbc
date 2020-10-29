@@ -34,6 +34,7 @@ export class EmpresaService{
         return this._http.get(this.url+'empresas',{headers:headers});
       
     }
+
     getEmpresa(id):Observable<any>{
         let headers= new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'detail-empresa/'+id,{headers:headers});
@@ -50,8 +51,18 @@ export class EmpresaService{
     //     return this._http.put(this.url+'empresa/'+data._id ,params,{headers:headers});
        
     // }
-    update_cliente(data):Observable<any>{
+    update_empresa(data):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.put(this.url+'empresa/'+data._id,data,{headers:headers});
       }
+      getEmpresabyDate(data):Observable<any>{
+        let headers= new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+`empresa-search`+data,{headers:headers});
+       
+    }
+    getEmpresaCount():Observable<any>{
+        let headers= new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'/empresa-count',{headers:headers});
+       
+    }
 }

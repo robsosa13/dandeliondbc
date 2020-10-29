@@ -12,6 +12,7 @@
         text-align: center;
         width: 1.6em;
     }
+
     span.grey {
         background: #cccccc;
         border-radius: 0.8em;
@@ -53,8 +54,9 @@
         text-align: center;
         width: 1.6em;
     }
-    span.pink {
-        background: #EF0BD8;
+
+    span.yellow {
+        background: yellow;
         border-radius: 0.8em;
         -moz-border-radius: 0.8em;
         -webkit-border-radius: 0.8em;
@@ -96,16 +98,35 @@
                                 <h5 class="card-title">Listado de empresas</h5>
                                 <a [routerLink]="['/save-empresa']" class="btn btn-primary">Nueva Empresa</a>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="FechaNacimiento">Fecha de Nacimiento</label>
-                                <input type="date" class=" form-control" name="FechaNacimiento" placeholder="yyyy-MM-dd"
-                                    required />
-                            </div>
-                            <!-- Rober SOsa quisber  -->
-                            <div class="form-group col-md-4">
-                                <label for="FechaNacimiento">Fecha de Nacimiento</label>
-                                <input type="date" class=" form-control" name="FechaNacimiento" placeholder="yyyy-MM-dd"
-                                    required />
+
+                            <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+                                <div class="form-group col-md-4">
+                                    <label for="stardate"><b> Desde</b></label>
+                                    <input type="date" class=" form-control" name="stardate" placeholder="yyyy-MM-dd"
+                                        required />
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="enddate"><b>Hasta</b></label>
+                                    <input type="date" class=" form-control" name="enddate" placeholder="yyyy-MM-dd"
+                                        required />
+                                </div>
+                                <button type="submit" class="input-group-text"><i
+                                        class="fa fa-search">-Buscar..</i></button>
+                            </form>
+                            <div class="row">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <ul>
+                                            <span class="red">-</span> Sin servicio
+                                            <span class="yellow">-</span>En proceso
+                                            <span class="green">-</span> Realizado
+                                        </ul>
+
+                                    </div>
+
+                                </div>
                             </div>
                             <table class="table table-striped table-hover">
                                 <thead>
@@ -114,6 +135,7 @@
                                         <th>Nombre Empresa</th>
                                         <th>Estado </th>
                                         <th>Direccion </th>
+                                        <th>Fecha Registro </th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -121,10 +143,14 @@
                                     <td>{{item.numeroEmpresa}} </td>
                                     <td>{{item.nombreEmpresa}}</td>
                                     <td><span
-                                            [ngClass]="{'red': item.nombreEmpresa === 'Semapasss', 'grey':item.nombreEmpresa === 'Semapa' }">-</span>
+                                            [ngClass]="{
+                                                'yellow': item.estadoSeguimiento === 'En proceso', 
+                                                'green':item.estadoSeguimiento === 'Realizado',
+                                                'red': item.estadoSeguimiento === 'Sin servicio'}">-</span>
                                     </td>
                                     <!-- <td><span  class="{{item.nombreEmpresa == 'Semapa' ? 'red' : 'grey' }}">2</span></td> -->
                                     <td>{{item.direccion}}</td>
+                                    <th>{{item.fechaRegistro | date: 'dd/MM/yyyy'}} </th>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn mb-1 btn-secondary dropdown-toggle"
@@ -133,7 +159,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    [routerLink]="['/empresa/editar/',item._id]">Editar registro</a>
+                                                    [routerLink]="['/empresa/edit/',item._id]">Editar registro</a>
 
                                                 <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar
                                                     registro</a>
@@ -152,4 +178,3 @@
         </main>
     </div>
 </div>
-

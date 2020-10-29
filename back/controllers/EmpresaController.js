@@ -86,6 +86,26 @@ var controller = {
                 empresa: empresaRemoved
             })
         })
+    },
+    listadoEmpresaByDate:function(req, res) {
+
+        let data = req.body;
+        Empresa.find({ 
+            fechaRegistro: {
+                  $gte: new Date(new Date(data.startdate).setHours(00, 00, 00)),
+                  $lt: new Date(new Date(data.enddate).setHours(23, 59, 59))
+                   }
+            },(err,resultado)=>{
+                res.status(200).send({result:resultado})
+            }) 
+    },
+    getEmpresasCount:function(req, res) {
+
+        Empresa.countDocuments({}).exec((err, empresas) => {
+            if (err) { return res.status(500).send({ message: 'Error la devolver los datos' }); }
+            if (!empresas) { return res.status(404).send({ message: 'No hay empresas' }); }
+            return res.status(200).send({ empresas  });
+        })
     }
 };
 module.exports = controller;

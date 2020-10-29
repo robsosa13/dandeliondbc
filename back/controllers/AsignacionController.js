@@ -66,7 +66,8 @@ function datos_asignacion(req, res) {
     });
 }
 
-function listado_asignacion(req, res) {
+function listado_asignaciones(req, res) {
+
     Asignacion.find().populate('idpersonal').populate('iduser').exec((err, data_asignaciones) => {
         if (data_asignaciones) {
             res.status(200).send({ asignaciones: data_asignaciones });
@@ -75,7 +76,6 @@ function listado_asignacion(req, res) {
         }
     });
 }
-
 function detalles_asignacion(req, res) {
     var id = req.params['id'];
 
@@ -87,10 +87,19 @@ function detalles_asignacion(req, res) {
         }
     });
 }
+function listado_asignacionByDate(req, res) {
 
+    let data = req.body;
+    Asignacion.find({ 
+        fecha: {
+              $gte: new Date(new Date(data.startdate).setHours(00, 00, 00)),
+              $lt: new Date(new Date(data.enddate).setHours(23, 59, 59))
+               }
+        },(err,resultado)=>{
+            res.status(200).send({result:resultado})
+        }) 
+}
 module.exports = {
-    registrar,
-    datos_asignacion,
-    listado_asignacion,
-    detalles_asignacion
+    registrar,datos_asignacion,detalles_asignacion,
+    listado_asignacionByDate,listado_asignaciones
 }

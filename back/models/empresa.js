@@ -2,7 +2,6 @@ var mongoose = require('mongoose');//trabaja con modelos de db
 var Schema = mongoose.Schema;//esquema del modelo
 
 var EmpresaSchema= Schema({
-    //id : String,
     numeroEmpresa : String,
     nombreEmpresa : String,
     direccion : String,
@@ -12,7 +11,9 @@ var EmpresaSchema= Schema({
     correo : String,
     etapaVenta : String,
     medioComunicacion :String,
-    estadoSeguimiento:String
+    estadoSeguimiento:String,
+    fechaRegistro: {type: Date, default: Date.now},
+
 })
 module.exports = mongoose.model('Empresa',EmpresaSchema);
 // En base de datos lo pluraliza

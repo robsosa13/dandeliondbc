@@ -30,6 +30,8 @@ import { PersonalCreateComponent } from './components/personal/personal-create/p
 //import { AsignacionIndexComponent } from './components/asignaciones/asignacion-index/asignacion-index.component';
 import { ExpeAddComponent } from './components/ventas/expe-add/expe-add.component';
 import { VentaEditComponent } from './components/ventas/venta-edit/venta-edit.component';
+import { EditEmpresaComponent } from './components/empresas/edit-empresa/edit-empresa.component';
+
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -53,6 +55,8 @@ const appRoute: Routes = [
     { path: 'asignacion/registrar', component: AsignacionCreateComponent },
     { path: 'asignacion/:id', component: AsignacionDetailComponent },
     { path: 'empresas', component: EmpresaIndexComponent },
+    //{ path: 'empresa/:id', component: EmpresaEditComponent },
+   // { path: 'empresas', component: EmpresaIndexComponent },
     //{ path: 'edit-empresa/:id', component: EmpresaEditComponent },
     { path: 'save-empresa', component: EmpresaCreateComponent },
     { path: 'detail-empresa/:id', component: EmpresaDetailComponent },
@@ -60,7 +64,9 @@ const appRoute: Routes = [
     { path: 'personal/registrar', component: PersonalCreateComponent },
     { path: 'personal/registrar', component: PersonalCreateComponent },
     { path: 'experiencia/adicionar/:id', component: ExpeAddComponent },
-    { path: 'experiencia/detail-edit/:id', component: VentaEditComponent },    
+    { path: 'experiencia/detail-edit/:id', component: VentaEditComponent },  
+    { path: 'empresa/edit/:id', component: EditEmpresaComponent },  
+      
 ]
 
 export const appRoutingProviders: any[] = [];

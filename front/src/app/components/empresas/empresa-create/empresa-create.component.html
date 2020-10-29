@@ -35,9 +35,9 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Numero de Empresa</b></label>
-                                                <input type="text" class="form-control" #numeroEmpresa="ngModel"
+                                                <input type="text" class="form-control" #numero Empresa="ngModel"
                                                     name="numeroEmpresa" [(ngModel)]="empresa.numeroEmpresa"
-                                                    placeholder="Numero de Empresa" required>
+                                                    placeholder="Numero de Empresa" readonly value=" DBC - {{count}}" >
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -77,9 +77,20 @@
                                             <div class="form-group">
                                                 <label><b>Estado de LLamadas</b></label>
                                                 <input type="text" class="form-control" #llamadasEstado="ngModel" name="llamadasEstado"
-                                                    [(ngModel)]="empresa.llamadasEstado" placeholder="Edad " required>
+                                                    [(ngModel)]="empresa.llamadasEstado" placeholder="Estado de llamadas " required>
                                             </div>
                                         </div>
+                                        <!-- <div class="form-group col-md-4">
+                                            <label for="llamadasEstado">Estado de LLamadas </label>
+                                            <select class="form-control"  name="llamadasEstado"
+                                            [(ngModel)]="empresa.llamadasEstado" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Presentacion enviada">No contesta</option>
+                                                <option value="Call Center">Correo Enviado</option>
+                                                <option value="Call Center">No por el momento</option>
+                                                <option value="Call Center">Correo Enviado</option>
+                                            </select>
+                                        </div> -->
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Correo</b></label>
@@ -87,26 +98,60 @@
                                                     [(ngModel)]="empresa.correo" placeholder="Correo Empresa " required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="form-group col-md-4">
+                                            <label for="lugarNacimiento">Etapa de Venta </label>
+                                            <select class="form-control"  name="etapaVenta"
+                                            [(ngModel)]="empresa.etapaVenta" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Presentacion enviada">Presentacion enviada</option>
+                                                <option value="Call Center">Call Center</option>
+                                                <option value="Reunion Pendiente">Reunion Pendiente</option>
+                                                <option value="No requiere el servicio">No requiere el servicio</option>
+                                                <option value="Llama el..">Llama el..</option>
+                                                <option value="Venta realizada">Venta realizada</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Etapa de Venta</b></label>
                                                 <input type="text" class="form-control" #etapaVenta="ngModel" name="etapaVenta"
                                                     [(ngModel)]="empresa.etapaVenta" placeholder="Correo Empresa " required>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4">
+                                        </div> -->
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Medio de Comunicacion</b></label>
                                                 <input type="text" class="form-control" #medioComunicacion="ngModel" name="medioComunicacion"
-                                                    [(ngModel)]="empresa.medioComunicacion" placeholder="Medio de COmunicacion " required>
+                                                    [(ngModel)]="empresa.medioComunicacion" placeholder="Medio de Comunicacion " required>
                                             </div>
+                                        </div> -->
+                                   
+                                        <div class="form-group col-md-4">
+                                            <label for="medioComunicacion">Medio de Comunicacion </label>
+                                            <select class="form-control"  name="medioComunicacion"
+                                            [(ngModel)]="empresa.medioComunicacion" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Whatsapp">Whatsapp</option>
+                                                <option value="Llamada Telefonica">Llamada Telefonica</option>
+                                                <option value="Referido">Referido</option>
+                                            </select>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Estado de Seguimiento</b></label>
                                                 <input type="text" class="form-control" #estadoSeguimiento="ngModel" name="estadoSeguimiento"
                                                     [(ngModel)]="empresa.estadoSeguimiento" placeholder="Estado de Seguimiento" required>
                                             </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="estadoSeguimiento">Estado de seguimiento </label>
+                                            <select class="form-control"  name="estadoSeguimiento"
+                                            [(ngModel)]="empresa.estadoSeguimiento" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="En proceso">En proceso</option>
+                                                <option value="Realizado">Realizado</option>
+                                                <option value="Sin servicio">Sin servicio</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

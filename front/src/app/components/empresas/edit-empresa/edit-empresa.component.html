@@ -17,8 +17,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Dashboard</a></li>
-                            <li class="breadcrumb-item"><a [routerLink]="['/clientes']" >Clientes</a></li>
-                            <li class="breadcrumb-item"><a>Editar cliente</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/clientes']" >Empresas</a></li>
+                            <li class="breadcrumb-item"><a>Editar empresa</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -44,15 +44,11 @@
                                 </div>
                                 <div class="card-body">
                                    <div class="row">
-                                       <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label><b>Nombres del postulante</b></label>
-                                                <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="postulante.nombres" placeholder="Nombres completos" required>
-                                            </div>
+                       
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label><b>Numero de Empresa</b></label>
-                                                    <input type="text" class="form-control" #numero Empresa="ngModel"
+                                                    <input type="text" class="form-control" #numeroEmpresa="ngModel"
                                                         name="numeroEmpresa" [(ngModel)]="empresa.numeroEmpresa"
                                                         placeholder="Numero de Empresa" readonly value=" DBC - {{count}}" >
                                                 </div>
@@ -115,6 +111,7 @@
                                                         [(ngModel)]="empresa.correo" placeholder="Correo Empresa " required>
                                                 </div>
                                             </div>
+                                       
                                             <div class="form-group col-md-4">
                                                 <label for="lugarNacimiento">Etapa de Venta </label>
                                                 <select class="form-control"  name="etapaVenta"
@@ -170,12 +167,12 @@
                                                     <option value="Sin servicio">Sin servicio</option>
                                                 </select>
                                             </div>
-                                       </div>
+                                       
                                       
                                    </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-success" type="submit">Actualizar cliente</button>
+                                    <button class="btn btn-success" type="submit">Actualizar empresa</button>
                                 </div>
                             </div>
                         </form>
