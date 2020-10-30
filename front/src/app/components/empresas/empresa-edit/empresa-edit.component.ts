@@ -9,36 +9,33 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 export class EmpresaEditComponent implements OnInit {
 
   public id;
-  public empresa : any = {};
+  public empresa: any = {};
   public success_message;
-
   constructor(
-    private _route : ActivatedRoute,
-    private _empresaService :EmpresaService
+    private _route: ActivatedRoute,
+    private _empresaService: EmpresaService
   ) { }
   ngOnInit() {
     this._route.params.subscribe(
-      params=>{
+      params => {
         this.id = params['id'];
-
         this._empresaService.getEmpresa(this.id).subscribe(
-          response =>{
+          response => {
             console.log(response);
             this.empresa = response.empresa;
           },
-          error=>{
-
+          error => {
           }
         );
       }
     );
   }
-  close_alert(){
+  close_alert() {
     this.success_message = '';
   }
-  onSubmit(empresaForm){
-    if(empresaForm.valid){
-      
+  onSubmit(empresaForm) {
+    if (empresaForm.valid) {
+
       this._empresaService.update_empresa({
         _id: this.id,
         nombreEmpresa: empresaForm.value.nombreEmpresa,
@@ -50,18 +47,16 @@ export class EmpresaEditComponent implements OnInit {
         etapaVenta: empresaForm.value.etapaVenta,
         medioComunicacion: empresaForm.value.medioComunicacion,
         estadoSeguimiento: empresaForm.value.estadoSeguimiento,
+        celularEmpresa: empresaForm.value.celularEmpresa,
+        telefonoFijoEmpresa: empresaForm.value.telefonoFijoEmpresa,
 
       }).subscribe(
-        response=>{
-          this.success_message = 'Se actualizo los datos del cliente';
+        response => {
+          this.success_message = 'Se actualizó correctamente';
         },
-        error=>{
-
+        error => {
         }
       );
-      
     }
   }
-
-
 }

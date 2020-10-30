@@ -12,6 +12,8 @@ var EmpresaSchema= Schema({
     etapaVenta : String,
     medioComunicacion :String,
     estadoSeguimiento:String,
+    celularEmpresa:String,
+    telefonoFijoEmpresa:String,
     fechaRegistro: {type: Date, default: Date.now},
 
 })

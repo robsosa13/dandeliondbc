@@ -23,6 +23,8 @@ var controller = {
         empresa.etapaVenta = params.etapaVenta; 
         empresa.medioComunicacion = params.medioComunicacion;
         empresa.estadoSeguimiento = params.estadoSeguimiento;
+        empresa.celularEmpresa = params.celularEmpresa;
+        empresa.telefonoFijoEmpresa = params.telefonoFijoEmpresa;
         
         empresa.save((err, empresaStored) => {
 

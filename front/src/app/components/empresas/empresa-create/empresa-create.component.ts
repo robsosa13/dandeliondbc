@@ -17,7 +17,7 @@ export class EmpresaCreateComponent implements OnInit {
     private _router: Router
 
   ) {
-    this.empresa = new Empresa('', '', '', '', '', '', '', '', '', '', '');
+    this.empresa = new Empresa('', '', '', '', '', '', '', '', '', '', '','','');
   }
   ngOnInit() {
     this._empresaService.getEmpresas().subscribe(
@@ -45,6 +45,8 @@ export class EmpresaCreateComponent implements OnInit {
         etapaVenta: empresaForm.value.etapaVenta,
         medioComunicacion: empresaForm.value.medioComunicacion,
         estadoSeguimiento: empresaForm.value.estadoSeguimiento,
+        celularEmpresa: empresaForm.value.celularEmpresa,
+        telefonoFijoEmpresa: empresaForm.value.telefonoFijoEmpresa,
       }).subscribe(
         response => {
           this._router.navigate(['empresas']);

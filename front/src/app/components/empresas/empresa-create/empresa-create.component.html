@@ -68,16 +68,24 @@
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b> Telefono</b></label>
+                                                <label><b> Telefono contacto</b></label>
                                                 <input type="number" class="form-control" #telefono="ngModel" name="telefono"
                                                     [(ngModel)]="empresa.telefono" placeholder="Telefono" required>
                                             </div>
                                         </div>
+                                    
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label><b>Estado de LLamadas</b></label>
-                                                <input type="text" class="form-control" #llamadasEstado="ngModel" name="llamadasEstado"
-                                                    [(ngModel)]="empresa.llamadasEstado" placeholder="Estado de llamadas " required>
+                                                <label><b> Numero celular </b></label>
+                                                <input type="number" class="form-control" #celularEmpresa="ngModel" name="celularEmpresa"
+                                                    [(ngModel)]="empresa.celularEmpresa" placeholder="Celular Empresa" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Telefono FIjo</b></label>
+                                                <input type="text" class="form-control" #telefonoFijoEmpresa="ngModel" name="telefonoFijoEmpresa"
+                                                    [(ngModel)]="empresa.telefonoFijoEmpresa" placeholder="Telefono fijo Empresa" required>
                                             </div>
                                         </div>
                                         <!-- <div class="form-group col-md-4">

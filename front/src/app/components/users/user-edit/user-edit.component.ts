@@ -38,8 +38,6 @@ export class UserEditComponent implements OnInit {
   
           }
         )
-  
-        
       });
     }else{
       this._router.navigate(['dashboard']);

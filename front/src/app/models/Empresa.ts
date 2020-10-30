@@ -11,6 +11,8 @@ export class Empresa{
         public etapaVenta: string,
         public medioComunicacion: string,
         public estadoSeguimiento:string,
+        public celularEmpresa:string,
+        public telefonoFijoEmpresa:string,
     
       
     ){}
