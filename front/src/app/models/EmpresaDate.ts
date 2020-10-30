@@ -1,3 +1,4 @@
+
 export class EmpresaDate{
     constructor(
         public stardate :Date,

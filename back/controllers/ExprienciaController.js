@@ -2,6 +2,7 @@ var Experiencia = require('../models/experiencia');
 var DetalleExperiencia = require('../models/detalleExperiencia');
 var Producto = require('../models/producto');
 
+
 function registrar(req, res) {
     let data = req.body;
     var experiencia = new Experiencia();
@@ -202,6 +203,22 @@ function detalles_venta(req, res) {
     });
 }
 
+function listar(req,res){
+    var profesion = req.params['profesion'];
+
+    DetalleExperiencia.find({idpostulante: new RegExp(profesion,'i')}).populate('idcategoria').exec((err,productos_listado)=>{
+        if(err){
+            res.status(500).send({message: 'Error en el servidor'});
+        }else{
+            if(productos_listado){
+                res.status(200).send({productos:productos_listado});
+            }else{
+                res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+            }
+        }
+    });
+}
+
 module.exports = {
     registrar,
     datos_venta,
@@ -209,5 +226,5 @@ module.exports = {
     detalles_venta,
     editarExperiencia, 
     editarDetalleExperiencia,
-    adicionar_experiencia
+    adicionar_experiencia,listar
 } 

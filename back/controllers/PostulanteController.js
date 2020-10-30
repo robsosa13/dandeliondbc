@@ -39,6 +39,7 @@ function registrar(req,res){
     postulante.viveCon = data.viveCon;
     postulante.personaDependencia = data.personaDependencia;
     postulante.profesion = data.profesion;
+    postulante.estadoPostulante=data.estadoPostulante;
 
     postulante.save((err,postulante_save)=>{
         console.log(postulante_save)
@@ -89,11 +90,25 @@ function eliminar(req,res){
         }
     })
 }
+function listar(req,res){
+    var profesion = req.params['profesion'];
 
+    Postulante.find({profesion: new RegExp(profesion,'i')}).exec((err,postulante_list)=>{
+        if(err){
+            res.status(500).send({message: 'Error en el servidor'});
+        }else{
+            if(postulante_list){
+                res.status(200).send({postulantes:postulante_list});
+            }else{
+                res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+            }
+        }
+    });
+}
 module.exports = {
     registrar,
     editar,
     eliminar,
     listar,
-    get_postulante
+    get_postulante,listar
 }

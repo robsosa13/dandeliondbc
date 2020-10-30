@@ -36,5 +36,10 @@ export class VentaService {
   update_detalleExperiencia(data):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.url+'experiencia/detail-edit/'+data._id,data,{headers:headers});
+   
+  }
+  get_ExperienciaSearch(filtro):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'experiencias/'+filtro,{headers:headers});
   }
 }

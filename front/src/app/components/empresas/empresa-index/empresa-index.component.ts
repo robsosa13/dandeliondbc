@@ -3,21 +3,26 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
 import { EmpresaDate } from "../../../models/EmpresaDate";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-empresa-index',
   templateUrl: './empresa-index.component.html',
-  styleUrls: ['./empresa-index.component.css']
+  styleUrls: ['./empresa-index.component.css'],
+  providers:[EmpresaService]
 })
 export class EmpresaIndexComponent implements OnInit {
 
   public empresas;
+  public filtro;
   public empresaDate ;
   public data_detalle : Array<any> = [];
   public estado ="";
 public data :any;
   constructor(
-    private _empresaService: EmpresaService
+    private _empresaService: EmpresaService,
+   
+    private _router: Router
   ) {
     this.empresaDate = new EmpresaDate(new Date(), new Date()); 
 
@@ -35,25 +40,36 @@ public data :any;
       }
     )
   }
-
-  search(searchForm){
-    console.log(searchForm)
-    this.empresaDate ={
-      startdate:searchForm.value.startdate,
-      enddate:searchForm.value.enddate,
-    }
-    this._empresaService.getEmpresabyDate( this.empresaDate 
-     
-      
-      ).subscribe(
+  search(searchForms){
+    console.log(searchForms.value.filtros)
+    this._empresaService.get_empresas(searchForms.value.filtros).subscribe(
       response =>{
         this.empresas = response.empresas;
-        console.log('result',this.empresas);
       },
       error=>{
+
       }
     );
+    
   }
+  // search(searchForm){
+  //   console.log(searchForm)
+  //   this.empresaDate ={
+  //     startdate:searchForm.value.startdate,
+  //     enddate:searchForm.value.enddate,
+  //   }
+  //   this._empresaService.getEmpresabyDate( this.empresaDate 
+     
+      
+  //     ).subscribe(
+  //     response =>{
+  //       this.empresas = response.empresas;
+  //       console.log('result',this.empresas);
+  //     },
+  //     error=>{
+  //     }
+  //   );
+  // }
   eliminar(id){
     Swal.fire({
       title: 'Estas seguro de eliminarlo?',

@@ -28,6 +28,19 @@ export class ClienteIndexComponent implements OnInit {
       }
     )
   }
+  search(searchFormPostu){
+    this._postulanteService.get_postulantesByProfesion(searchFormPostu.value.filtroPost).subscribe(
+      response =>{
+        this.postulantes = response.postulantes;
+      },
+      error=>{
+
+      }
+    );
+    
+  }
+
+  
 
   eliminar(id){
     Swal.fire({

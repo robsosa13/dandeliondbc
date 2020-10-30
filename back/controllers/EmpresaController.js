@@ -23,6 +23,7 @@ var controller = {
         empresa.etapaVenta = params.etapaVenta; 
         empresa.medioComunicacion = params.medioComunicacion;
         empresa.estadoSeguimiento = params.estadoSeguimiento;
+        
         empresa.save((err, empresaStored) => {
 
             if (err) { return res.status(500).send({ message: "Error al guardar" }) }
@@ -105,6 +106,22 @@ var controller = {
             if (!empresas) { return res.status(404).send({ message: 'No hay empresas' }); }
             return res.status(200).send({ empresas  });
         })
+    },
+     listar:function(req,res){
+        var nombreEmpresa = req.params['nombreEmpresa'];
+    
+        Empresa.find({nombreEmpresa: new RegExp(nombreEmpresa,'i')}).exec((err,empresaLista)=>{
+            if(err){
+                res.status(500).send({message: 'Error en el servidor'});
+            }else{
+                if(empresaLista){
+                    res.status(200).send({empresas:empresaLista});
+                }else{
+                    res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+                }
+            }
+        });
     }
-};
+}
+    
 module.exports = controller;

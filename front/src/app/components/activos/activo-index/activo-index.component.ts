@@ -46,6 +46,7 @@ export class ActivoIndexComponent implements OnInit {
     );
   }
   search(searchForm){
+    console.log(searchForm.value.filtro)
     this._activoService.get_activos(searchForm.value.filtro).subscribe(
       response =>{
         this.activos = response.activos;

@@ -38,5 +38,17 @@ export class VentaIndexComponent implements OnInit {
       this._router.navigate(['']);
     }
   }
+  search(searchFormExpe){
+    console.log(searchFormExpe.value.filtroExpe)
+    this._ventaService.get_ExperienciaSearch(searchFormExpe.value.filtroExpe).subscribe(
+      response =>{
+        this.experiencias = response.experiencias;
+      },
+      error=>{
+
+      }
+    );
+    
+  }
 
 }

@@ -40,4 +40,8 @@ export class PostulanteService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.delete(this.url+'/postulante/eliminar/'+id,{headers:headers});
   }
+  get_postulantesByProfesion(filtroPost):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'postulantes/'+filtroPost,{headers:headers});
+  }
 }

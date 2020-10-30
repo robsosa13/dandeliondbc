@@ -1,3 +1,74 @@
+<style>
+    span.red {
+        background: red;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 15px;
+        text-align: center;
+        width: 1.6em;
+    }
+
+    span.grey {
+        background: #cccccc;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #fff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 15px;
+        text-align: center;
+        width: 1.6em;
+    }
+
+    span.green {
+        background: #5EA226;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 15px;
+        text-align: center;
+        width: 1.6em;
+    }
+
+    span.blue {
+        background: #5178D0;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 15px;
+        text-align: center;
+        width: 1.6em;
+    }
+
+    span.yellow {
+        background: yellow;
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.6em;
+        margin-right: 15px;
+        text-align: center;
+        width: 1.6em;
+    }
+</style>
 <div class="wrapper">
     <app-sidebar style="background: white !important;"></app-sidebar>
 
@@ -26,30 +97,73 @@
                     
                     <div class="col-12 col-xl-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">Listado de personas postulantes</h5>
-       
-                                <a [routerLink]="['/postulante/registrar']"  class="btn btn-primary">Nuevo postulante</a>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Buscar por profesion</h5>
+                                    <form #searchFormPostu="ngForm" (ngSubmit)="search(searchFormPostu)">
+                                        <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" #filtroPost="ngModel" name="filtroPost" [(ngModel)]="filtroTextPostu">
+                                            <div class="input-group-append">
+                                   
+                                                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Opciones de Postulante</h5>
+                                    <div class="btn-group">
+                                        
+                                        <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Opciones
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" [routerLink]="['/postulante/registrar']">Registrar POstulante</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
+                            <div class="row">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <ul>
+                                            <span class="red">-</span> Sin servicio
+                                            <span class="yellow">-</span>En proceso
+                                            <span class="green">-</span> Realizado
+                                        </ul>
 
-                            
+                                    </div>
+
+                                </div>
+                            </div>
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Nombres</th>
                                         <th>Apellido Paterno</th>
-                                        <th>Apellido Materno</th>
+                                        <th>Estado</th>
+                                     
                                         <th>Cedula</th>
+                                        <th>Profesion</th>
+                                        
                                         <th>Estado Civil</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
+
                                 <tbody *ngFor="let item of postulantes | paginate: { itemsPerPage: 15, currentPage: p }">                                 
                                         <td>{{item.nombres}} </td>
                                         <td>{{item.apellidoPaterno}}</td>
-                                        <td>{{item.apellidoMaterno}}</td>
+                                        <td><span [ngClass]="{
+                                            'yellow': item.estadoPostulante === 'En proceso', 
+                                            'green':item.estadoPostulante === 'Realizado',
+                                            'red': item.estadoPostulante === 'Sin servicio'}">-</span>
+                                </td>
                                         <td>{{item.ci}}</td>
+                                        <td>{{item.profesion}}</td>
                                         <td>{{item.estadoCivil}}</td>
                                         <td>
                                             <div class="btn-group">

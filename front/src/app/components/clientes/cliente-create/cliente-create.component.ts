@@ -16,7 +16,7 @@ export class ClienteCreateComponent implements OnInit {
     private _postulanteService: PostulanteService,
     private _router: Router
   ) {
-    this.postulante = new Postulante('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','');
+    this.postulante = new Postulante('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','','');
   }
 
   ngOnInit() {
@@ -42,7 +42,8 @@ export class ClienteCreateComponent implements OnInit {
         estadoCivil: clienteForm.value.estadoCivil,
         viveCon: clienteForm.value.viveCon,
         personaDependencia: clienteForm.value.personaDependencia,
-        profesion: clienteForm.value.profesion
+        profesion: clienteForm.value.profesion,
+        estadoPostulante: clienteForm.value.estadoPostulante
       }).subscribe(
         response => {
           this._router.navigate(['postulantes']);

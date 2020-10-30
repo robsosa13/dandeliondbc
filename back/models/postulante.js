@@ -18,7 +18,8 @@ var PostulanteSchema = Schema({
     estadoCivil:String,
     viveCon:String,
     personaDependencia:String,
-    profesion:String
+    profesion:String,
+    estadoPostulante:String
 });
 
 module.exports = mongoose.model('postulante',PostulanteSchema);

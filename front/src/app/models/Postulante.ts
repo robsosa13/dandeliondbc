@@ -17,6 +17,7 @@ export class Postulante{
         public viveCon: string,
         public personaDependencia:string,
         public profesion:string,
+        public estadoPostulante:String
     ){
 
     }

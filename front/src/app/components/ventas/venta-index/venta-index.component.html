@@ -36,11 +36,11 @@
                                         <!-- <h5 class="card-title">Listado de empresas</h5>
                                         <a [routerLink]="['/save-empresa']" class="btn btn-primary">Nueva Empresa</a> -->
                                         <h5 class="card-title">Buscar por nombre</h5>
-                                        <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+                                        <form #searchFormExpe="ngForm" (ngSubmit)="search(searchFormExpe)">
                                             <div class="input-group date" id="datetimepicker-minimum"
                                                 data-target-input="nearest">
                                                 <input type="text" class="form-control datetimepicker-input"
-                                                    #filtro="ngModel" name="filtro" [(ngModel)]="filtroText">
+                                                    #filtroExpe="ngModel" name="filtroExpe" [(ngModel)]="filtroTexExpe">
                                                 <div class="input-group-append">
 
                                                     <button type="submit" class="input-group-text"><i
