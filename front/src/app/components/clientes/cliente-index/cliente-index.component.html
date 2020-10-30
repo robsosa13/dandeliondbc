@@ -11,6 +11,7 @@
             <div class="container-fluid">
 
                 <div class="header">
+
                     <h1 class="header-title">
                         Postulantes
                     </h1>
@@ -30,6 +31,9 @@
        
                                 <a [routerLink]="['/postulante/registrar']"  class="btn btn-primary">Nuevo postulante</a>
                             </div>
+                            
+
+                            
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -66,7 +70,9 @@
                             </table>
                         </div>
                     </div>
-                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" 
+                    previousLabel="Antes"
+                    nextLabel="Despues"></pagination-controls>
                 </div>
 
 

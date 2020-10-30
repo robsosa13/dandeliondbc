@@ -10,6 +10,8 @@ export class Empresa{
         public correo: string,
         public etapaVenta: string,
         public medioComunicacion: string,
-        public estadoSeguimiento:string
+        public estadoSeguimiento:string,
+    
+      
     ){}
 }

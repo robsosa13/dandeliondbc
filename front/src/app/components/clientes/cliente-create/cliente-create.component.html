@@ -249,14 +249,32 @@
                                                 <option value="Otros">Otros</option>                             
                                             </select>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="form-group col-md-4">
+                                            <label for="profesion">Profesion</label>
+                                            <select class="form-control" name="profesion" [(ngModel)]="postulante.profesion"
+                                                required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Masculino">Administrador de Empresas</option>
+                                                <option value="Femenino">Ingenieria Financiera</option>
+                                                <option value="Masculino">Ingenieria de Sistemas</option>
+                                                <option value="Femenino">Ingenieria Comercial</option>
+                                                <option value="Masculino">Auditoria</option>
+                                                <option value="Femenino">Contaduria</option>
+                                                <option value="Masculino">Marketing</option>
+                                                <option value="Femenino">Disenador Grafico</option>
+                                                <option value="Masculino">Bachiller</option>
+                                                <option value="Femenino">Estudiante</option>
+                                               
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Profesion</b></label>
                                                 <input type="text" class="form-control" #profesion="ngModel" name="profesion"
                                                     [(ngModel)]="postulante.profesion" placeholder="profesion "
                                                     required>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Persona dependiente de </b></label>

@@ -58,8 +58,8 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" [routerLink]="['/activo/registrar']">Registrar activo</a>
-                                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
-                                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-categoria">Registrar Categoria</a>
+                                                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
+                                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-categoria">Registrar Categoria</a> -->
                                            
                                             </div>
                                         </div>
@@ -71,8 +71,12 @@
                                 <thead>
                                     <tr>
                                         <th>Activo</th>
-                                        <th>Stock</th>
-                                        <th>Precio compra</th>
+                                        <th>Almacen</th>
+                                        <th>Marca</th>
+                                        <th>Numero Serie</th>
+                                        <th>Precio Compra</th>
+                                        <th>Fecha Compra</th>
+                                        <!-- <th>Precio compra</th> -->
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -81,7 +85,10 @@
                                             <img [src]="url + 'activo/img/'+ item.imagen" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">{{item.titulo}}
                                         </td>
                                         <td>{{item.stock}}</td>
-                                        <td><b>$</b>{{item.precio_compra}}</td>
+                                        <td>{{item.marca}}</td>
+                                        <td>{{item.nroSerie}}</td>
+                                        <td>{{item.precio_compra}} <b>Bs.</b></td>
+                                        <td>{{item.fechaCompra  | date: 'dd/MM/yyyy'}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,7 +115,7 @@
                                                         </div>
                                                         <div class="modal-body m-3">
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control" placeholder="Titulo de la categoria" #activo_stock="ngModel" name="activo_stock" [(ngModel)]="activo_stockText" required>
+                                                            <input type="number" class="form-control" placeholder="Aumentar Stock" #activo_stock="ngModel" name="activo_stock" [(ngModel)]="activo_stockText" required>
                                                         </div>
                                                             
                                                         </div>
@@ -126,7 +133,9 @@
                             </table>
                         </div>
                     </div>
-                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" 
+                    previousLabel="Antes"
+                    nextLabel="Despues"></pagination-controls>
                 </div>
 
 

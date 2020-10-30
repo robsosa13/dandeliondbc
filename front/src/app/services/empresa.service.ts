@@ -57,7 +57,7 @@ export class EmpresaService{
       }
       getEmpresabyDate(data):Observable<any>{
         let headers= new HttpHeaders().set('Content-Type','application/json');
-        return this._http.get(this.url+`empresa-search`+data,{headers:headers});
+        return this._http.get(this.url+'empresa-search/'+data,{headers:headers});
        
     }
     getEmpresaCount():Observable<any>{

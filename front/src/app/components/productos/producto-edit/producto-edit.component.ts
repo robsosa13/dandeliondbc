@@ -49,7 +49,7 @@ export class ProductoEditComponent implements OnInit {
       
             }
           );
-          
+
           
         },
         error=>{
@@ -57,9 +57,7 @@ export class ProductoEditComponent implements OnInit {
         }
       )
     });
-
   }
-
   success_alert(){
     this.success_message = ''; 
    }
@@ -97,14 +95,10 @@ export class ProductoEditComponent implements OnInit {
           this.success_message = 'Se actualizó el producto correctamente';
         },
         error=>{
-          
         }
       );
-      
     }else{
       this.error_message = 'Complete correctamente el formulario';
     }
   }
-
-  
 }

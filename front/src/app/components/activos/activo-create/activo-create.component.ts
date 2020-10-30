@@ -39,6 +39,8 @@ export class ActivoCreateComponent implements OnInit {
     this.error_message = ''; 
    }
    onSubmit(activoForm){
+   
+    
     if(activoForm.valid){
      this._activoService.insert_activo({
        titulo: activoForm.value.titulo,

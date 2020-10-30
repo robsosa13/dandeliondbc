@@ -88,8 +88,7 @@ var controller = {
         })
     },
     listadoEmpresaByDate:function(req, res) {
-
-        let data = req.body;
+        let data = req.body; 
         Empresa.find({ 
             fechaRegistro: {
                   $gte: new Date(new Date(data.startdate).setHours(00, 00, 00)),
