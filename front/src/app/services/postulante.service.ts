@@ -44,4 +44,13 @@ export class PostulanteService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'postulantes/'+filtroPost,{headers:headers});
   }
+  get_categorias():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'categorias',{headers:headers});
+  }
+  
+  insert_categoria(data):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url+'categoria/registrar',data,{headers:headers});
+  }
 }

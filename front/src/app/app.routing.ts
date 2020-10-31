@@ -66,10 +66,8 @@ const appRoute: Routes = [
     { path: 'experiencia/adicionar/:id', component: ExpeAddComponent },
     { path: 'experiencia/detail-edit/:id', component: VentaEditComponent },  
     { path: 'empresa/edit/:id', component: EditEmpresaComponent },  
-    // { path: 'empresa', component: EmpresaIndexComponent },  
-      
+    // { path: 'empresa', component: EmpresaIndexComponent },     
 ]
-
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);
 

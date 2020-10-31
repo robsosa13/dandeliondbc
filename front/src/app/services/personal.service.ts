@@ -40,4 +40,13 @@ export class PersonalService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.delete(this.url+'/personal/eliminar/'+id,{headers:headers});
   }
+  get_profesiones():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'profesions',{headers:headers});
+  }
+  
+  insert_profesion(data):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url+'profesion/registrar',data,{headers:headers});
+  }
 }

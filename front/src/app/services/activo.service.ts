@@ -9,23 +9,19 @@ import { GLOBAL } from "./GLOBAL";
 export class ActivoService {
 
   public url;
-
   constructor(
     private _http: HttpClient,
   ) { 
     this.url = GLOBAL.url;
   }
-
   get_activos(filtro):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'activos/'+filtro,{headers:headers});
   }
-
   get_categorias():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'categorias',{headers:headers});
   }
-
   insert_activo(data){
     const fd = new FormData();
     fd.append('titulo',data.titulo);
@@ -40,14 +36,12 @@ export class ActivoService {
     fd.append('nroSerie',data.nroSerie);
     fd.append('codigoDBC',data.codigoDBC);
     fd.append('fechaCompra',data.fechaCompra);
-  
     return this._http.post(this.url + 'activo/registrar',fd);
   }
   get_activo(id):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'activo/'+id,{headers:headers});
   }
-
   update_activo(data){
     const fd = new FormData();
     fd.append('titulo',data.titulo);
