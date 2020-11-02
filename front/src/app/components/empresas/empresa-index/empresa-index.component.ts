@@ -32,7 +32,7 @@ public data :any;
     this._empresaService.getEmpresas().subscribe(
       response=>{
         this.empresas = response.empresas;
-        console.log(this.empresas);
+        // console.log(this.empresas);
         
       },
       error=>{
@@ -41,10 +41,12 @@ public data :any;
     )
   }
   search(searchForms){
-    console.log(searchForms.value.filtros)
-    this._empresaService.get_empresas(searchForms.value.filtros).subscribe(
+    console.log()
+
+    this._empresaService.getEmpresabyDate(this.empresaDate).subscribe(
       response =>{
-        this.empresas = response.empresas;
+        this.empresas = response.result;
+        console.log('devuelve:',this.empresas)
       },
       error=>{
 

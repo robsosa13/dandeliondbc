@@ -89,13 +89,16 @@ var controller = {
         })
     },
     listadoEmpresaByDate:function(req, res) {
+
         let data = req.body; 
+        console.log('model :',data);
         Empresa.find({ 
             fechaRegistro: {
                   $gte: new Date(new Date(data.startdate).setHours(00, 00, 00)),
                   $lt: new Date(new Date(data.enddate).setHours(23, 59, 59))
                    }
             },(err,resultado)=>{
+                console.log('resultado:',resultado)
                 res.status(200).send({result:resultado})
             }) 
     },

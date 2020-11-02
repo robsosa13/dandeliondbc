@@ -13,7 +13,7 @@ router.get("/detail-empresa/:id",EmpresaController.detailEmpresa);
 router.get('/empresas',EmpresaController.getEmpresas);
 router.put('/empresa/:id',EmpresaController.updateEmpresas);
 router.delete('/empresa/:id',EmpresaController.deleteEmpresa);
-router.get('/empresa-search',EmpresaController.listadoEmpresaByDate);
+router.post('/empresa-search',EmpresaController.listadoEmpresaByDate);
 router.get('/empresa-count',EmpresaController.getEmpresasCount);
 router.get('/empresas/:nombreEmpresa?',EmpresaController.listar);
 
