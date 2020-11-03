@@ -13,6 +13,7 @@ var empresa_routes= require('./routes/empresa');
 var activo_routes = require('./routes/activo');
 var personal_routes = require('./routes/personal');
 var asignacion_routes = require('./routes/asignacion');
+var profesion_routes = require('./routes/profesion');
 
  
 var app = express();
@@ -45,13 +46,14 @@ app.use((req,res,next)=>{
 app.use('/api',user_routes);
 app.use('/api',categoria_routes);
 app.use('/api',producto_routes);
-//app.use('/api',cliente_routes);
 app.use('/api',experiencia_routes);
 app.use('/api',activo_routes);
 app.use('/api',empresa_routes);
 app.use('/api',postulante_routes);
 app.use('/api',personal_routes);
 app.use('/api',asignacion_routes);
+app.use('/api',profesion_routes);
+
 
 
 

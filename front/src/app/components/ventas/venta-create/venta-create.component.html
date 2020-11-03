@@ -79,36 +79,7 @@
                             <div class="card-body">
                                 <form #detalleForm="ngForm" (ngSubmit)="save_detalle(detalleForm)">
                                     <div class="row">
-                                        <div class="col-lg-4 form-group" >
-                                            <label for=""><b>Opcional</b></label>
-                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
-                                                [(ngModel)]="detalle.idproducto"
-                                                (change)="get_data_producto($event.target.value)" >
-                                                <option value="" disabled>SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of productos">
-                                                    {{item.titulo}}</option>
-                                            </select>
-                                            <!-- <input type="text" readonly  class="form-control" value="{{producto.stock}}" > -->
-                                        </div>
-                                        <!-- <div class="col-lg-4 form-group" >
-                                            <label for=""><b>Espec</b></label>
-                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
-                                                [(ngModel)]="detalle.idproducto"
-                                                (change)="get_data_producto($event.target.value)">
-                                                <option value="" disabled>SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of productos">
-                                                    {{item.titulo}}</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="col-lg-3 form-group" >
-                                            <label for=""><b>Opcional</b></label>
-                                            <input type="text" readonly class="form-control" value="{{producto.stock}}" >
-                                        </div >
-                                        <div class="col-lg-3 form-group" >
-                                            <label for=""><b>Opcional</b></label>
-                                            <input type="text" #cantidad="ngModel" name="cantidad"
-                                                [(ngModel)]="detalle.cantidad" class="form-control">
-                                        </div>
+                                       
                                         <div class="col-lg-3 form-group" >
                                             <label for=""><b>Nombre Empresa</b></label>
                                             <input type="text" #nombreEmpresa="ngModel" name="nombreEmpresa"
@@ -119,16 +90,7 @@
                                             <input type="date" class=" form-control" name="tiempoServicioDesde" [(ngModel)]="detalle.tiempoServicioDesde"
                                             placeholder="yyyy-MM-dd"  required />
                                         </div>
-                                        <!-- <div class="col-lg-3 form-group">
-                                            <label for=""><b>Tiempo servicio Desde</b></label>
-                                            <input type="text" #tiempoServicioDesde="ngModel" name="tiempoServicioDesde"
-                                                [(ngModel)]="detalle.tiempoServicioDesde" class="form-control">
-                                        </div> -->
-                                        <!-- <div class="col-lg-3 form-group">
-                                            <label for=""><b>Tiempo servicio Hasta</b></label>
-                                            <input type="text" #tiempoServicioHasta="ngModel" name="tiempoServicioHasta"
-                                                [(ngModel)]="detalle.tiempoServicioHasta" class="form-control">
-                                        </div> -->
+                                 
                                         <div class="form-group col-md-4">
                                             <label for="tiempoServicioHasta"><b>Tiempo servicio Hasta</b></label>
                                             <input type="date" class=" form-control" name="tiempoServicioHasta" [(ngModel)]="detalle.tiempoServicioHasta"

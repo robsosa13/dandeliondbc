@@ -53,4 +53,8 @@ export class PostulanteService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'categoria/registrar',data,{headers:headers});
   }
+  getEmpresaByState(filtroPost):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'postulante-search-estado/'+filtroPost,{headers:headers});
+  }
 }

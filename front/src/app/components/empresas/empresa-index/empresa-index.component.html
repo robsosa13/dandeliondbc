@@ -97,13 +97,15 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <h5 class="card-title">Filtro de activos</h5>
-                                        <form #searchForms="ngForm" (ngSubmit)="search(searchForms)">
-                                            <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input" #filtros="ngModel" name="filtros" [(ngModel)]="filtroTexts">
+                                        <h5 class="card-title">Filtro Empresas</h5>
+                                        <form #searchEmpresaForm="ngForm" (ngSubmit)="searchEmpresa(searchEmpresaForm)">
+                                            <div class="input-group date" id="datetimepicker-minimum"
+                                                data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input"
+                                                    #filtroEmpresa="ngModel" name="filtroEmpresa" [(ngModel)]="filtroEmpresaTexts">
                                                 <div class="input-group-append">
-                                       
-                                                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                                                    <button type="submit" class="input-group-text"><i
+                                                            class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -118,7 +120,8 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <!-- <a [routerLink]="['/save-empresa']" class="btn btn-primary">Nueva Empresa</a>  -->
-                                                <a class="dropdown-item" [routerLink]="['/save-empresa']">Registrar Empresa</a>
+                                                <a class="dropdown-item" [routerLink]="['/save-empresa']">Registrar
+                                                    Empresa</a>
                                                 <!-- <a class="dropdown-item" data-toggle="modal"
                                                     data-target="#modal-data-categoria">Ver categorias</a>
                                                 <a class="dropdown-item" data-toggle="modal"
@@ -129,36 +132,38 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <!-- <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
-                                            <div class="form-group col-md-4">
-                                                <label for="filtroDate"><b> Desde</b></label>
-                                                <input type="date" class="form-control datetimepicker-input"
-                                                #filtroDate="ngModel" name="filtroDate" [(ngModel)]="filtroDate"> -->
-<!-- 
-                                                <input type="date" class="form-control" #stardate="ngModel"
-                                                name="stardate" [(ngModel)]="empresaDate.stardate"
-                                                placeholder="Nombre de Empresa" required> -->
+                                    <div class="col-lg-6">
+                                        <form #searchForm="ngForm" (ngSubmit)="searchByDate(searchForm)">
 
-                                                <!-- <input type="date" class=" form-control" name="stardate" placeholder="yyyy-MM-dd"
-                                                    required /> -->
-                                            <!-- </div> -->
-                                            <!-- <div class="form-group col-md-4">
-                                                <label for="enddate"><b>Hasta</b></label>
-
-                                                <input type="date" class="form-control" #enddate="ngModel"
-                                                name="enddate" [(ngModel)]="empresaDate.enddate"
-                                                placeholder="Nombre de Empresa" required>
-
-                                                \
-                                            </div> -->
-                                            <!-- <button type="submit" class="input-group-text"><i
+                                            <label for="filtroDate"><b> Desde</b></label>
+                                            <input type="date" class=" form-control" name="stardate"
+                                                placeholder="yyyy-MM-dd" [(ngModel)]="empresaDate.startdate" required />
+                                            <label for="enddate"><b>Hasta</b></label>
+                                            <input type="date" class="form-control" #enddate="ngModel" name="enddate"
+                                                [(ngModel)]="empresaDate.enddate" placeholder="Nombre de Empresa"
+                                                required>
+                                            <button type="submit" class="input-group-text"><i
                                                     class="fa fa-search">-Buscar..</i></button>
-                                        </form> -->
-                                    </div>                         
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <form #searchEstadoForm="ngForm" (ngSubmit)="searchEstado(searchEstadoForm)">
+
+                                            <label for="lugarNacimiento">Buscar por estado </label>
+                                            <select class="form-control" #filtroEstado="ngModel" name="filtroEstado" [(ngModel)]="filtroEstadoText">
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="En proceso">En proceso</option>
+                                                <option value="Realizado">Realizado</option>
+                                                <option value="Sin servicio">Sin servicio</option>
+
+                                            </select>
+                                            <button type="submit" class="input-group-text"><i
+                                                    class="fa fa-search">-Buscar..</i></button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-
+                            <!-- 
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
@@ -176,11 +181,10 @@
                                                 class="fa fa-search">-Buscar..</i></button>
                                     </form>
                                 </div>                         
-                            </div>
+                            </div> -->
                             <div class="row">
-                                <div class="col">
-                                </div>
-                                <div class="col">
+                              
+                                <div class="col-lg-6">
                                     <div class="row">
                                         <ul>
                                             <span class="red">-</span> Sin servicio
@@ -190,6 +194,11 @@
 
                                     </div>
 
+                                </div>
+                                <div class="col-lg-6">
+                                    <form  (ngSubmit)="listar()">
+                                        <button class="btn btn-primary">Listar empresas</button>
+                                    </form>
                                 </div>
                             </div>
                             <table class="table table-striped table-hover">
@@ -235,9 +244,8 @@
                             </table>
                         </div>
                     </div>
-                    <pagination-controls (pageChange)="p = $event" 
-                    previousLabel="Antes"
-                    nextLabel="Despues"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" previousLabel="Antes" nextLabel="Despues">
+                    </pagination-controls>
                 </div>
             </div>
         </main>

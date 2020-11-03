@@ -1,8 +1,8 @@
 export class DetalleVenta{
     constructor(
         public _id:string,
-        public idproducto:string,
-        public cantidad:number,
+        // public idproducto:string,
+        // public cantidad:number,
 
         public nombreEmpresa:string,
         public tiempoServicioDesde:string,

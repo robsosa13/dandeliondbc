@@ -83,8 +83,8 @@ export class ExpeAddComponent implements OnInit {
     if (detalleForm.valid) {
 
       this.data_detalle.push({
-        idproducto: detalleForm.value.idproducto,
-        cantidad: detalleForm.value.cantidad,
+        // idproducto: detalleForm.value.idproducto,
+        // cantidad: detalleForm.value.cantidad,
         experiencia: this.id,
         producto: this.producto.titulo,
         precio_venta: this.producto.precio_venta,
@@ -101,7 +101,7 @@ export class ExpeAddComponent implements OnInit {
         puestoJefe: detalleForm.value.puestoJefe,
         solicitarInfo: detalleForm.value.solicitarInfo,
       });
-      this.detalle = new DetalleVenta('', '', null, '', '', '', '', '', '', '', '', '', '', '', '');
+      this.detalle = new DetalleVenta('', '', null, '', '', '', '', '', '', '', '', '', '');
       this.producto.stock = '--|--',
         this.total = this.total + (parseInt(this.producto.precio_venta) * parseInt(detalleForm.value.cantidad));
       console.log(this.total);

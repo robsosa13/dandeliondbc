@@ -88,24 +88,27 @@
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Principal</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
                             <li class="breadcrumb-item"><a>Personas Postulantes</a></li>
                         </ol>
                     </nav>
                 </div>
-                <div class="row">
-                    
+                <div class="row">z
+
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h5 class="card-title">Buscar por profesion</h5>
                                     <form #searchFormPostu="ngForm" (ngSubmit)="search(searchFormPostu)">
-                                        <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" #filtroPost="ngModel" name="filtroPost" [(ngModel)]="filtroTextPostu">
+                                        <div class="input-group date" id="datetimepicker-minimum"
+                                            data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input"
+                                                #filtroPost="ngModel" name="filtroPost" [(ngModel)]="filtroTextPostu">
                                             <div class="input-group-append">
-                                   
-                                                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+
+                                                <button type="submit" class="input-group-text"><i
+                                                        class="fa fa-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
@@ -113,15 +116,36 @@
                                 <div class="col-lg-6">
                                     <h5 class="card-title">Opciones de Postulante</h5>
                                     <div class="btn-group">
-                                        
-                                        <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <button type="button" class="btn mb-1 btn-primary dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Opciones
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" [routerLink]="['/postulante/registrar']">Registrar POstulante</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
+                                            <a class="dropdown-item" [routerLink]="['/postulante/registrar']">Registrar
+                                                Postulante</a>
+                                            <a class="dropdown-item" data-toggle="modal"
+                                                data-target="#modal-data-categoria">Ver categorias</a>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                             
+                                <div class="col-lg-6">
+                                    <form #searchEstadoForm="ngForm" (ngSubmit)="searchEstado(searchEstadoForm)">
+
+                                        <label for="lugarNacimiento">Buscar por estado </label>
+                                        <select class="form-control" #filtroEstado="ngModel" name="filtroEstado" [(ngModel)]="filtroEstadoText">
+                                            <option value="" disabled>Seleccionar</option>
+                                            <option value="Con empleo">Con empleo</option>
+                                            <option value="Disponible">Disponible</option>
+                                   
+
+                                        </select>
+                                        <button type="submit" class="input-group-text"><i
+                                                class="fa fa-search">-Buscar..</i></button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="row">
@@ -130,13 +154,11 @@
                                 <div class="col">
                                     <div class="row">
                                         <ul>
-                                            <span class="red">-</span> Sin servicio
-                                            <span class="yellow">-</span>En proceso
-                                            <span class="green">-</span> Realizado
+                                            <span class="red">-</span> Con Empleo
+                                            <span class="green">-</span> Disponible
                                         </ul>
 
                                     </div>
-
                                 </div>
                             </div>
                             <table class="table table-striped table-hover">
@@ -145,55 +167,56 @@
                                         <th>Nombres</th>
                                         <th>Apellido Paterno</th>
                                         <th>Estado</th>
-                                     
                                         <th>Cedula</th>
                                         <th>Profesion</th>
-                                        
                                         <th>Estado Civil</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
 
-                                <tbody *ngFor="let item of postulantes | paginate: { itemsPerPage: 15, currentPage: p }">                                 
-                                        <td>{{item.nombres}} </td>
-                                        <td>{{item.apellidoPaterno}}</td>
-                                        <td><span [ngClass]="{
-                                            'yellow': item.estadoPostulante === 'En proceso', 
-                                            'green':item.estadoPostulante === 'Realizado',
-                                            'red': item.estadoPostulante === 'Sin servicio'}">-</span>
-                                </td>
-                                        <td>{{item.ci}}</td>
-                                        <td>{{item.profesion}}</td>
-                                        <td>{{item.estadoCivil}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-cog"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" [routerLink]="['/postulante/editar/',item._id]" >Editar registro</a>
-                                                   
-                                                    <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar registro</a>
-                                             
-                                                </div>
+                                <tbody
+                                    *ngFor="let item of postulantes | paginate: { itemsPerPage: 15, currentPage: p }">
+                                    <td>{{item.nombres}} </td>
+                                    <td>{{item.apellidoPaterno}}</td>
+                                    <td><span [ngClass]="{
+                                            
+                                            'green':item.estadoPostulante === 'Disponible',
+                                            'red': item.estadoPostulante === 'Con empleo'}">-</span>
+                                    </td>
+                                    <td>{{item.ci}}</td>
+                                    <td>{{item.idprofesion.nombre}}</td>
+                                    <td>{{item.estadoCivil}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn mb-1 btn-secondary dropdown-toggle"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item"
+                                                    [routerLink]="['/postulante/editar/',item._id]">Editar registro</a>
+
+                                                <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar
+                                                    registro</a>
+
                                             </div>
-                                        </td>  
-                                        
-                          
+                                        </div>
+                                    </td>
+
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <pagination-controls (pageChange)="p = $event" 
-                    previousLabel="Antes"
-                    nextLabel="Despues"></pagination-controls>
+                    <pagination-controls (pageChange)="p = $event" previousLabel="Antes" nextLabel="Despues">
+                    </pagination-controls>
                 </div>
 
 
 
-               
+
             </div>
         </main>
-       
+
     </div>
 </div>

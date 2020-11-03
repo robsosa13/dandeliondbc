@@ -18,7 +18,7 @@ var PostulanteSchema = Schema({
     estadoCivil:String,
     viveCon:String,
     personaDependencia:String,
-    profesion:String,
+    idprofesion: {type: Schema.ObjectId, ref: 'profesion'},
     estadoPostulante:String
 });
 

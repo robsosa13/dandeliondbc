@@ -2,7 +2,6 @@ var Empresa = require('../models/empresa');
 var fs = require('fs');
 var path = require('path');
 
-const { exists } = require('../models/empresa');
 var controller = {
     test: function (req, res) {
         return res.status(200).send({
@@ -12,7 +11,7 @@ var controller = {
     saveEmpresa: function (req, res) {
         var empresa = new Empresa();
         var params = req.body;
-        // persona.id = params.id;
+    
         empresa.numeroEmpresa = params.numeroEmpresa;
         empresa.nombreEmpresa = params.nombreEmpresa;
         empresa.direccion = params.direccion;
@@ -91,13 +90,16 @@ var controller = {
         })
     },
     listadoEmpresaByDate:function(req, res) {
+
         let data = req.body; 
+       
         Empresa.find({ 
             fechaRegistro: {
                   $gte: new Date(new Date(data.startdate).setHours(00, 00, 00)),
                   $lt: new Date(new Date(data.enddate).setHours(23, 59, 59))
                    }
             },(err,resultado)=>{
+                console.log('resultado:',resultado)
                 res.status(200).send({result:resultado})
             }) 
     },
@@ -113,6 +115,21 @@ var controller = {
         var nombreEmpresa = req.params['nombreEmpresa'];
     
         Empresa.find({nombreEmpresa: new RegExp(nombreEmpresa,'i')}).exec((err,empresaLista)=>{
+            if(err){
+                res.status(500).send({message: 'Error en el servidor'});
+            }else{
+                if(empresaLista){
+                    res.status(200).send({empresas:empresaLista});
+                }else{
+                    res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+                }
+            }
+        });
+    },
+     getEmpresaByState:function(req,res){
+        var estadoSeguimiento = req.params['estadoSeguimiento'];
+    console.log(estadoSeguimiento)
+        Empresa.find({estadoSeguimiento: new RegExp(estadoSeguimiento,'i')}).exec((err,empresaLista)=>{
             if(err){
                 res.status(500).send({message: 'Error en el servidor'});
             }else{

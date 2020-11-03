@@ -37,7 +37,32 @@ export class ClienteIndexComponent implements OnInit {
 
       }
     );
-    
+  }
+  searchEstado(searchEstadoForm){
+    console.log('Estado :', searchEstadoForm.value.filtroEstado)
+   
+    this._postulanteService.getEmpresaByState(searchEstadoForm.value.filtroEstado).subscribe(
+      response =>{
+        this.postulantes = response.postulantes;
+        console.log('devuelve:',this.postulantes)
+      },
+      error=>{
+      }
+    );
+  }
+ 
+  listarPostulante(){
+    this._postulanteService.get_postulantes().subscribe(
+      response=>{
+        this.postulantes = response.postulantes;
+        console.log(this.postulantes);
+        
+      },
+      error=>{
+
+      }
+    )
+
   }
 
   

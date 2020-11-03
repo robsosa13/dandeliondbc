@@ -57,18 +57,24 @@ export class EmpresaService{
       }
     getEmpresabyDate(data):Observable<any>{
         let headers= new HttpHeaders().set('Content-Type','application/json');
-        return this._http.get('/api/empresa-search',data+{headers:headers});
+        return this._http.post(this.url+'empresa-search',data,{headers:headers});
        
     }
-    // getEmpresaCount():Observable<any>{
-    //     let headers= new HttpHeaders().set('Content-Type','application/json');
-    //     return this._http.get(this.url+'/empresa-count',{headers:headers});
+    getEmpresaByState(filter):Observable<any>{
+        let headers= new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'empresa-search-estado/'+filter,{headers:headers});
        
-    // }
+    }
     get_empresas(filtro):Observable<any>{
+       
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'empresas/'+filtro,{headers:headers});
       }
+      getEmpresaByName(filter):Observable<any>{
+        let headers= new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'empresa-search-name/'+filter,{headers:headers});
+       
+    }
   
     
 }

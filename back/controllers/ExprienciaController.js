@@ -12,13 +12,11 @@ function registrar(req, res) {
     experiencia.save((err, venta_save) => {
         if (venta_save) {
             let detalles = data.detalles;
-
+ 
             detalles.forEach((element, index) => {
                 var detalleExperiencia = new DetalleExperiencia();
-                // detalleExperiencia.idproducto = "";
-                // detalleExperiencia.cantidad = "";
-                detalleExperiencia.idproducto = element.idproducto;
-                detalleExperiencia.cantidad = element.cantidad;
+                detalleExperiencia.idproducto = null;
+                detalleExperiencia.cantidad = 0;
                 detalleExperiencia.experiencia = venta_save._id;
                 detalleExperiencia.nombreEmpresa = element.nombreEmpresa;
                 detalleExperiencia.tiempoServicioDesde = element.tiempoServicioDesde;
@@ -34,15 +32,16 @@ function registrar(req, res) {
                 detalleExperiencia.solicitarInfo = element.solicitarInfo;
                 detalleExperiencia.save((err, detalle_save) => {
                     if (detalle_save) {
-                        Producto.findById({ _id: element.idproducto }, (err, producto_data) => {
-                            if (producto_data) {
-                                Producto.findByIdAndUpdate({ _id: producto_data._id }, { stock: parseInt(producto_data.stock) - parseInt(element.cantidad) }, (err, producto_edit) => {
-                                    res.end();
-                                })
-                            } else {
-                                res.send(err);
-                            }
-                        });
+                        res.end();
+                        // Producto.findById({ _id: element.idproducto }, (err, producto_data) => {
+                        //     if (producto_data) {
+                        //         Producto.findByIdAndUpdate({ _id: producto_data._id }, { stock: parseInt(producto_data.stock) - parseInt(element.cantidad) }, (err, producto_edit) => {
+                        //             res.end();
+                        //         })
+                        //     } else {
+                        //         res.send(err);
+                        //     }
+                        // });
                     } else {
                         res.send(err);
                     }

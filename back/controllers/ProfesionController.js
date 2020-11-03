@@ -2,9 +2,9 @@ var Profesion = require('../models/profesion');
 
 function registrar(req,res){
     var data = req.body;
-
+    console.log('OK')
     var profesion = new Profesion();
-    profesion.titulo = data.titulo;
+    profesion.nombre = data.nombre;
     profesion.descripcion = data.descripcion;
 
     profesion.save((err,profesion_save)=>{
@@ -41,7 +41,7 @@ function editar(req,res){
     var id = req.params['id'];
     var data = req.body;
 
-    Profesion.findByIdAndUpdate({_id:id},{titulo: data.titulo, descripcion : data.descripcion},(err,profesion_edit)=>{
+    Profesion.findByIdAndUpdate({_id:id},{nombre: data.nombre, descripcion : data.descripcion},(err,profesion_edit)=>{
         if(err){
             res.status(500).send({message: 'Error en el servidor'});
         }else{
@@ -73,7 +73,7 @@ function eliminar(req,res)
 
 function listar(req,res){
     var nombre = req.params['nombre'];
-    Categoria.find({titulo: new RegExp(nombre,'i')}, (err,profesion_listado)=>{
+    Profesion.find({nombre: new RegExp(nombre,'i')}, (err,profesion_listado)=>{
         if(err){
             res.status(500).send({message: err});
         }else{

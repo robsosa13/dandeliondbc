@@ -89,8 +89,8 @@ export class VentaCreateComponent implements OnInit {
             // idproducto : "",
             // cantidad:"",
             // producto: "",
-            idproducto : detalleForm.value.idproducto,
-            cantidad: detalleForm.value.cantidad,
+            // idproducto : detalleForm.value.idproducto,
+            // cantidad: detalleForm.value.cantidad,
             producto: this.producto.titulo,
             precio_venta : this.producto.precio_venta,
             nombreEmpresa: detalleForm.value.nombreEmpresa,
@@ -108,7 +108,7 @@ export class VentaCreateComponent implements OnInit {
             
           });
   
-          this.detalle = new DetalleVenta('','',null,'','','','','','','','','','','','');
+          this.detalle = new DetalleVenta('','',null,'','','','','','','','','','');
           this.producto.stock = '--|--',
           
 

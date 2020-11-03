@@ -32,7 +32,7 @@ public data :any;
     this._empresaService.getEmpresas().subscribe(
       response=>{
         this.empresas = response.empresas;
-        console.log(this.empresas);
+        // console.log(this.empresas);
         
       },
       error=>{
@@ -40,36 +40,58 @@ public data :any;
       }
     )
   }
-  search(searchForms){
-    console.log(searchForms.value.filtros)
-    this._empresaService.get_empresas(searchForms.value.filtros).subscribe(
+  searchByDate(searchForms){
+ 
+    this._empresaService.getEmpresabyDate(this.empresaDate).subscribe(
+      response =>{
+        this.empresas = response.result;
+        console.log('devuelve:',this.empresas)
+      },
+      error=>{
+      }
+    );
+  }
+  searchEstado(searchEstadoForm){
+    console.log('Estado :', searchEstadoForm.value.filtroEstado)
+   
+    this._empresaService.getEmpresaByState(searchEstadoForm.value.filtroEstado).subscribe(
       response =>{
         this.empresas = response.empresas;
+        console.log('devuelve:',this.empresas)
+      },
+      error=>{
+      }
+    );
+  }
+  searchEmpresa(searchEmpresaForm){
+    this._empresaService.get_empresas(searchEmpresaForm.value.filtroEmpresa).subscribe(
+      response=>{
+        this.empresas = response.empresas;
+        // console.log(this.empresas);
+        
       },
       error=>{
 
       }
-    );
-    
+    )
+
   }
-  // search(searchForm){
-  //   console.log(searchForm)
-  //   this.empresaDate ={
-  //     startdate:searchForm.value.startdate,
-  //     enddate:searchForm.value.enddate,
-  //   }
-  //   this._empresaService.getEmpresabyDate( this.empresaDate 
-     
-      
-  //     ).subscribe(
-  //     response =>{
-  //       this.empresas = response.empresas;
-  //       console.log('result',this.empresas);
-  //     },
-  //     error=>{
-  //     }
-  //   );
-  // }
+
+  
+  listar(){
+    this._empresaService.getEmpresas().subscribe(
+      response=>{
+        this.empresas = response.empresas;
+        // console.log(this.empresas);
+        
+      },
+      error=>{
+
+      }
+    )
+
+  }
+ 
   eliminar(id){
     Swal.fire({
       title: 'Estas seguro de eliminarlo?',

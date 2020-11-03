@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProfesionSchema = Schema({
-    titulo: String,
+    nombre: String,
     descripcion: String,
 
 });
