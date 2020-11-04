@@ -40,7 +40,8 @@ import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa
 import { EmpresaDetailComponent } from './components/empresas/empresa-detail/empresa-detail.component';
 import { VentaEditComponent } from './components/ventas/venta-edit/venta-edit.component';
 import { ExpeAddComponent } from './components/ventas/expe-add/expe-add.component';
-import { EditEmpresaComponent } from './components/empresas/edit-empresa/edit-empresa.component'
+import { EditEmpresaComponent } from './components/empresas/edit-empresa/edit-empresa.component';
+import { FilterProPipe } from './pipes/filter-pro.pipe'
 //import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
 
 
@@ -79,7 +80,8 @@ import { EditEmpresaComponent } from './components/empresas/edit-empresa/edit-em
     EmpresaDetailComponent,
     VentaEditComponent,
     ExpeAddComponent,
-    EditEmpresaComponent
+    EditEmpresaComponent,
+    FilterProPipe
 
 
   ],

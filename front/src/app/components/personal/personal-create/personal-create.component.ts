@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personal } from "../../../models/Personal";
+//import { Personal } from "../../../models";
 import { PersonalService } from 'src/app/services/personal.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PersonalCreateComponent implements OnInit {
   public personal;
+  public profesiones;
   constructor(
     private _personalService: PersonalService,
     private _router: Router
@@ -18,9 +20,17 @@ export class PersonalCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._personalService.get_profesiones().subscribe(
+      response=>{
+        this.profesiones = response.profesions;
+        //console.log(this.categorias);
+      },
+      error=>{
+      }
+    );
   }
   onSubmit(personalForm) {
-
+    console.log(personalForm)
     if (personalForm.valid) {
 
       this._personalService.insert_personal({
@@ -30,11 +40,11 @@ export class PersonalCreateComponent implements OnInit {
         apellidoM : personalForm.value.apellidoM ,
         ci: personalForm.value.ci,
         cargo: personalForm.value.cargo,
-        profesion: personalForm.value.profesion
+        idprofesion: personalForm.value.idprofesion
     
       }).subscribe(
         response => {
-          this._router.navigate(['personals']);
+          //this._router.navigate(['personals']);
 
         },
         error => {

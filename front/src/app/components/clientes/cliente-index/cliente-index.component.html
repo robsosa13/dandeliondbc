@@ -98,20 +98,28 @@
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <h5 class="card-title">Buscar por profesion</h5>
                                     <form #searchFormPostu="ngForm" (ngSubmit)="search(searchFormPostu)">
-                                        <div class="input-group date" id="datetimepicker-minimum"
-                                            data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input"
-                                                #filtroPost="ngModel" name="filtroPost" [(ngModel)]="filtroTextPostu">
-                                            <div class="input-group-append">
-
-                                                <button type="submit" class="input-group-text"><i
-                                                        class="fa fa-search"></i></button>
-                                            </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Profesiones</label>
+                                            <select class="form-control" #filtro="ngModel" name="filtro"
+                                                [(ngModel)]="filtroText">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of profesiones">
+                                                    {{item.nombre.toUpperCase()}}</option>
+                                            </select>
+                                            <button type="submit" class="input-group-text"><i
+                                                    class="fa fa-search">-Buscar..</i></button>
                                         </div>
                                     </form>
+                                </div> -->
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" name="filterProTest" class="form-control" [(ngModel)]="filterProTest">
+
+                                    </div>
+
                                 </div>
                                 <div class="col-lg-6">
                                     <h5 class="card-title">Opciones de Postulante</h5>
@@ -131,17 +139,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                             
+
                                 <div class="col-lg-6">
                                     <form #searchEstadoForm="ngForm" (ngSubmit)="searchEstado(searchEstadoForm)">
 
                                         <label for="lugarNacimiento">Buscar por estado </label>
-                                        <select class="form-control" #filtroEstado="ngModel" name="filtroEstado" [(ngModel)]="filtroEstadoText">
+                                        <select class="form-control" #filtroEstado="ngModel" name="filtroEstado"
+                                            [(ngModel)]="filtroEstadoText">
                                             <option value="" disabled>Seleccionar</option>
                                             <option value="Con empleo">Con empleo</option>
                                             <option value="Disponible">Disponible</option>
-                                   
-
                                         </select>
                                         <button type="submit" class="input-group-text"><i
                                                 class="fa fa-search">-Buscar..</i></button>
@@ -157,7 +164,6 @@
                                             <span class="red">-</span> Con Empleo
                                             <span class="green">-</span> Disponible
                                         </ul>
-
                                     </div>
                                 </div>
                             </div>
@@ -175,11 +181,10 @@
                                 </thead>
 
                                 <tbody
-                                    *ngFor="let item of postulantes | paginate: { itemsPerPage: 15, currentPage: p }">
+                                    *ngFor="let item of postulantes  |filterPro:filterProTest | paginate: { itemsPerPage: 15, currentPage: p }">
                                     <td>{{item.nombres}} </td>
                                     <td>{{item.apellidoPaterno}}</td>
                                     <td><span [ngClass]="{
-                                            
                                             'green':item.estadoPostulante === 'Disponible',
                                             'red': item.estadoPostulante === 'Con empleo'}">-</span>
                                     </td>

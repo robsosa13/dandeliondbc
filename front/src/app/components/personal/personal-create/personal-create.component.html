@@ -79,14 +79,21 @@
                                                     [(ngModel)]="personal.cargo" placeholder="Cargo " required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Profesiones</label>
+                                            <select class="form-control"  #idprofesion="ngModel" required name="idprofesion" [(ngModel)]="personal.idprofesion">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of profesiones">{{item.nombre.toUpperCase()}}</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Profesion</b></label>
                                                 <input type="text" class="form-control" #profesion="ngModel"
                                                     name="profesion" [(ngModel)]="personal.profesion"
                                                     placeholder="Profesion" required>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="card-footer">

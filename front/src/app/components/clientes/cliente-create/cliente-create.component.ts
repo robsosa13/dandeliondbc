@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Postulante } from "../../../models/Postulante";
 import { PostulanteService } from 'src/app/services/postulante.service';
+import { PersonalService } from 'src/app/services/personal.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,15 +12,26 @@ import { Router } from '@angular/router';
 export class ClienteCreateComponent implements OnInit {
 
   public postulante;
+  public profesiones;
 
   constructor(
     private _postulanteService: PostulanteService,
+    private _personalService: PersonalService,
     private _router: Router
   ) {
     this.postulante = new Postulante('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','','');
   }
 
+
   ngOnInit() {
+    this._personalService.get_profesiones().subscribe(
+      response=>{
+        this.profesiones = response.profesions;
+        console.log('profesio',this.profesiones);
+      },
+      error=>{
+      }
+    );
   }
 
   onSubmit(clienteForm) {
@@ -42,7 +54,7 @@ export class ClienteCreateComponent implements OnInit {
         estadoCivil: clienteForm.value.estadoCivil,
         viveCon: clienteForm.value.viveCon,
         personaDependencia: clienteForm.value.personaDependencia,
-        profesion: clienteForm.value.profesion,
+        idprofesion: clienteForm.value.idprofesion,
         estadoPostulante: clienteForm.value.estadoPostulante
       }).subscribe(
         response => {

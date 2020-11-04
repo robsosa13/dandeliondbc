@@ -7,7 +7,7 @@ var PersonalSchema= Schema({
     apellidoM : String,
     ci:Number,
     cargo:String,
-    profesion:String,
+    idprofesion: {type: Schema.ObjectId, ref: 'profesion'},
    
   
 });

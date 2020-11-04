@@ -54,11 +54,11 @@ function registrar(req, res) {
     postulante.viveCon = data.viveCon;
     postulante.personaDependencia = data.personaDependencia;
     postulante.idprofesion = data.idprofesion
-    // postulante.profesion = data.profesion;
+  
     postulante.estadoPostulante = data.estadoPostulante;
 
     postulante.save((err, postulante_save) => {
-        console.log(postulante_save)
+      
         if (postulante_save) {
             res.status(200).send({ postulante: postulante_save });
         } else {
@@ -129,8 +129,9 @@ function eliminar(req, res) {
 }
 function listar(req, res) {
     var idprofesion = req.params['idprofesion'];
-    console.log(idprofesion)
-    Postulante.find().populate('idprofesion').exec((err, postulante_list) => {
+   
+    Postulante.find({}).populate('idprofesion').exec((err, postulante_list) => {
+        
         if (err) {
             res.status(500).send({ message: 'Error en el servidor' });
         } else {
@@ -142,17 +143,17 @@ function listar(req, res) {
         }
     });
 }
-function getPostulantesByState(req,res){
+function getPostulantesByState(req, res) {
     var estadoPostulante = req.params['estadoPostulante'];
-console.log(estadoPostulante)
-    Postulante.find({estadoPostulante: new RegExp(estadoPostulante,'i')}).exec((err,postulanteLista)=>{
-        if(err){
-            res.status(500).send({message: 'Error en el servidor'});
-        }else{
-            if(postulanteLista){
-                res.status(200).send({postulantes:postulanteLista});
-            }else{
-                res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+
+    Postulante.find({ estadoPostulante: new RegExp(estadoPostulante, 'i') }).exec((err, postulanteLista) => {
+        if (err) {
+            res.status(500).send({ message: 'Error en el servidor' });
+        } else {
+            if (postulanteLista) {
+                res.status(200).send({ postulantes: postulanteLista });
+            } else {
+                res.status(403).send({ message: 'No hay ningun registro con ese titulo' });
             }
         }
     });
@@ -162,5 +163,5 @@ module.exports = {
     editar,
     eliminar,
     listar,
-    get_postulante,getPostulantesByState
+    get_postulante, getPostulantesByState
 }

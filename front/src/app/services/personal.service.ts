@@ -22,6 +22,7 @@ export class PersonalService {
   }
 
   insert_personal(data):Observable<any>{
+
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'personal/registrar',data,{headers:headers});
   }

@@ -8,7 +8,7 @@ export class  Personal{
         public apellidoM :string,
         public ci:number,
         public cargo:string,
-        public profesion:string,
+        public idprofesion:string,
       
     ){
 

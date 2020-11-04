@@ -249,22 +249,11 @@
                                                 <option value="Otros">Otros</option>                             
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="profesion">Profesion</label>
-                                            <select class="form-control" name="profesion" [(ngModel)]="postulante.profesion"
-                                                required>
-                                                <option value="" disabled>Seleccionar</option>
-                                                <option value="Masculino">Administrador de Empresas</option>
-                                                <option value="Femenino">Ingenieria Financiera</option>
-                                                <option value="Masculino">Ingenieria de Sistemas</option>
-                                                <option value="Femenino">Ingenieria Comercial</option>
-                                                <option value="Masculino">Auditoria</option>
-                                                <option value="Femenino">Contaduria</option>
-                                                <option value="Masculino">Marketing</option>
-                                                <option value="Femenino">Disenador Grafico</option>
-                                                <option value="Masculino">Bachiller</option>
-                                                <option value="Femenino">Estudiante</option>
-                                               
+                                        <div class="form-group">
+                                            <label class="form-label">Profesiones</label>
+                                            <select class="form-control"  #idprofesion="ngModel" required name="idprofesion" [(ngModel)]="postulante.idprofesion">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of profesiones">{{item.nombre.toUpperCase()}}</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
@@ -272,27 +261,12 @@
                                             <select class="form-control"  name="estadoPostulante"
                                             [(ngModel)]="postulante.estadoPostulante" required>
                                                 <option value="" disabled>Seleccionar</option>
-                                                <option value="En proceso">En proceso</option>
-                                                <option value="Realizado">Realizado</option>
-                                                <option value="Sin servicio">Sin servicio</option>
+                                                <option value="Con empleo">Con empleo</option>
+                                                <option value="Disponible">Disponible</option>
+                                             
                                             </select>
                                         </div>
-                                        <!-- <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label><b>Profesion</b></label>
-                                                <input type="text" class="form-control" #profesion="ngModel" name="profesion"
-                                                    [(ngModel)]="postulante.profesion" placeholder="profesion "
-                                                    required>
-                                            </div>
-                                        </div> -->
-                                        <!-- <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label><b>Persona dependiente de </b></label>
-                                                <input type="number" class="form-control" #dni="ngModel" name="dni"
-                                                    [(ngModel)]="cliente.personaDependencia"
-                                                    placeholder="Numero del D.I" required>
-                                            </div>
-                                        </div> -->
+                                      
                                     </div>
                                 </div>
                                 <div class="card-footer">

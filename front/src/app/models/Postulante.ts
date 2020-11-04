@@ -16,7 +16,7 @@ export class Postulante{
         public estadoCivil:string,
         public viveCon: string,
         public personaDependencia:string,
-        public profesion:string,
+        public idprofesion:string,
         public estadoPostulante:String
     ){
 

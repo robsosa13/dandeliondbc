@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostulanteService } from 'src/app/services/postulante.service';
+import { PersonalService } from 'src/app/services/personal.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
 
@@ -11,9 +12,13 @@ import Swal from 'sweetalert2';
 export class ClienteIndexComponent implements OnInit {
 
   public postulantes;
+  public profesiones;
 
+  filterProTest='';
   constructor(
-    private _postulanteService: PostulanteService
+    private _postulanteService: PostulanteService,
+    private _personalService:
+    PersonalService
   ) { }
 
   ngOnInit() {
@@ -21,6 +26,16 @@ export class ClienteIndexComponent implements OnInit {
       response=>{
         this.postulantes = response.postulantes;
         console.log(this.postulantes);
+        
+      },
+      error=>{
+
+      }
+    )
+    this._personalService.get_profesiones().subscribe(
+      response=>{
+        this.profesiones = response.profesions;
+       
         
       },
       error=>{
