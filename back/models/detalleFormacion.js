@@ -3,10 +3,33 @@ var Schema = mongoose.Schema;
 
 var DetalleFormacionSchema = Schema({
     experiencia: {type:Schema.ObjectId, ref:'experiencia'},
-    primaria: String,
-    secundaria: String,
-    niveltecnicoUniversidad: String,
-    profesional: String,
-    
+    primaria: [
+        {
+            nombre:String,
+            fechaInicio:Date,
+            fechaFIn:Date
+        }
+    ],
+    secundaria: [
+        {
+            nombre:String,
+            fechaInicio:Date,
+            fechaFIn:Date
+        }
+    ],
+    niveltecnicoUniversidad: [
+        {
+            nombre:String,
+            fechaInicio:Date,
+            fechaFIn:Date
+        }
+    ],
+    profesional: [
+        {
+            nombre:String,
+            fechaInicio:Date,
+            fechaFIn:Date
+        }
+    ] 
 });
-module.exports = mongoose.model('detalleexperiencia',DetalleFormacionSchema);
+module.exports = mongoose.model('detalleFormacion',DetalleFormacionSchema);
