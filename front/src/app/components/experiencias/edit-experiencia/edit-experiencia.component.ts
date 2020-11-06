@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VentaService } from 'src/app/services/venta.service';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { ProductoService } from 'src/app/services/producto.service';
-
 import { GLOBAL } from 'src/app/services/GLOBAL';
 interface HtmlInputEvent extends Event{
   target : HTMLInputElement & EventTarget;
 } 
 @Component({
-  selector: 'app-venta-edit',
-  templateUrl: './venta-edit.component.html',
-  styleUrls: ['./venta-edit.component.css']
+  selector: 'app-edit-experiencia',
+  templateUrl: './edit-experiencia.component.html',
+  styleUrls: ['./edit-experiencia.component.css']
 })
-export class VentaEditComponent implements OnInit {
+export class EditExperienciaComponent implements OnInit {
+
 
   public productos;
  
@@ -35,7 +35,7 @@ export class VentaEditComponent implements OnInit {
   };
   constructor(
     private _route : ActivatedRoute,
-    private _experienciaDetailService : VentaService,
+    private _experienciaService : ExperienciaService,
     private _productoService:ProductoService
   ) { 
     this.url = GLOBAL.url;
@@ -53,7 +53,7 @@ export class VentaEditComponent implements OnInit {
     );
     this._route.params.subscribe(params=>{
       this.id = params['id'];
-      this._experienciaDetailService.get_detalleExperienciaById(this.id).subscribe(
+      this._experienciaService.get_detalleExperienciaById(this.id).subscribe(
         response=>{
           console.log(response.detalles)
           this.detailExperiencia = response.detalles[0];
@@ -84,7 +84,7 @@ export class VentaEditComponent implements OnInit {
       console.log('ok',detailExperienciaForm.value.idproducto)
       if(detailExperienciaForm.valid){
         console.log('ok',detailExperienciaForm)
-        this._experienciaDetailService.update_detalleExperiencia({
+        this._experienciaService.update_detalleExperiencia({
           _id: this.id,
           idproducto: detailExperienciaForm.value.idproducto,
           cantidad: detailExperienciaForm.value.cantidad,

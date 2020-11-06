@@ -13,16 +13,13 @@ import { ProductoIndexComponent } from './components/productos/producto-index/pr
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductoCreateComponent } from './components/productos/producto-create/producto-create.component';
 import { ProductoEditComponent } from './components/productos/producto-edit/producto-edit.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ClienteIndexComponent } from './components/clientes/cliente-index/cliente-index.component';
 import { ClienteCreateComponent } from './components/clientes/cliente-create/cliente-create.component';
 import { ClienteEditComponent } from './components/clientes/cliente-edit/cliente-edit.component';
 import { UserIndexComponent } from './components/users/user-index/user-index.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
-import { VentaIndexComponent } from './components/ventas/venta-index/venta-index.component';
-import { VentaCreateComponent } from './components/ventas/venta-create/venta-create.component';
-import { VentaDetalleComponent } from './components/ventas/venta-detalle/venta-detalle.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ActivoCreateComponent } from './components/activos/activo-create/activo-create.component';
 import { ActivoEditComponent } from './components/activos/activo-edit/activo-edit.component';
@@ -35,15 +32,17 @@ import { PersonalIndexComponent } from './components/personal/personal-index/per
 import { PersonalEditComponent } from './components/personal/personal-edit/personal-edit.component';
 import { PersonalDetailComponent } from './components/personal/personal-detail/personal-detail.component';
 import { EmpresaCreateComponent } from './components/empresas/empresa-create/empresa-create.component';
-// import { EmpresaEditComponent } from './components/empresas/empresa-edit/empresa-edit.component';
-import{ EmpresaIndexComponent} from './components/empresas/empresa-index/empresa-index.component';
+import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
 import { EmpresaDetailComponent } from './components/empresas/empresa-detail/empresa-detail.component';
-import { VentaEditComponent } from './components/ventas/venta-edit/venta-edit.component';
-import { ExpeAddComponent } from './components/ventas/expe-add/expe-add.component';
 import { EditEmpresaComponent } from './components/empresas/edit-empresa/edit-empresa.component';
-import { FilterProPipe } from './pipes/filter-pro.pipe'
-//import { EmpresaIndexComponent } from './components/empresas/empresa-index/empresa-index.component';
-
+import { FilterProPipe } from './pipes/filter-pro.pipe';
+import { DetailExperienciaComponent } from './components/experiencias/detail-experiencia/detail-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencias/edit-experiencia/edit-experiencia.component';
+import { IndexExperienciaComponent } from './components/experiencias/index-experiencia/index-experiencia.component';
+import { ExperienciaCreateComponent } from './components/experiencias/experiencia-create/experiencia-create.component';
+import { AddExperienciaComponent } from './components/experiencias/add-experiencia/add-experiencia.component';
+import { PostulanteCreateComponent } from './components/postulantes/postulante-create/postulante-create.component';
+import { PostulanteIndexComponent } from './components/postulantes/postulante-index/postulante-index.component'
 
 @NgModule({
   declarations: [
@@ -60,9 +59,6 @@ import { FilterProPipe } from './pipes/filter-pro.pipe'
     UserIndexComponent,
     UserCreateComponent,
     UserEditComponent,
-    VentaIndexComponent,
-    VentaCreateComponent,
-    VentaDetalleComponent,
     FilterPipe,
     ActivoCreateComponent,
     ActivoEditComponent,
@@ -74,16 +70,18 @@ import { FilterProPipe } from './pipes/filter-pro.pipe'
     PersonalIndexComponent,
     PersonalEditComponent,
     PersonalDetailComponent,
-     EmpresaCreateComponent,
-    // EmpresaEditComponent,
-   EmpresaIndexComponent,
+    EmpresaCreateComponent,
+    EmpresaIndexComponent,
     EmpresaDetailComponent,
-    VentaEditComponent,
-    ExpeAddComponent,
     EditEmpresaComponent,
-    FilterProPipe
-
-
+    FilterProPipe,
+    DetailExperienciaComponent,
+    EditExperienciaComponent,
+    IndexExperienciaComponent,
+    ExperienciaCreateComponent,
+    AddExperienciaComponent,
+    PostulanteCreateComponent,
+    PostulanteIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +90,6 @@ import { FilterProPipe } from './pipes/filter-pro.pipe'
     FormsModule,
     routing,
     NgxPaginationModule
-  //  EmpresaIndexComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { VentaService } from 'src/app/services/venta.service';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
-  selector: 'app-venta-index',
-  templateUrl: './venta-index.component.html',
-  styleUrls: ['./venta-index.component.css']
+  selector: 'app-index-experiencia',
+  templateUrl: './index-experiencia.component.html',
+  styleUrls: ['./index-experiencia.component.css']
 })
-export class VentaIndexComponent implements OnInit {
+export class IndexExperienciaComponent implements OnInit {
 
   public identity;
   public experiencias;
   filterpost='';
   constructor(
     private _userService : UserService,
-    private _ventaService : VentaService,
+    private _experienciaService : ExperienciaService,
     private _router : Router,
   ) { 
     this.identity = this._userService.getIdentity();
@@ -24,10 +24,10 @@ export class VentaIndexComponent implements OnInit {
   ngOnInit() {
     if(this.identity){
       //USUARIO AUTENTICADO
-      this._ventaService.get_ventas().subscribe(
+      this._experienciaService.get_ventas().subscribe(
         response=>{
           this.experiencias = response.experiencias;
-          console.log(this.experiencias);
+          //console.log(this.experiencias);
           
         },
         error=>{
@@ -40,7 +40,7 @@ export class VentaIndexComponent implements OnInit {
   }
   search(searchFormExpe){
     console.log(searchFormExpe.value.filtroExpe)
-    this._ventaService.get_ExperienciaSearch(searchFormExpe.value.filtroExpe).subscribe(
+    this._experienciaService.get_ExperienciaSearch(searchFormExpe.value.filtroExpe).subscribe(
       response =>{
         this.experiencias = response.experiencias;
       },

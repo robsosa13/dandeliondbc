@@ -1,0 +1,288 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Postulantes
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/clientes']">Postulantes</a></li>
+                            <li class="breadcrumb-item"><a>Registrar postulante</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 col-xl-12">
+                        <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Listado de postulantes</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nombres</b></label>
+                                                <input type="text" class="form-control" #nombres="ngModel"
+                                                    name="nombres" [(ngModel)]="postulante.nombres"
+                                                    placeholder="Nombres completos" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Apellido Paterno</b></label>
+                                                <input type="text" class="form-control" #apellidoPaterno="ngModel"
+                                                    name="apellidoPaterno" [(ngModel)]="postulante.apellidoPaterno"
+                                                    placeholder="Apellido Paterno" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Apellido Materno </b></label>
+                                                <input type="text" class="form-control" #apellidoMaterno="ngModel"
+                                                    name="apellidoMaterno" [(ngModel)]="postulante.apellidoMaterno"
+                                                    placeholder="Apellido Materno" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Edad</b></label>
+                                                <input type="number" class="form-control" #edad="ngModel" name="edad"
+                                                    [(ngModel)]="postulante.edad" placeholder="Edad " required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Domicilio</b></label>
+                                                <input type="text" class="form-control" #domicilio="ngModel"
+                                                    name="domicilio" [(ngModel)]="postulante.domicilio"
+                                                    placeholder="Domicilio" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="sexo">Sexo</label>
+                                            <select class="form-control" name="sexo" [(ngModel)]="postulante.sexo"
+                                                required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino">Femenino</option>
+
+
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Sexo</b></label>
+                                                <input type="number" class="form-control" #dni="ngModel" name="dni" [(ngModel)]="cliente.sexo" placeholder="Numero del D.I" required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="ciudad">Ciudad de residencia</label>
+                                            <select class="form-control" name="ciudad" [(ngModel)]="postulante.ciudad"
+                                                required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Cochabamba">Cochabamba</option>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="Santa Cruz">Santa Cruz</option>
+                                                <option value="Tarija">Tarija</option>
+                                                <option value="Beni">Beni</option>
+                                                <option value="Pando">Pando</option>
+                                                <option value="Chuquisaca">Chuquisaca</option>
+                                                <option value="Potosí">Potosí</option>
+                                                <option value="Oruro">Oruro</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Ciudad</b></label>
+                                                <input type="text" class="form-control" #nombres="ngModel" name="nombres" [(ngModel)]="cliente.ciudad" placeholder="Nombres completos" required>
+                                            </div>
+                                       </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="lugarNacimiento"> Lugar de Nacimiento </label>
+                                            <select class="form-control" name="lugarNacimiento"
+                                                [(ngModel)]="postulante.lugarNacimiento" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Cochabamba">Cochabamba</option>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="Santa Cruz">Santa Cruz</option>
+                                                <option value="Tarija">Tarija</option>
+                                                <option value="Beni">Beni</option>
+                                                <option value="Pando">Pando</option>
+                                                <option value="Chuquisaca">Chuquisaca</option>
+                                                <option value="Potosí">Potosí</option>
+                                                <option value="Oruro">Oruro</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Lugar de Nacimiento</b></label>
+                                                <input type="email" class="form-control" #correo="ngModel" name="correo" [(ngModel)]="cliente.lugarNacimiento" placeholder="Correo Electrónico" required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                                            <input type="date" class=" form-control" name="FechaNacimiento" [(ngModel)]="postulante.FechaNacimiento"
+                                            placeholder="yyyy-MM-dd"  required />
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Fecha de nacimiento</b></label>
+                                                <input type="number" class="form-control" #dni="ngModel" name="dni"
+                                                    [(ngModel)]="cliente.FechaNacimiento" placeholder="Numero del D.I"
+                                                    required>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Nacionalidad</b></label>
+                                                <input type="text" class="form-control" #naionalidad="ngModel" name="naionalidad"
+                                                    [(ngModel)]="postulante.naionalidad" placeholder="Nacionalidad "
+                                                    required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="naionalidad"> Nacionalidad </label>
+                                            <select class="form-control" name="naionalidad"
+                                                [(ngModel)]="postulante.naionalidad" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="argentina">argentina</option>
+                                                <option value="alemana">alemana</option>
+                                                <option value="boliviana">boliviana</option>
+                                                <option value="belga">belga</option>
+                                                <option value="brasileña">brasileña</option>
+                                                <option value="camboyana">camboyana</option>
+                                                <option value="canadiense">canadiense</option>
+                                                <option value="chilena">chilena</option>
+                                                <option value="china">china</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Cedula de identidad</b></label>
+                                                <input type="number" class="form-control" #ci="ngModel" name="ci"
+                                                    [(ngModel)]="postulante.ci" placeholder="Numero cedula de identidad" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="expedido"> Expedido </label>
+                                            <select class="form-control" name="expedido"
+                                                [(ngModel)]="postulante.expedido" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="CB">CB</option>
+                                                <option value="LP">LP</option>
+                                                <option value="SC">SC</option>
+                                                <option value="TR">TR</option>
+                                                <option value="BN">BN</option>
+                                                <option value="PN">PN</option>
+                                                <option value="CH">CH</option>
+                                                <option value="PT">PT</option>
+                                                <option value="OR">OR</option>
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Expdido</b></label>
+                                                <input type="email" class="form-control" #correo="ngModel" name="correo"
+                                                    [(ngModel)]="cliente.expedido" placeholder="Correo Electrónico"
+                                                    required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="estadoCivil"> Estado Civil </label>
+                                            <select class="form-control" name="estadoCivil"
+                                                [(ngModel)]="postulante.estadoCivil" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Soltero">Soltero</option>
+                                                <option value="Casado">Casado</option>
+                                                <option value="Divorciado">Divorciado</option>
+                                                <option value="Concubino">Concubino</option>
+                                                <option value="Viudo">Viudo</option>                                            
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Estado civil </b></label>
+                                                <input type="number" class="form-control" #dni="ngModel" name="dni"
+                                                    [(ngModel)]="cliente.estadoCivil" placeholder="Numero del D.I"
+                                                    required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="viveCon"> Vive Con </label>
+                                            <select class="form-control" name="viveCon"
+                                                [(ngModel)]="postulante.viveCon" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Sus Padres">Sus Padres</option>
+                                                <option value="Su familia">Su familia</option>
+                                                <option value="Parientes">Parientes</option>
+                                                <option value="Solo">Solo</option>                             
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label><b>Vive con </b></label>
+                                                <input type="number" class="form-control" #dni="ngModel" name="dni"
+                                                    [(ngModel)]="cliente.viveCon" placeholder="Numero del D.I" required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-4">
+                                            <label for="personaDependencia"> Personas que dependen de usted </label>
+                                            <select class="form-control" name="personaDependencia"
+                                                [(ngModel)]="postulante.personaDependencia" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Hijos">Hijos</option>
+                                                <option value="Conyugue">Conyugue</option>
+                                                <option value="Padres">Padres</option>
+                                                <option value="Otros">Otros</option>                             
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Profesiones</label>
+                                            <select class="form-control"  #idprofesion="ngModel" required name="idprofesion" [(ngModel)]="postulante.idprofesion">
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item._id}}" *ngFor="let item of profesiones">{{item.nombre.toUpperCase()}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="estadoPostulante">Estado de seguimiento </label>
+                                            <select class="form-control"  name="estadoPostulante"
+                                            [(ngModel)]="postulante.estadoPostulante" required>
+                                                <option value="" disabled>Seleccionar</option>
+                                                <option value="Con empleo">Con empleo</option>
+                                                <option value="Disponible">Disponible</option>
+                                             
+                                            </select>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success" type="submit">Registrar Postulante</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </main>
+
+    </div>
+</div>

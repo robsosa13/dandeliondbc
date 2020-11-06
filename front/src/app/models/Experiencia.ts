@@ -1,4 +1,4 @@
-export class Venta{
+export class Experiencia{
     constructor(
         public _id:string,
         public idpostulante:string,

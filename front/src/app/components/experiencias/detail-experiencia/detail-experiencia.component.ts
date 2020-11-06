@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { VentaService } from 'src/app/services/venta.service';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-venta-detalle',
-  templateUrl: './venta-detalle.component.html',
-  styleUrls: ['./venta-detalle.component.css']
+  selector: 'app-detail-experiencia',
+  templateUrl: './detail-experiencia.component.html',
+  styleUrls: ['./detail-experiencia.component.css']
 })
-export class VentaDetalleComponent implements OnInit {
+export class DetailExperienciaComponent implements OnInit {
+
 
   public id;
   public venta : any = {
@@ -20,7 +21,7 @@ export class VentaDetalleComponent implements OnInit {
 
   constructor(
     private _route : ActivatedRoute,
-    private _ventaService : VentaService,
+    private _experienciaService : ExperienciaService,
     private _userService : UserService,
     private _router : Router
   ) {
@@ -32,7 +33,7 @@ export class VentaDetalleComponent implements OnInit {
       this._route.params.subscribe(params=>{
         console.log('ok')
         this.id = params['id'];
-        this._ventaService.data_venta(this.id).subscribe(
+        this._experienciaService.data_venta(this.id).subscribe(
           response=>{
             console.log('1', response.data.experiencia)
             console.log('2exp',response.data.detalles)
@@ -48,5 +49,4 @@ export class VentaDetalleComponent implements OnInit {
     }
 
   }
-
 }

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { PostulanteService } from 'src/app/services/postulante.service';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { DetalleVenta } from "../../../models/DetalleVenta";
-import { Venta } from "../../../models/Venta";
-import { VentaService } from 'src/app/services/venta.service';
+import { DetalleExperiencia } from "../../../models/DetalleExperiencia";
+import { Experiencia } from "../../../models/Experiencia";
+import { UserService } from 'src/app/services/user.service';
+import { PostulanteService } from 'src/app/services/postulante.service';
 
 @Component({
-  selector: 'app-venta-create',
-  templateUrl: './venta-create.component.html',
-  styleUrls: ['./venta-create.component.css']
+  selector: 'app-experiencia-create',
+  templateUrl: './experiencia-create.component.html',
+  styleUrls: ['./experiencia-create.component.css']
 })
-export class VentaCreateComponent implements OnInit {
+export class ExperienciaCreateComponent implements OnInit {
 
   public identity;
   public postulantes : any;
@@ -37,7 +37,7 @@ export class VentaCreateComponent implements OnInit {
     private _postulanteService:PostulanteService,
     private _productoService : ProductoService,
     private _router:Router,
-    private _ventaService : VentaService,
+    private _experienciaService : ExperienciaService,
   ) { 
     this.identity = this._userService.getIdentity();
   }
@@ -108,7 +108,7 @@ export class VentaCreateComponent implements OnInit {
             
           });
   
-          this.detalle = new DetalleVenta('','',null,'','','','','','','','','','');
+          this.detalle = new DetalleExperiencia('','',null,'','','','','','','','','','');
           this.producto.stock = '--|--',
           
 
@@ -137,9 +137,9 @@ export class VentaCreateComponent implements OnInit {
           detalles: this.data_detalle
         }
 
-        this._ventaService.save_data(data).subscribe(
+        this._experienciaService.save_data(data).subscribe(
           response =>{
-            this._router.navigate(['ventas']);
+            this._router.navigate(['experiencias']);
           },
           error=>{
             console.log(error);
@@ -155,4 +155,5 @@ export class VentaCreateComponent implements OnInit {
       
     }
   }
+
 }

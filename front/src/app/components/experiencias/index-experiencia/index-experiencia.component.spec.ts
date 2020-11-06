@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpeAddComponent } from './expe-add.component';
+import { IndexExperienciaComponent } from './index-experiencia.component';
 
-describe('ExpeAddComponent', () => {
-  let component: ExpeAddComponent;
-  let fixture: ComponentFixture<ExpeAddComponent>;
+describe('IndexExperienciaComponent', () => {
+  let component: IndexExperienciaComponent;
+  let fixture: ComponentFixture<IndexExperienciaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpeAddComponent ]
+      declarations: [ IndexExperienciaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExpeAddComponent);
+    fixture = TestBed.createComponent(IndexExperienciaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -21,7 +21,7 @@
                     </nav>
                 </div>
                 <div class="row">
-                    <!-- <div class="col-12 col-xl-12 form-group">
+                    <div class="col-12 col-xl-12 form-group">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">Datos personales postulante</h5>
@@ -32,7 +32,7 @@
                                         <div class="col-lg-4 form-group">
                                             <label><b>Trabajador</b></label>
                                             <input type="text" class="form-control" readonly
-                                                value="{{identity.nombres}} {{identity.apellidos}}">
+                                                 value="{{identity.nombres}} {{identity.apellidos}}">
                                         </div>
                                         <div class="col-lg-4 form-group">
                                             <label><b>Seleccione postulante</b></label>
@@ -56,7 +56,8 @@
                                 </form>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+
                     <div class="col-12 col-lg-12" *ngIf="error_message">
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             <div class="alert-message">
@@ -69,6 +70,7 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="col-12 col-xl-12 form-group">
                         <div class="card">
                             <div class="card-header">
@@ -77,62 +79,22 @@
                             <div class="card-body">
                                 <form #detalleForm="ngForm" (ngSubmit)="save_detalle(detalleForm)">
                                     <div class="row">
-                                        <div class="col-lg-4 form-group">
-                                            <label for=""><b>Opcional</b></label>
-                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
-                                                [(ngModel)]="detalle.idproducto"
-                                                (change)="get_data_producto($event.target.value)">
-                                                <option value="" disabled>SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of productos">
-                                                    {{item.titulo}}</option>
-                                            </select>
-                                            <!-- <input type="text" readonly  class="form-control" value="{{producto.stock}}" > -->
-                                        </div>
-                                        <!-- <div class="col-lg-4 form-group" >
-                                            <label for=""><b>Espec</b></label>
-                                            <select class="form-control" #idproducto="ngModel" name="idproducto"
-                                                [(ngModel)]="detalle.idproducto"
-                                                (change)="get_data_producto($event.target.value)">
-                                                <option value="" disabled>SELECCIONAR</option>
-                                                <option value="{{item._id}}" *ngFor="let item of productos">
-                                                    {{item.titulo}}</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="col-lg-3 form-group">
-                                            <label for=""><b>Opcional</b></label>
-                                            <input type="text" readonly class="form-control" value="{{producto.stock}}">
-                                        </div>
-                                        <div class="col-lg-3 form-group">
-                                            <label for=""><b>Opcional</b></label>
-                                            <input type="text" #cantidad="ngModel" name="cantidad"
-                                                [(ngModel)]="detalle.cantidad" class="form-control">
-                                        </div>
-                                        <div class="col-lg-3 form-group">
+                                       
+                                        <div class="col-lg-3 form-group" >
                                             <label for=""><b>Nombre Empresa</b></label>
                                             <input type="text" #nombreEmpresa="ngModel" name="nombreEmpresa"
                                                 [(ngModel)]="detalle.nombreEmpresa" class="form-control">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="tiempoServicioDesde"><b>Tiempo servicio Desde</b></label>
-                                            <input type="date" class=" form-control" name="tiempoServicioDesde"
-                                                [(ngModel)]="detalle.tiempoServicioDesde" placeholder="yyyy-MM-dd"
-                                                required />
+                                            <input type="date" class=" form-control" name="tiempoServicioDesde" [(ngModel)]="detalle.tiempoServicioDesde"
+                                            placeholder="yyyy-MM-dd"  required />
                                         </div>
-                                        <!-- <div class="col-lg-3 form-group">
-                                            <label for=""><b>Tiempo servicio Desde</b></label>
-                                            <input type="text" #tiempoServicioDesde="ngModel" name="tiempoServicioDesde"
-                                                [(ngModel)]="detalle.tiempoServicioDesde" class="form-control">
-                                        </div> -->
-                                        <!-- <div class="col-lg-3 form-group">
-                                            <label for=""><b>Tiempo servicio Hasta</b></label>
-                                            <input type="text" #tiempoServicioHasta="ngModel" name="tiempoServicioHasta"
-                                                [(ngModel)]="detalle.tiempoServicioHasta" class="form-control">
-                                        </div> -->
+                                 
                                         <div class="form-group col-md-4">
                                             <label for="tiempoServicioHasta"><b>Tiempo servicio Hasta</b></label>
-                                            <input type="date" class=" form-control" name="tiempoServicioHasta"
-                                                [(ngModel)]="detalle.tiempoServicioHasta" placeholder="yyyy-MM-dd"
-                                                required />
+                                            <input type="date" class=" form-control" name="tiempoServicioHasta" [(ngModel)]="detalle.tiempoServicioHasta"
+                                            placeholder="yyyy-MM-dd"  required />
                                         </div>
                                         <div class="col-lg-3 form-group">
                                             <label for=""><b>Direccion</b></label>
@@ -176,14 +138,12 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="solicitarInfo">Solicitar Informacion a la empresa</label>
-                                            <select class="form-control" name="solicitarInfo"
-                                                [(ngModel)]="detalle.solicitarInfo" required>
+                                            <select class="form-control" name="solicitarInfo" [(ngModel)]="detalle.solicitarInfo" required>
                                                 <option value="" disabled>Seleccionar</option>
                                                 <option value="Si">Si</option>
                                                 <option value="No">No</option>
                                             </select>
                                         </div>
-
                                         <!-- <div class="col-lg-3 form-group">
                                             <label for=""><b>Solicitar Informacion a la empresa</b></label>
                                             <input type="text" #solicitarInfo="ngModel" name="solicitarInfo"
@@ -199,6 +159,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
@@ -238,13 +199,6 @@
                             <div class="card-footer">
 
                             </div>
-                            <form #ventaForm="ngForm" (ngSubmit)="onSubmit(ventaForm)">
-                                <div class="row">
-                                    <div class="col-lg-2 form-group">
-                                        <button type="submit" class="btn btn-primary">Registrar a Bdd</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
