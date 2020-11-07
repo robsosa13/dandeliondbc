@@ -2,7 +2,6 @@ var Experiencia = require('../models/experiencia');
 var DetalleExperiencia = require('../models/detalleExperiencia');
 var Producto = require('../models/producto');
 
-
 function registrar(req, res) {
     let data = req.body;
     var experiencia = new Experiencia();
@@ -94,23 +93,18 @@ function adicionar_experiencia(req,res){
                 });
             });
 }
-function datos_venta(req, res) {
+function datos_experiencia(req, res) {
     var id = req.params['id'];
-
     Experiencia.findById(id).populate('idpostulante').populate('iduser').exec((err, data_venta) => {
         if (data_venta) {
             DetalleExperiencia.find({ experiencia: data_venta._id }).populate('idproducto').exec({ idexperiencia: id }, (err, data_detalle) => {
-
                 if (data_detalle) {
                     res.status(200).send(
                         {
                             data: {
-                                experiencia: data_venta,
-                                detalles: data_detalle,
-
-
-                            }
-
+                                    experiencia: data_venta,
+                                    detalles: data_detalle,
+                                 }
                         }
                     );
                 }
@@ -118,8 +112,7 @@ function datos_venta(req, res) {
         }
     });
 }
-
-function listado_venta(req, res) {
+function listado_experiencia(req, res) {
     Experiencia.find().populate('idpostulante').populate('iduser').exec((err, data_ventas) => {
 
         if (data_ventas) {
@@ -189,8 +182,7 @@ function editarExperiencia(req, res) {
         }
     });
 }
-
-function detalles_venta(req, res) {
+function detalles_experiencia(req, res) {
     var id = req.params['id'];
 
     DetalleExperiencia.find({ _id: id }).populate('idproducto').exec((err, data_detalles) => {
@@ -201,11 +193,23 @@ function detalles_venta(req, res) {
         }
     });
 }
-
 function listar(req,res){
     var profesion = req.params['profesion'];
-
     DetalleExperiencia.find({idpostulante: new RegExp(profesion,'i')}).populate('idcategoria').exec((err,productos_listado)=>{
+        if(err){
+            res.status(500).send({message: 'Error en el servidor'});
+        }else{
+            if(productos_listado){
+                res.status(200).send({productos:productos_listado});
+            }else{
+                res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+            }
+        }
+    });
+}
+function searchByCargo(req,res){
+    var puestoDesempenado = req.params['puestoDesempenado'];
+    DetalleExperiencia.find({puestoDesempenado:puestoDesempenado}).populate('idcategoria').exec((err,productos_listado)=>{
         if(err){
             res.status(500).send({message: 'Error en el servidor'});
         }else{
@@ -220,9 +224,9 @@ function listar(req,res){
 
 module.exports = {
     registrar,
-    datos_venta,
-    listado_venta,
-    detalles_venta,
+    datos_experiencia,
+    listado_experiencia,
+    detalles_experiencia,
     editarExperiencia, 
     editarDetalleExperiencia,
     adicionar_experiencia,listar
