@@ -1,6 +1,7 @@
 var Experiencia = require('../models/experiencia');
 var DetalleExperiencia = require('../models/detalleExperiencia');
 var Producto = require('../models/producto');
+var ExperienciaCargo = require('../models/experienciaCargo');
 
 function registrar(req, res) {
     let data = req.body;
@@ -8,15 +9,15 @@ function registrar(req, res) {
     experiencia.idpostulante = data.idpostulante;
     experiencia.iduser = data.iduser;
 
-    experiencia.save((err, venta_save) => {
-        if (venta_save) {
+    experiencia.save((err, experiencia_save) => {
+        if (experiencia_save) {
             let detalles = data.detalles;
  
             detalles.forEach((element, index) => {
                 var detalleExperiencia = new DetalleExperiencia();
                 detalleExperiencia.idproducto = null;
                 detalleExperiencia.cantidad = 0;
-                detalleExperiencia.experiencia = venta_save._id;
+                detalleExperiencia.experiencia = experiencia_save._id;
                 detalleExperiencia.nombreEmpresa = element.nombreEmpresa;
                 detalleExperiencia.tiempoServicioDesde = element.tiempoServicioDesde;
                 detalleExperiencia.tiempoServicioHasta = element.tiempoServicioHasta;
@@ -30,7 +31,19 @@ function registrar(req, res) {
                 detalleExperiencia.puestoJefe = element.puestoJefe;
                 detalleExperiencia.solicitarInfo = element.solicitarInfo;
                 detalleExperiencia.save((err, detalle_save) => {
+
                     if (detalle_save) {
+                        ExperienciaCargo.find({cargo:detalle_save.puestoDesempenado},{idpostulante: experiencia.idpostulante },(err,detalle_expe)=>{
+                            if(detalle_expe){
+                                console.log('sd')
+
+                            }
+                            else{
+                                //var experienciaCargo = new ExperienciaCargo('','','','','')
+                                console.log(err)
+                                //res.send(err);
+                            }
+                        })
                         res.end();
                         // Producto.findById({ _id: element.idproducto }, (err, producto_data) => {
                         //     if (producto_data) {

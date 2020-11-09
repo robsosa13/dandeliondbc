@@ -11,4 +11,4 @@ api.put('/experiencia/edit/:id',experienciaController.editarExperiencia);
 api.put('/experiencia/detail-edit/:id',experienciaController.editarDetalleExperiencia);//update detail expe
 api.post('/experiencia/adicionar',experienciaController.adicionar_experiencia);
 api.get('/experiencias/:profesion?',experienciaController.listar);
-module.exports = api; 
+module.exports = api;

@@ -71,18 +71,10 @@
 </style>
 <div class="wrapper">
     <app-sidebar style="background: white !important;"></app-sidebar>
-
     <div class="main">
-        <nav class="navbar navbar-expand navbar-theme">
-            <a class="sidebar-toggle d-flex mr-2">
-                <i class="hamburger align-self-center"></i>
-            </a>
-        </nav>
-        <main class="content">
+    <main class="content">
             <div class="container-fluid">
-
                 <div class="header">
-
                     <h1 class="header-title">
                         Postulantes
                     </h1>
@@ -93,7 +85,7 @@
                         </ol>
                     </nav>
                 </div>
-                <div class="row">z
+                <div class="row">
 
                     <div class="col-12 col-xl-12">
                         <div class="card">
@@ -114,13 +106,13 @@
                                         </div>
                                     </form>
                                 </div> -->
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col">
                                         <input type="text" name="filterProTest" class="form-control" [(ngModel)]="filterProTest">
 
                                     </div>
 
-                                </div>
+                                </div> -->
                                 <div class="col-lg-6">
                                     <h5 class="card-title">Opciones de Postulante</h5>
                                     <div class="btn-group">
@@ -181,7 +173,7 @@
                                 </thead>
 
                                 <tbody
-                                    *ngFor="let item of postulantes  |filterPro:filterProTest | paginate: { itemsPerPage: 15, currentPage: p }">
+                                    *ngFor="let item of postulantes   | paginate: { itemsPerPage: 15, currentPage: p }">
                                     <td>{{item.nombres}} </td>
                                     <td>{{item.apellidoPaterno}}</td>
                                     <td><span [ngClass]="{

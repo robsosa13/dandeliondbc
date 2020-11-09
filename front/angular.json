@@ -90,10 +90,12 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+            "styles": [ 
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/mainnjs.js"
+            ]
           }
         },
         "lint": {
