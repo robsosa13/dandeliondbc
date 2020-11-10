@@ -1,15 +1,83 @@
+<div class="wrapper">
+  <nav id="sidebar" class="sidebar">
+      <a class="sidebar-brand" href="index.html">
+    <svg>
+      <use xlink:href="#ion-ios-pulse-strong"></use>
+    </svg>
+  Sistema Web
+  </a>
+      <div class="sidebar-content">
+          <div class="sidebar-user">
+              <img src="../../../assets/img/logo.png" class="img-fluid rounded-circle mb-2" alt="Linda Miller" />
+              <div class="font-weight-bold">Dandelion Business Clinic</div>
+              <small>DBC</small>
+          </div>
 
-<div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-  </div>
-  
-  <div id="main">
-    <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
-    <h2>Collapsed Sidebar</h2>
-    <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
-  </div>
-  
+          <ul class="sidebar-nav">
+              <li class="sidebar-header">
+                  Menu
+              </li>
+              <li class="sidebar-item">
+                  <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Opciones</span>
+        </a>
+                  <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                      <li class="sidebar-item"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
+                      <li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
+                      <li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
+                  </ul>
+              </li>
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/personals']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personal - DBC</span>
+                  </a>
+              </li>
+
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/activos']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos - DBC</span>
+                  </a>
+              </li>
+            
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/asignaciones']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos - Asignacion</span>
+                  </a>
+              </li>
+
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/postulantes']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Postulantes</span>
+                  </a>
+              </li>
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/experiencias']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Postulantes - Experiencia </span>
+                  </a>
+              </li>
+              <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/empresas']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Empresas</span>
+                  </a>
+              </li>
+              <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/usuarios']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Usuarios</span>
+                  </a>
+              </li>
+            
+              <!-- <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                  <a class="sidebar-link" [routerLink]="['/ventas']"  >
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personas Datos</span>
+                  </a>
+              </li> -->
+
+              <li class="sidebar-item">
+                  <a class="sidebar-link" (click)="logout()">
+                      <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Cerrar Sesión</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</div>

@@ -40,7 +40,7 @@ function registrar(req, res) {
                             }
                             else{
                                 //var experienciaCargo = new ExperienciaCargo('','','','','')
-                                console.log(err)
+                                 console.log('sd')
                                 //res.send(err);
                             }
                         })
@@ -112,6 +112,8 @@ function datos_experiencia(req, res) {
         if (data_venta) {
             DetalleExperiencia.find({ experiencia: data_venta._id }).populate('idproducto').exec({ idexperiencia: id }, (err, data_detalle) => {
                 if (data_detalle) {
+                    console.log(data_venta)
+                    
                     res.status(200).send(
                         {
                             data: {
@@ -126,7 +128,7 @@ function datos_experiencia(req, res) {
     });
 }
 function listado_experiencia(req, res) {
-    Experiencia.find().populate('idpostulante').populate('iduser').exec((err, data_ventas) => {
+    Experiencia.find().populate('idpostulante').populate('idprofesion').populate('iduser').exec((err, data_ventas) => {
 
         if (data_ventas) {
             res.status(200).send({ experiencias: data_ventas });
