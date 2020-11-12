@@ -14,9 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductoCreateComponent } from './components/productos/producto-create/producto-create.component';
 import { ProductoEditComponent } from './components/productos/producto-edit/producto-edit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ClienteIndexComponent } from './components/clientes/cliente-index/cliente-index.component';
-import { ClienteCreateComponent } from './components/clientes/cliente-create/cliente-create.component';
-import { ClienteEditComponent } from './components/clientes/cliente-edit/cliente-edit.component';
+
 import { UserIndexComponent } from './components/users/user-index/user-index.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
@@ -42,7 +40,12 @@ import { IndexExperienciaComponent } from './components/experiencias/index-exper
 import { ExperienciaCreateComponent } from './components/experiencias/experiencia-create/experiencia-create.component';
 import { AddExperienciaComponent } from './components/experiencias/add-experiencia/add-experiencia.component';
 import { PostulanteCreateComponent } from './components/postulantes/postulante-create/postulante-create.component';
-import { PostulanteIndexComponent } from './components/postulantes/postulante-index/postulante-index.component'
+import { PostulanteIndexComponent } from './components/postulantes/postulante-index/postulante-index.component';
+import { CreateClienteComponent } from './components/clientes/create-cliente/create-cliente.component';
+import { ClienteIndexComponent } from './components/clientes/cliente-index/cliente-index.component';
+import { ProveedorIndexComponent } from './components/proveedores/proveedor-index/proveedor-index.component';
+import { ProveedorCreateComponent } from './components/proveedores/proveedor-create/proveedor-create.component';
+import { IndexComponent } from './components/index/index/index.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +56,6 @@ import { PostulanteIndexComponent } from './components/postulantes/postulante-in
     SidebarComponent,
     ProductoCreateComponent,
     ProductoEditComponent,
-    ClienteIndexComponent,
-    ClienteCreateComponent,
-    ClienteEditComponent,
     UserIndexComponent,
     UserCreateComponent,
     UserEditComponent,
@@ -81,7 +81,16 @@ import { PostulanteIndexComponent } from './components/postulantes/postulante-in
     ExperienciaCreateComponent,
     AddExperienciaComponent,
     PostulanteCreateComponent,
-    PostulanteIndexComponent
+    PostulanteIndexComponent,
+    CreateClienteComponent,
+  
+    ClienteIndexComponent,
+  
+    ProveedorIndexComponent,
+  
+    ProveedorCreateComponent,
+  
+    IndexComponent
   ],
   imports: [
     BrowserModule,

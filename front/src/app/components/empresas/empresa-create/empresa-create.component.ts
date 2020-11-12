@@ -24,7 +24,6 @@ export class EmpresaCreateComponent implements OnInit {
       response => {
         this.empresas = response.empresas;
         this.count =parseInt(this.empresas.length)+1;
-        //console.log(this.empresas);
       },
       error => {
       }

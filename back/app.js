@@ -14,6 +14,8 @@ var activo_routes = require('./routes/activo');
 var personal_routes = require('./routes/personal');
 var asignacion_routes = require('./routes/asignacion');
 var profesion_routes = require('./routes/profesion');
+var cliente_routes = require('./routes/cliente');
+var proveedor_routes = require('./routes/proveedor');
 
  
 var app = express();
@@ -53,6 +55,8 @@ app.use('/api',postulante_routes);
 app.use('/api',personal_routes);
 app.use('/api',asignacion_routes);
 app.use('/api',profesion_routes);
+app.use('/api',proveedor_routes);
+app.use('/api',cliente_routes);
 
 
 

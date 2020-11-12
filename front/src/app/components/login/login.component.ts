@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.identity){
-      this._router.navigate(['postulantes']);
+      this._router.navigate(['about']);
     }
   }
 

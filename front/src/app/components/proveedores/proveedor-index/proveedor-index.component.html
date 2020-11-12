@@ -17,7 +17,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
-                            <li class="breadcrumb-item"><a>Cliente</a></li>
+                            <li class="breadcrumb-item"><a>Proveedore</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -50,8 +50,8 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <!-- <a [routerLink]="['/save-empresa']" class="btn btn-primary">Nueva Empresa</a>  -->
-                                                <a class="dropdown-item" [routerLink]="['/cliente/registrar']">Registrar
-                                                    Cliente</a>
+                                                <a class="dropdown-item" [routerLink]="['/proveedor/registrar']">Registrar
+                                                    Proveedor</a>
                                                 <!-- <a class="dropdown-item" data-toggle="modal"
                                                     data-target="#modal-data-categoria">Ver categorias</a>
                                                 <a class="dropdown-item" data-toggle="modal"
@@ -125,8 +125,8 @@
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let item of clientes | paginate: { itemsPerPage: 15, currentPage: p }">
-                                    <td>{{item.numeroCliente}} </td>
+                                <tbody *ngFor="let item of proveedores | paginate: { itemsPerPage: 15, currentPage: p }">
+                                    <td>{{item.numeroProveedor}} </td>
                                     <td>{{item.nombre}}</td>
                                     <td>{{item.nit}}</td>
                                     <td>{{item.direccion}} </td>

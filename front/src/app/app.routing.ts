@@ -5,7 +5,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductoIndexComponent } from './components/productos/producto-index/producto-index.component';
 import { ProductoCreateComponent } from './components/productos/producto-create/producto-create.component';
 import { ProductoEditComponent } from './components/productos/producto-edit/producto-edit.component';
-import { ClienteEditComponent } from './components/clientes/cliente-edit/cliente-edit.component';
 import { UserIndexComponent } from './components/users/user-index/user-index.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
@@ -29,6 +28,11 @@ import { ExperienciaCreateComponent } from './components/experiencias/experienci
 import { AddExperienciaComponent } from './components/experiencias/add-experiencia/add-experiencia.component';
 import { PostulanteCreateComponent } from './components/postulantes/postulante-create/postulante-create.component';
 import { PostulanteIndexComponent } from './components/postulantes/postulante-index/postulante-index.component';
+import { CreateClienteComponent } from './components/clientes/create-cliente/create-cliente.component';
+import { ClienteIndexComponent } from './components/clientes/cliente-index/cliente-index.component';
+import { ProveedorCreateComponent } from './components/proveedores/proveedor-create/proveedor-create.component';
+import { ProveedorIndexComponent } from './components/proveedores/proveedor-index/proveedor-index.component';
+import { IndexComponent } from './components/index/index/index.component';
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -38,7 +42,7 @@ const appRoute: Routes = [
     { path: 'producto/editar/:id', component: ProductoEditComponent },
     { path: 'postulantes', component: PostulanteIndexComponent },
     { path: 'postulante/registrar', component: PostulanteCreateComponent },
-    { path: 'postulante/editar/:id', component: ClienteEditComponent },
+    // { path: 'postulante/editar/:id', component: ClienteEditComponent },
     { path: 'usuarios', component: UserIndexComponent },
     { path: 'usuarios/registrar', component: UserCreateComponent },
     { path: 'usuario/editar/:id', component: UserEditComponent },
@@ -62,7 +66,11 @@ const appRoute: Routes = [
     { path: 'experiencia/registrar', component: ExperienciaCreateComponent },
     { path: 'experiencia/:id', component: DetailExperienciaComponent },
     { path: 'experiencia/adicionar/:id', component: AddExperienciaComponent },
-    
+    { path: 'clientes', component: ClienteIndexComponent },
+    { path: 'cliente/registrar', component: CreateClienteComponent },
+    { path: 'proveedores', component: ProveedorIndexComponent },
+    { path: 'about', component: IndexComponent }
+
 ]
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);

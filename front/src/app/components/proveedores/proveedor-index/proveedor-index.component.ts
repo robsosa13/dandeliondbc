@@ -1,33 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { ProveedorService } from 'src/app/services/proveedor.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
-
 import { Router } from '@angular/router';
-@Component({
-  selector: 'app-cliente-index',
-  templateUrl: './cliente-index.component.html',
-  styleUrls: ['./cliente-index.component.css']
-})
-export class ClienteIndexComponent implements OnInit {
 
-  public clientes;
+
+@Component({
+  selector: 'app-proveedor-index',
+  templateUrl: './proveedor-index.component.html',
+  styleUrls: ['./proveedor-index.component.css']
+})
+export class ProveedorIndexComponent implements OnInit {
+
+  public proveedores;
   public filtro;
-  public empresaDate;
   public data_detalle: Array<any> = [];
   public estado = "";
   public data: any;
   constructor(
-    private _clienteService: ClienteService,
-
+    private _proveedorService: ProveedorService,
     private _router: Router
   ) {
 
   }
   ngOnInit() {
-    this._clienteService.getClientes().subscribe(
+    this._proveedorService.getProveedores().subscribe(
       response => {
-        this.clientes = response.clientes;
+        this.proveedores = response.proveedores;
       },
       error => {
 
@@ -73,9 +72,9 @@ export class ClienteIndexComponent implements OnInit {
 
 
   listar() {
-    this._clienteService.getClientes().subscribe(
+    this._proveedorService.getProveedores().subscribe(
       response => {
-        this.clientes = response.clientes;
+        this.proveedores = response.proveedores;
         // console.log(this.empresas);
 
       },
@@ -102,11 +101,11 @@ export class ClienteIndexComponent implements OnInit {
           'success'
         )
 
-        this._clienteService.deleteCliente(id).subscribe(
+        this._proveedorService.deleteCliente(id).subscribe(
           resposen => {
-            this._clienteService.getClientes().subscribe(
+            this._proveedorService.getProveedores().subscribe(
               response => {
-                this.clientes = response.clientes;
+                this.proveedores = response.proveedores;
               },
               error => {
 
