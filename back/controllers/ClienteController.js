@@ -1,7 +1,5 @@
 var Cliente = require('../models/cliente');
-
 var controller = {
-
     registerClient: function (req, res) {
         console.log('asd')
         var cliente = new Cliente();
@@ -14,15 +12,11 @@ var controller = {
         cliente.formaPago = params.formaPago;
         cliente.estado=params.estado;
         cliente.save((err, cliente_detalle) => {
-
             if (err) { return res.status(500).send({ message: "Error al guardar" }) }
             if (! cliente_detalle) { return res.status(404).send({ message: "No se guardo Cliente" }) }
             return res.status(200).send({  cliente:  cliente_detalle })
         })},
-        test: function (req, res) {
-            console.log('test')
-           },
-               getClientes: function (req, res) {
+        getClientes: function (req, res) {
         
         Cliente.find({}).exec((err, clientes) => {
             if (err) { return res.status(500).send({ message: 'Error la devolver los datos' }); }
@@ -30,26 +24,23 @@ var controller = {
             return res.status(200).send({ clientes });
 
         })
-    }
-        
+    },
+    detailCliente: function (req, res) {
+        var id = req.params.id;
+        Cliente.find({ _id: id }).exec((err, cliente) => {
+            if (err) {
+                return res.status(500).send({ message: "Error al consultar" });
 
-    // },
-    // detailCliente: function (req, res) {
-    //     var id = req.params.id;
-    //     Cliente.find({ _id: id }).exec((err, cliente) => {
-    //         if (err) {
-    //             return res.status(500).send({ message: "Error al consultar" });
+            } else
+                if (!cliente) {
+                    return res.status(404).send({ message: "Cliente no encontrada" });
 
-    //         } else
-    //             if (!cliente) {
-    //                 return res.status(404).send({ message: "Cliente no encontrada" });
-
-    //             } else {
-    //                 return res.status(200).send({ cliente });
-    //             }
-    //     });
+                } else {
+                    return res.status(200).send({ cliente });
+                }
+        });
  
-    // },
+    }
 
     // getCliente: function (req, res) {
 
@@ -81,22 +72,22 @@ var controller = {
     //             cliente: clienteRemoved
     //         })
     //     })
-    // },
-    //  listar:function(req,res){
-    //     var nombreEmpresa = req.params['nombre'];
-    
-    //     Empresa.find({nombreEmpresa: new RegExp(nombreEmpresa,'i')}).exec((err,empresaLista)=>{
-    //         if(err){
-    //             res.status(500).send({message: 'Error en el servidor'});
-    //         }else{
-    //             if(empresaLista){
-    //                 res.status(200).send({empresas:empresaLista});
-    //             }else{
-    //                 res.status(403).send({message: 'No hay ningun registro con ese titulo'});
-    //             }
-    //         }
-    //     });
-    // }
+    // },,
+    ,
+     getByNumberClient:function(req,res){
+        var numeroCliente = req.params['numeroCliente'];
+        Cliente.find({numeroCliente: new RegExp(numeroCliente,'i')}).exec((err,clienteLista)=>{
+            if(err){
+                res.status(500).send({message: 'Error en el servidor'});
+            }else{
+                if(clienteLista){
+                    res.status(200).send({clientes:clienteLista});
+                }else{
+                    res.status(403).send({message: 'No hay ningun registro con ese titulo'});
+                }
+            }
+        });
+    }
 }
     
 module.exports = controller;

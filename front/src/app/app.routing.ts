@@ -33,6 +33,7 @@ import { ClienteIndexComponent } from './components/clientes/cliente-index/clien
 import { ProveedorCreateComponent } from './components/proveedores/proveedor-create/proveedor-create.component';
 import { ProveedorIndexComponent } from './components/proveedores/proveedor-index/proveedor-index.component';
 import { IndexComponent } from './components/index/index/index.component';
+import { FacturaIndexComponent } from './components/clientes/factura-index/factura-index.component';
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -68,10 +69,10 @@ const appRoute: Routes = [
     { path: 'experiencia/adicionar/:id', component: AddExperienciaComponent },
     { path: 'clientes', component: ClienteIndexComponent },
     { path: 'cliente/registrar', component: CreateClienteComponent },
+    { path: 'cliente/factura/:id', component: FacturaIndexComponent },
     { path: 'proveedores', component: ProveedorIndexComponent },
+    { path: 'proveedor/registrar', component: ProveedorCreateComponent },
     { path: 'about', component: IndexComponent }
-
 ]
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);
-

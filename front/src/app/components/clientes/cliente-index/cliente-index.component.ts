@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
-
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cliente-index',
   templateUrl: './cliente-index.component.html',
   styleUrls: ['./cliente-index.component.css']
 })
-export class ClienteIndexComponent implements OnInit {
 
+export class ClienteIndexComponent implements OnInit {
   public clientes;
   public filtro;
   public empresaDate;
@@ -57,34 +57,24 @@ export class ClienteIndexComponent implements OnInit {
   //     }
   //   );
   // }
-  // searchEmpresa(searchEmpresaForm) {
-  //   this._empresaService.get_empresas(searchEmpresaForm.value.filtroEmpresa).subscribe(
-  //     response => {
-  //       this.empresas = response.empresas;
-  //       // console.log(this.empresas);
-
-  //     },
-  //     error => {
-
-  //     }
-  //   )
-
-  // }
-
-
-  listar() {
-    this._clienteService.getClientes().subscribe(
+  searchCliente(searchClienteForm) {    
+    this._clienteService.get_clientes(searchClienteForm.value.filtroCliente).subscribe(
       response => {
         this.clientes = response.clientes;
-        // console.log(this.empresas);
-
       },
       error => {
       }
     )
-
   }
-
+  listar() {
+    this._clienteService.getClientes().subscribe(
+      response => {
+        this.clientes = response.clientes;
+      },
+      error => {
+      }
+    )
+  }
   eliminar(id) {
     Swal.fire({
       title: 'Estas seguro de eliminarlo?',

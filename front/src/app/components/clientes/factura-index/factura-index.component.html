@@ -1,0 +1,80 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Generar Factura
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Principal</a></li>
+                            <li class="breadcrumb-item"><a>Factura</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-12 form-group">
+                        <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Detalle</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label><b>Numero de Cliente</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.numeroCliente}} ">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Nombre Cliente</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.nombre}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>NIT</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.nit}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Direccion</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.direccion}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Telefono</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.telefono}}">
+                                    </div> 
+                                    <div class="col-4 form-group">
+                                        <label><b>Forma de Pago</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.formaPago}}">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label><b>Estado</b></label>
+                                        <input type="text" class="form-control" readonly value="{{cliente.estado}}">
+                                    </div> 
+                                    <!-- <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label><b>Nombre </b></label>
+                                            <input type="text" class="form-control" #nombre="ngModel"
+                                                name="nombre" [(ngModel)]="cliente.nombre"
+                                                placeholder="Nombre" required>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+       
+    </div>
+</div>
