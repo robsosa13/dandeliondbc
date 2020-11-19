@@ -3,12 +3,12 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var port = process.env.PORT ||  4201;
 
-//ROUTES
+//ROUTES 
 var user_routes = require('./routes/user');
 var categoria_routes = require('./routes/categoria');
 var producto_routes = require('./routes/producto');
 var postulante_routes = require('./routes/postulante');
-var experiencia_routes = require('./routes/experiencia');
+var experiencia_routes = require('./routes/experiencia'); 
 var empresa_routes= require('./routes/empresa');
 var activo_routes = require('./routes/activo');
 var personal_routes = require('./routes/personal');
@@ -50,14 +50,14 @@ app.use('/api',categoria_routes);
 app.use('/api',producto_routes);
 app.use('/api',experiencia_routes);
 app.use('/api',activo_routes);
-app.use('/api',empresa_routes);
+app.use('/api',empresa_routes); 
 app.use('/api',postulante_routes);
 app.use('/api',personal_routes);
 app.use('/api',asignacion_routes);
 app.use('/api',profesion_routes);
 app.use('/api',proveedor_routes);
 app.use('/api',cliente_routes);
-
+   
 
 
 

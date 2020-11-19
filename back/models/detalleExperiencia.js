@@ -5,9 +5,11 @@ var DetalleExperienciaSchema = Schema({
     idproducto: {type: Schema.ObjectId, ref: 'producto'},
     cantidad: Number,
     experiencia: {type:Schema.ObjectId, ref:'experiencia'},
+   
+   
     nombreEmpresa: String,
     tiempoServicioDesde: String,
-    tiempoServicioHasta: String,
+    tiempoServicioHasta: String, 
     direccion: String,
     telefono: String,
     puestoDesempenado: String,

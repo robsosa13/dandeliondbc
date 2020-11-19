@@ -8,7 +8,7 @@ function registrar(req, res) {
     var experiencia = new Experiencia();
     experiencia.idpostulante = data.idpostulante;
     experiencia.iduser = data.iduser;
-
+ 
     experiencia.save((err, experiencia_save) => {
         if (experiencia_save) {
             let detalles = data.detalles;
@@ -36,7 +36,6 @@ function registrar(req, res) {
                         ExperienciaCargo.find({cargo:detalle_save.puestoDesempenado},{idpostulante: experiencia.idpostulante },(err,detalle_expe)=>{
                             if(detalle_expe){
                                 console.log('sd')
-
                             }
                             else{
                                 //var experienciaCargo = new ExperienciaCargo('','','','','')

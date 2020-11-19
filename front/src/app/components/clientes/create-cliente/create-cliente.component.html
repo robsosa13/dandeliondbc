@@ -17,7 +17,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Principal</a></li>
-                            <li class="breadcrumb-item"><a [routerLink]="['/empresas']">Clientes</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/clientes']">Clientes</a></li>
                             <li class="breadcrumb-item"><a>Registrar Clientes</a></li>
                         </ol>
                     </nav>
@@ -37,64 +37,63 @@
                                                 <label><b>Numero de Cliente</b></label>
                                                 <input type="text" class="form-control" #numeroCliente="ngModel"
                                                     name="numeroCliente" [(ngModel)]="cliente.numeroCliente"
-                                                    placeholder="Numero de Cliente" readonly value=" Cliente - {{count}}" >
+                                                    placeholder="Numero de Cliente" readonly
+                                                    value=" Cliente - {{count}}">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Nombre </b></label>
-                                                <input type="text" class="form-control" #nombre="ngModel"
-                                                    name="nombre" [(ngModel)]="cliente.nombre"
-                                                    placeholder="Nombre" required>
+                                                <input type="text" class="form-control" #nombre="ngModel" name="nombre"
+                                                    [(ngModel)]="cliente.nombre" placeholder="Nombre" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>NIT </b></label>
-                                                <input type="number" class="form-control" #nit="ngModel"
-                                                    name="nit" [(ngModel)]="cliente.nit"
-                                                    placeholder="NIT" required>
+                                                <input type="number" class="form-control" #nit="ngModel" name="nit"
+                                                    [(ngModel)]="cliente.nit" placeholder="NIT" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b>Teléfono </b></label>
-                                                <input type="number" class="form-control" #nit="ngModel"
-                                                    name="telefono" [(ngModel)]="cliente.telefono"
-                                                    placeholder="Teléfono" required>
+                                                <input type="number" class="form-control" #nit="ngModel" name="telefono"
+                                                    [(ngModel)]="cliente.telefono" placeholder="Teléfono" required>
                                             </div>
                                         </div>
-                                   
+
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label><b> Dirección</b></label>
-                                                <input type="text" class="form-control" #direccion="ngModel" name="direccion"
-                                                    [(ngModel)]="cliente.direccion" placeholder="Direccion" required>
+                                                <input type="text" class="form-control" #direccion="ngModel"
+                                                    name="direccion" [(ngModel)]="cliente.direccion"
+                                                    placeholder="Direccion" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="llamadasEstado">Forma de Pago </label>
-                                            <select class="form-control"  name="formaPago"
-                                            [(ngModel)]="cliente.formaPago" required>
+                                            <select class="form-control" name="formaPago"
+                                                [(ngModel)]="cliente.formaPago" required>
                                                 <option value="" disabled>Seleccionar</option>
                                                 <option value="Forma1">Forma1</option>
                                                 <option value="Forma2">Forma2</option>
-      
+
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="estado">Estado </label>
-                                            <select class="form-control"  name="estado"
-                                            [(ngModel)]="cliente.estado" required>
+                                            <select class="form-control" name="estado" [(ngModel)]="cliente.estado"
+                                                required>
                                                 <option value="" disabled>Seleccionar</option>
                                                 <option value="Inicio">Inicio</option>
                                                 <option value="Proceso">Proceso</option>
                                                 <option value="Finalizado">Finalizado</option>
                                             </select>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="card-footer">

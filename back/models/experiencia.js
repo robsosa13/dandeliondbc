@@ -6,6 +6,6 @@ var ExperienciaSchema = Schema({
     iduser: {type: Schema.ObjectId, ref: 'user'},
     fecha: {type: Date, default: Date.now},
 
-});
+}); 
 
 module.exports = mongoose.model('experiencia',ExperienciaSchema);
