@@ -3,12 +3,13 @@ var Schema = mongoose.Schema;
 
 var FacturaClienteSchema = Schema({
 
-    idCliente: {type: Schema.ObjectId, ref: 'postulante'},
+    idCliente: {type: Schema.ObjectId, ref: 'cliente'},
     iduser: {type: Schema.ObjectId, ref: 'user'},
-    fecha: {type: Date, default: Date.now},
-    concepto :String ,
-    precioUnitario:Number ,
-    iva:Number,
-    total: Decimal
+    numeroFactura:Number,
+    fechaRegistro: {type: Date, default: Date.now},
+    conceptoItem :String ,
+    precioTotal:Number,
+    ivaTotal:Number,
+    itTotal: Number
 });
 module.exports = mongoose.model('facturacontable',FacturaClienteSchema);

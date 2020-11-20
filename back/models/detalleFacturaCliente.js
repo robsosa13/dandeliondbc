@@ -1,14 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var DetalleFacturaClienteSchema = Schema({
-
-    idCliente: {type: Schema.ObjectId, ref: 'postulante'},
-    iduser: {type: Schema.ObjectId, ref: 'user'},
-    fecha: {type: Date, default: Date.now},
-    concepto :String ,
-    precioUnitario:Number ,
-    iva:Number,
-    total: Decimal
+var DetalleFacturaClienteSchema = Schema({    
+    factura: {type: Schema.ObjectId, ref: 'facturaCliente'},
+    conceptoItem :String,    
+    precioItem:Number,
+    precioTotalItem:Number,
+    ivaItem:Number,
+    itItem:Number    
 });
 module.exports = mongoose.model('detallefacturacliente',DetalleFacturaClienteSchema);
