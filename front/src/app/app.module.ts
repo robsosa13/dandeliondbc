@@ -47,6 +47,7 @@ import { ProveedorIndexComponent } from './components/proveedores/proveedor-inde
 import { ProveedorCreateComponent } from './components/proveedores/proveedor-create/proveedor-create.component';
 import { IndexComponent } from './components/index/index/index.component';
 import { FacturaIndexComponent } from './components/clientes/factura-index/factura-index.component';
+import { FacturasComponent } from './components/clientes/facturas/facturas.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,9 @@ import { FacturaIndexComponent } from './components/clientes/factura-index/factu
   
     IndexComponent,
   
-    FacturaIndexComponent
+    FacturaIndexComponent,
+  
+    FacturasComponent
   ],
   imports: [
     BrowserModule,

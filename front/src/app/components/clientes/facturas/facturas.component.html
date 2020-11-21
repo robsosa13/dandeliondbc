@@ -1,0 +1,106 @@
+<div class="wrapper">
+    <app-sidebar style="background: white !important;"></app-sidebar>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+        <main class="content">
+            <div class="container-fluid">
+                <div class="header">
+                    <div class="card-header">
+                    </div>
+                    <h1 class="header-title">
+                      Facturas Clientes
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']" >Principal</a></li>
+                            <li class="breadcrumb-item"><a>Registro Facturas</a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-12 col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                   
+                                    <div class="col-lg-6">
+                                        <h5 class="card-title">Opciones :</h5>
+                                        <div class="btn-group">
+
+                                            <button type="button" class="btn mb-1 btn-primary dropdown-toggle"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Opciones
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <!-- <a [routerLink]="['/save-empresa']" class="btn btn-primary">Nueva Empresa</a>  -->
+                                                <a class="dropdown-item" [routerLink]="['/experiencia/registrar']">Registrar Expriencia Laboral</a>
+                                                <!-- <a class="dropdown-item" data-toggle="modal"
+                                                    data-target="#modal-data-categoria">Ver categorias</a>
+                                                <a class="dropdown-item" data-toggle="modal"
+                                                    data-target="#modal-save-categoria">Registrar Categoria</a> -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Postulante-Apellido Paterno</th>
+                                        <th>Cedula de identidad</th>
+                                        <th>Profesion</th>
+                                        <th>Fecha registro</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr *ngFor="let item of facturas ">
+                                
+                                         <td>
+                                            {{item.numeroFactura}}  
+                                         </td>
+                                         <td>
+                                            {{item.conceptoItem}}  
+                                         </td>
+                                         <td>
+                                            {{item.precioTotal}}  
+                                         </td>
+                                         <td>
+                                            {{item.ivaTotal}}  
+                                         </td>
+
+                                         <td>
+                                            {{item.itTotal}}  
+                                         </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" [routerLink]="['/experiencia/',item._id]" >Detalle de postulante</a>
+                                                    <a class="dropdown-item" [routerLink]="['/experiencia/adicionar/',item._id]" >Adicionar</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </main>
+       
+    </div>
+</div>

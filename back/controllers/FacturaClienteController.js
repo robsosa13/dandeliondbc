@@ -2,10 +2,6 @@ var Cliente = require('../models/cliente');
 var FacturaCliente = require('../models/facturaCliente');
 var DetalleFacturaCliente = require('../models/detalleFacturaCliente');
 
-var DetalleExperiencia = require('../models/detalleExperiencia');
-var Producto = require('../models/producto');
-var ExperienciaCargo = require('../models/experienciaCargo');
-
 function registrar(req, res) {
     let data = req.body;
     var factura = new FacturaCliente();
@@ -16,7 +12,6 @@ function registrar(req, res) {
     factura.precioTotal = data.precioTotal;
     factura.ivaTotal = data.ivaTotal;
     factura.itTotal = data.itTotal;
- 
     factura.save((err, factura_save) => {
         if (factura_save) {
             let detalles = data.detalles;
@@ -24,11 +19,11 @@ function registrar(req, res) {
                 var detalleFacturaCliente = new DetalleFacturaCliente();
 
                 detalleFacturaCliente.factura = factura_save._id;
-                detalleFacturaCliente.conceptoItem = element.nombreEmpresa;
-                detalleFacturaCliente.precioItem = element.tiempoServicioDesde;
-                detalleFacturaCliente.precioTotalItem = element.tiempoServicioHasta;
-                detalleFacturaCliente.ivaItem = element.direccion;
-                detalleFacturaCliente.itItem = element.solicitarInfo;
+                detalleFacturaCliente.conceptoItem = element.conceptoItem;
+                detalleFacturaCliente.precioItem = element.precioItem;
+                detalleFacturaCliente.precioTotalItem = element.precioTotalItem;
+                detalleFacturaCliente.ivaItem = element.ivaItem;
+                detalleFacturaCliente.itItem = element.itItem;
                 detalleFacturaCliente.save((err, detalle_save) => {
                     if (detalle_save) {
                         console.log(factura_save)
@@ -46,7 +41,7 @@ function registrar(req, res) {
 }
 function datos_experiencia(req, res) {
     var id = req.params['id'];
-    FacturaCliente.findById(id).populate('idcliente').populate('iduser').exec((err, data_venta) => {
+    FacturaCliente.findById(id).populate('idCliente').populate('iduser').exec((err, data_venta) => {
         if (data_venta) {
             DetalleFacturaCliente.find({ factura: data_venta._id }).populate('idproducto').exec({ idfactura: id }, (err, data_detalle) => {
                 if (data_detalle) {
@@ -67,9 +62,17 @@ function datos_experiencia(req, res) {
     });
 }
 
+function getFacturas(req, res) {
+    FacturaCliente.find().populate('idCliente').populate('iduser').exec((err, fatura_data) => {
 
+        if (fatura_data) {
+            res.status(200).send({ facturas: fatura_data });
+        } else {
+            res.status(404).send({ message: "No hay ningun registro de experiencia" });
+        }
+    });
+}
 module.exports = {
-    registrar,
-    datos_experiencia,
+    registrar,datos_experiencia,getFacturas
 
 } 

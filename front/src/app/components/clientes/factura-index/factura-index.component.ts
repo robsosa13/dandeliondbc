@@ -3,6 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { UserService } from 'src/app/services/user.service';
 
+import { ProductoService } from 'src/app/services/producto.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DetalleFacturaCliente } from "../../../models/DetalleFacturaCliente";
+import { FacturaCliente } from "../../../models/FacturaCliente";
+import { facturaClienteService } from 'src/app/services/facturaCliente.service';
+
+
 @Component({
   selector: 'app-factura-index',
   templateUrl: './factura-index.component.html',
@@ -12,28 +19,47 @@ export class FacturaIndexComponent implements OnInit {
   public id;
   public cliente: [];
   public detalle_venta;
+  public facturas;
   public identity;
   constructor(
     private _route: ActivatedRoute,
     private _clienteService: ClienteService,
     private _userService: UserService,
+    private _clienteFacturaService: facturaClienteService,
+
     private _router: Router
+
   ) {
     this.identity = this._userService.getIdentity();
   }
+  // ngOnInit() {
+  //   if (this.identity) {
+  //     this._route.params.subscribe(params => {
+  //       this.id = params['id'];
+  // //       this._clienteFacturaService.get_facturas().subscribe(
+  //         response => {
+  //           this.facturas = response.facturas;
+  //         },
+  //         error => {
+  //         }
+  //       );
+  //     });
+  //   } else {
+  //     this._router.navigate(['']);
+  //   }
+  // }
   ngOnInit() {
-    if (this.identity) {
-      this._route.params.subscribe(params => {
-        this.id = params['id'];
-        this._clienteService.getCliente(this.id).subscribe(
-          response => {
-            this.cliente = response.cliente[0];
-          },
-          error => {
-          }
-        );
-      });
-    } else {
+    if(this.identity){
+      //USUARIO AUTENTICADO
+      this._clienteFacturaService.get_facturas().subscribe(
+        response=>{
+          this.facturas = response.facturas;
+          //console.log(this.experiencias);
+        },
+        error=>{
+        }
+      );
+    }else{
       this._router.navigate(['']);
     }
   }

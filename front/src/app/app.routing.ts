@@ -34,6 +34,7 @@ import { ProveedorCreateComponent } from './components/proveedores/proveedor-cre
 import { ProveedorIndexComponent } from './components/proveedores/proveedor-index/proveedor-index.component';
 import { IndexComponent } from './components/index/index/index.component';
 import { FacturaIndexComponent } from './components/clientes/factura-index/factura-index.component';
+import { FacturasComponent } from './components/clientes/facturas/facturas.component';
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -72,7 +73,8 @@ const appRoute: Routes = [
     { path: 'cliente/factura/:id', component: FacturaIndexComponent },
     { path: 'proveedores', component: ProveedorIndexComponent },
     { path: 'proveedor/registrar', component: ProveedorCreateComponent },
-    { path: 'about', component: IndexComponent }
+    { path: 'about', component: IndexComponent },
+    { path: 'facturas', component: FacturasComponent }
 ]
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);
