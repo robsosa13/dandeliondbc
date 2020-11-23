@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FacturaClienteSchema = Schema({
-
     idCliente: {type: Schema.ObjectId, ref: 'cliente'},
     iduser: {type: Schema.ObjectId, ref: 'user'},
     numeroFactura:Number,

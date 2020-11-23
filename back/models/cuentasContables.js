@@ -5,5 +5,6 @@ var CuentasContablesSchema = Schema({
     nombre:String,
     tipo:String,
     numeroCuenta:String
+  
 });
 module.exports = mongoose.model('cuentascontables',CuentasContablesSchema);

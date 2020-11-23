@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { UserService } from 'src/app/services/user.service';
-
 import { ProductoService } from 'src/app/services/producto.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { DetalleFacturaCliente } from "../../../models/DetalleFacturaCliente";
@@ -35,7 +33,7 @@ export class FacturasComponent implements OnInit {
         this._clienteFacturaService.get_facturas().subscribe(
           response=>{
             this.facturas = response.facturas;
-            //console.log(this.experiencias);
+            // console.log(this.facturas);
           },
           error=>{
           }

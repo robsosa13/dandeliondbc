@@ -51,9 +51,9 @@ function datos_experiencia(req, res) {
                     res.status(200).send(
                         {
                             data: {
-                                    experiencia: data_venta,
+                                    factura: data_venta,
                                     detalles: data_detalle,
-                                 }
+                                 } 
                         }
                     );
                 }
@@ -66,7 +66,9 @@ function getFacturas(req, res) {
     FacturaCliente.find().populate('idCliente').populate('iduser').exec((err, fatura_data) => {
 
         if (fatura_data) {
-            res.status(200).send({ facturas: fatura_data });
+            console.log('factura data',fatura_data)
+            res.status(200).send({ facturas: fatura_data }); 
+
         } else {
             res.status(404).send({ message: "No hay ningun registro de experiencia" });
         }
@@ -74,5 +76,4 @@ function getFacturas(req, res) {
 }
 module.exports = {
     registrar,datos_experiencia,getFacturas
-
 } 
