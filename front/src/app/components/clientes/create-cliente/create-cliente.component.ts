@@ -33,7 +33,7 @@ export class CreateClienteComponent implements OnInit {
     //console.log('numero',  parseInt( this.empresas.length));
     if (clienteForm.valid) {
       this._clienteService.insertCliente({
-        numeroCliente: 'Cliente - '+this.count,
+        numeroCliente: this.count,
         nombre: clienteForm.value.nombre,
         nit: clienteForm.value.nit,
         direccion: clienteForm.value.direccion,

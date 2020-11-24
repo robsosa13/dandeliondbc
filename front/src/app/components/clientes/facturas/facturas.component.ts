@@ -20,26 +20,27 @@ export class FacturasComponent implements OnInit {
   public detalle_venta;
   public facturas;
   public identity;
-  constructor(private _route: ActivatedRoute,
-    private _clienteService: ClienteService,
-    private _userService: UserService,
-    private _clienteFacturaService: facturaClienteService,
+  constructor(
+                private _route: ActivatedRoute,
+                private _clienteService: ClienteService,
+                private _userService: UserService,
+                private _clienteFacturaService: facturaClienteService,
+                private _router: Router
+    ) { this.identity = this._userService.getIdentity(); }
 
-    private _router: Router) {   this.identity = this._userService.getIdentity();}
-
-    ngOnInit() {
-      if(this.identity){
-        //USUARIO AUTENTICADO
-        this._clienteFacturaService.get_facturas().subscribe(
-          response=>{
-            this.facturas = response.facturas;
-            // console.log(this.facturas);
-          },
-          error=>{
-          }
-        );
-      }else{
-        this._router.navigate(['']);
-      }
+  ngOnInit() {
+    if (this.identity) {
+      //USUARIO AUTENTICADO
+      this._clienteFacturaService.get_facturas().subscribe(
+        response => {
+          this.facturas = response.facturas;
+          // console.log(this.facturas);
+        },
+        error => {
+        }
+      );
+    } else {
+      this._router.navigate(['']);
     }
+  }
 }

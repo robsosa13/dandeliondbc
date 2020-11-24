@@ -8,6 +8,5 @@ var ComprasCuentasSchema = Schema({
     haber:Number,
     estado:String,
     fechaRegistro: {type: Date, default: Date.now},
-    
 });
 module.exports = mongoose.model('comprascuentas',ComprasCuentasSchema);

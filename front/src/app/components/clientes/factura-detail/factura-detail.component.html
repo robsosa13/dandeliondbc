@@ -57,7 +57,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">Detalles de venta</h5>
-    
                             </div>
                             <table class="table table-striped table-hover">
                                 <thead>
@@ -66,14 +65,15 @@
                                         <th class="text-center">Precio Item</th>
                                         <th class="text-center">Iva Item</th>
                                         <th class="text-center">It Item</th>
-                                        <th class="text-center">ub </th>
+                                        <th class="text-center">Total Factura </th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let item of detalle_factura">
                                     <td class="text-center">{{item.conceptoItem}}</td>
                                     <td class="text-center">{{item.precioTotalItem}}</td>
-                                    <td class="text-center">${{item.ivaItem}}</td>
+                                    <td class="text-center">{{item.ivaItem}}</td>
                                     <td class="text-center">{{item.itItem}}</td>
+                                    <td class="text-center">-</td>
                                     <!-- <td class="text-center">${{(item.idproducto.precio_venta) * (item.cantidad)}}</td> -->
                                 </tbody>
                             </table>
