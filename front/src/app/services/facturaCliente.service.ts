@@ -26,6 +26,14 @@ export class facturaClienteService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'factura/'+id,{headers:headers});
   }
+  getAllDetails():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'facturas-detalle',{headers:headers});
+  }
+
+  
+
+
 //   get_personal(id):Observable<any>{
 //     let headers = new HttpHeaders().set('Content-Type','application/json');
 //     return this._http.get(this.url+'personal/'+id,{headers:headers});

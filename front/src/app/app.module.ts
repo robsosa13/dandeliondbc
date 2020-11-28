@@ -49,6 +49,7 @@ import { IndexComponent } from './components/index/index/index.component';
 import { FacturaIndexComponent } from './components/clientes/factura-index/factura-index.component';
 import { FacturasComponent } from './components/clientes/facturas/facturas.component';
 import { FacturaDetailComponent } from './components/clientes/factura-detail/factura-detail.component';
+import { FacturaAllDetailsComponent } from './components/clientes/factura-all-details/factura-all-details.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,9 @@ import { FacturaDetailComponent } from './components/clientes/factura-detail/fac
   
     FacturasComponent,
   
-    FacturaDetailComponent
+    FacturaDetailComponent,
+  
+    FacturaAllDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -17,8 +17,8 @@ function registrar(req, res) {
             let detalles = data.detalles;
             detalles.forEach((element, index) => {
                 var detalleFacturaCliente = new DetalleFacturaCliente();
-
                 detalleFacturaCliente.factura = factura_save._id;
+                
                 detalleFacturaCliente.conceptoItem = element.conceptoItem;
                 detalleFacturaCliente.precioItem = element.precioItem;
                 detalleFacturaCliente.precioTotalItem = element.precioTotalItem;
@@ -47,13 +47,12 @@ function datos_experiencia(req, res) {
                 if (data_detalle) {
                     console.log(data_venta)
                     console.log(data_detalle)
-                    
                     res.status(200).send(
                         {
                             data: {
-                                    factura: data_venta,
-                                    detalles: data_detalle,
-                                 } 
+                                factura: data_venta,
+                                detalles: data_detalle,
+                            }
                         }
                     );
                 }
@@ -61,19 +60,30 @@ function datos_experiencia(req, res) {
         }
     });
 }
-
 function getFacturas(req, res) {
     FacturaCliente.find().populate('idCliente').populate('iduser').exec((err, fatura_data) => {
 
         if (fatura_data) {
-            console.log('factura data',fatura_data)
-            res.status(200).send({ facturas: fatura_data }); 
+            console.log('factura data', fatura_data)
+            res.status(200).send({ facturas: fatura_data });
 
         } else {
-            res.status(404).send({ message: "No hay ningun registro de experiencia" });
+            res.status(404).send({ message: "No hay ningun registro de facturas" });
+        }
+    });
+}
+function getDetalleFacturas(req, res) {
+    DetalleFacturaCliente.find().exec((err, fatura_detalle) => {
+        console.log('factura detalle', fatura_detalle)
+        if (fatura_detalle) {
+            console.log('factura detalle', fatura_detalle)
+            res.status(200).send({ facturasDetalle: fatura_detalle });
+
+        } else {
+            res.status(404).send({ message: "No hay ningun registro de detalle" });
         }
     });
 }
 module.exports = {
-    registrar,datos_experiencia,getFacturas
+    registrar, datos_experiencia, getFacturas,getDetalleFacturas
 } 

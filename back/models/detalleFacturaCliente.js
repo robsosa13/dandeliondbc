@@ -7,6 +7,7 @@ var DetalleFacturaClienteSchema = Schema({
     precioItem:Number,
     precioTotalItem:Number,
     ivaItem:Number,
-    itItem:Number    
+    itItem:Number,
+    fechaRegistro: {type: Date, default: Date.now}
 });
 module.exports = mongoose.model('detallefacturacliente',DetalleFacturaClienteSchema);
