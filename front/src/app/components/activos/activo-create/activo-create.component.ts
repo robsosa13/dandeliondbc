@@ -39,8 +39,6 @@ export class ActivoCreateComponent implements OnInit {
     this.error_message = ''; 
    }
    onSubmit(activoForm){
-   
-    
     if(activoForm.valid){
      this._activoService.insert_activo({
        titulo: activoForm.value.titulo,
@@ -69,7 +67,6 @@ export class ActivoCreateComponent implements OnInit {
       
     }else{
       this.error_message = 'Complete correctamente el formulario';
- 
     }
   }
   

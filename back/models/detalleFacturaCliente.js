@@ -5,7 +5,7 @@ var DetalleFacturaClienteSchema = Schema({
     factura: {type: Schema.ObjectId, ref: 'facturaCliente'},
     conceptoItem :String,    
     precioItem:Number,
-    precioTotalItem:Number,
+    precioTotalItem:Number, 
     ivaItem:Number,
     itItem:Number,
     fechaRegistro: {type: Date, default: Date.now}

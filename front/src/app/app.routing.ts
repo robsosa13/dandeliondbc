@@ -79,7 +79,6 @@ const appRoute: Routes = [
     { path: 'facturas', component: FacturasComponent },
     { path: 'factura/:id', component: FacturaDetailComponent },
     { path: 'factura-detalles', component: FacturaAllDetailsComponent }
-
 ]
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);
