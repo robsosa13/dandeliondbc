@@ -3,12 +3,13 @@ import { PersonalService } from 'src/app/services/personal.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import Swal from 'sweetalert2';
 
-
+/**CAMBIO */
 @Component({
   selector: 'app-personal-index',
   templateUrl: './personal-index.component.html',
   styleUrls: ['./personal-index.component.css']
 })
+
 export class PersonalIndexComponent implements OnInit {
   public personals;
 

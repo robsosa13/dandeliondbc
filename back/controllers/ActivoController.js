@@ -26,6 +26,11 @@ function registrar(req, res) {
         activo.nroSerie = data.nroSerie;
         activo.codigoDBC = data.codigoDBC;
         activo.fechaCompra= data.fechaCompra;
+        activo.fechaIndicioDepreciacion= data.fechaIndicioDepreciacion;
+        activo.idProveedor = activo.idProveedor;
+        activo.porcentajeDepreciacion= activo.porcentajeDepreciacion;
+        activo.vidaUtil= activo.vidaUtil;
+        activo.valorDepreciacio= activo.valorDepreciacio;
  
         activo.save((err, activo_save) => { 
             if (err) {
@@ -53,6 +58,11 @@ function registrar(req, res) {
         activo.nroSerie = data.nroSerie;
         activo.codigoDBC = data.codigoDBC;
         activo.fechaCompra= data.fechaCompra;
+        activo.fechaIndicioDepreciacion= data.fechaIndicioDepreciacion;
+        activo.idProveedor = activo.idProveedor;
+        activo.porcentajeDepreciacion= activo.porcentajeDepreciacion;
+        activo.vidaUtil= activo.vidaUtil;
+        activo.valorDepreciacio= activo.valorDepreciacio;
 
         activo.save((err, activo_save) => {
             if (err) {
@@ -72,7 +82,7 @@ function registrar(req, res) {
 function listar(req, res) {
     var titulo = req.params['titulo'];
 
-    Activo.find({ titulo: new RegExp(titulo, 'i') }).populate('idcategoria').exec((err, activos_listado) => {
+    Activo.find({ titulo: new RegExp(titulo, 'i') }).populate('idcategoria').populate('idProveedor').exec((err, activos_listado) => {
         if (err) {
             res.status(500).send({ message: 'Error en el servidor' });
         } else {

@@ -14,7 +14,26 @@ var ActivoSchema = Schema({
     nroSerie:String,
     codigoDBC:String,
     fechaRegistro: {type: Date, default: Date.now},
-    fechaCompra: Date  
+    fechaCompra: Date  ,
+    fechaIndicioDepreciacion: Date  ,
+    idProveedor:{type: Schema.ObjectId, ref: 'proveedor'},
+    porcentajeDepreciacion:Number,
+    vidaUtil:Number,
+    valorDepreciacio:Number
 });
 
+
 module.exports = mongoose.model('activo',ActivoSchema); 
+/**
+ * a)	Código del Activo:        Código identificativo contable.
+b)	Nombre o descripción del Activo:      Terreno
+Edificaciones
+Maquinarias
+Equipos
+Muebles y Enseres
+Equipos de computación
+Vehiculos
+Otros
+c)	Fecha de Compra:
+
+ */
