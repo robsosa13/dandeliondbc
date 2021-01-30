@@ -1,92 +1,115 @@
-<div class="wrapper">
-    <nav id="sidebar" class="sidebar">
-        <a class="sidebar-brand" href="index.html">
-      <svg>
-        <use xlink:href="#ion-ios-pulse-strong"></use>
-      </svg>
-   <img src="../../../assets/img/MarcaDandelion_final-01.jpg" style="width: 200px; height: 200px;" alt="Logo dbc" />
-    </a>
-        <div class="sidebar-content">
-            <div class="sidebar-user">
-                <!-- <img src="../../../assets/img/MarcaDandelion_final-01.jpg"  alt="Logo dbc" />
-                <div class="font-weight-bold">Dandelion Business Clinic</div>
-                <small>DBC</small> -->
+<ng-sidebar-container id="sidebar-1">
+	<ng-sidebar [(opened)]="_opened" mode="push" animate="true" closeOnClickOutside="false" autoCollapseWidth=920 style="width: max-content;" >
+        
+            <a class="sidebar-brand" href="/about" style=" outline: none;">
+          <svg>
+            <use xlink:href="#ion-ios-pulse-strong"></use>
+          </svg>
+       <img src="../../../assets/img/modificado.png" style="width: 200px; height: auto;" alt="Logo dbc" />
+        </a>
+            <div class="sidebar-content">
+                <ul id="sidebarNAV" class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Menu
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Opciones</span>
+                        </a>
+                        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse ">
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/personals']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa fa-users"></i> <span class="align-middle">Personal - DBC</span>
+                        </a>
+                    </li>
+                    <!-- PRobando -->
+                    <li class="sidebar-item">
+                        <a href="#activos" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos</span>
+                        </a>
+                        <ul id="activos" class="sidebar-dropdown list-unstyled collapse ">
+                            <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                                <a class="sidebar-link" [routerLink]="['/activos']"  >
+                                     <span class="align-middle">Activos - DBC</span>
+                                </a>
+                            </li>
+                          
+                            <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                                <a class="sidebar-link" [routerLink]="['/asignaciones']"  >
+                                    <span class="align-middle">Activos - Asignacion</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#postulantes" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle mr-2 fas fa-fw fa fa-edit"></i> <span class="align-middle">Postulantes</span>
+                        </a>
+                        <ul id="postulantes" class="sidebar-dropdown list-unstyled collapse ">
+                            <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                                <a class="sidebar-link" [routerLink]="['/postulantes']"  >
+                                     <span class="align-middle">Postulantes</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                                <a class="sidebar-link" [routerLink]="['/experiencias']"  >
+                                   <span class="align-middle">Postulantes - Experiencia </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                  
+                    <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/empresas']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa fa-cubes"></i> <span class="align-middle">Empresas</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/proveedores']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa fa fa-shopping-bag"></i> <span class="align-middle">Proveedores</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/usuarios']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa fa-id-badge"></i> <span class="align-middle">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/clientes']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa fa-handshake"></i> <span class="align-middle">Clientes</span>
+                        </a>
+                    </li>
+                    <!-- <li class="sidebar-item" routerLinkActive="sidebar-item active">
+                        <a class="sidebar-link" [routerLink]="['/ventas']"  >
+                            <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personas Datos</span>
+                        </a>
+                    </li>
+                 -->
+    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" (click)="logout()" href="/">
+                            <i class="align-middle mr-2 fas fa-fw fa fa fa-power-off"></i> <span class="align-middle">Cerrar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-
-            <ul class="sidebar-nav">
-                <li class="sidebar-header">
-                    Menu
-                </li>
-                <li class="sidebar-item">
-                    <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
-            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Opciones</span>
-          </a>
-                    <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/personals']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personal - DBC</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/activos']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos - DBC</span>
-                    </a>
-                </li>
-              
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/asignaciones']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Activos - Asignacion</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/postulantes']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Postulantes</span>
-                    </a>
-                </li>
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/experiencias']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Postulantes - Experiencia </span>
-                    </a>
-                </li>
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/empresas']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Empresas</span>
-                    </a>
-                </li>
-                <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/usuarios']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Usuarios</span>
-                    </a>
-                </li>
-                <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/clientes']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Clientes</span>
-                    </a>
-                </li>
-                <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/proveedores']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Proveedores</span>
-                    </a>
-                </li>
-                <!-- <li class="sidebar-item" routerLinkActive="sidebar-item active">
-                    <a class="sidebar-link" [routerLink]="['/ventas']"  >
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Personas Datos</span>
-                    </a>
-                </li> -->
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link" (click)="logout()">
-                        <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Cerrar Sesión</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
+        
+	</ng-sidebar>
+	
+    <div ng-sidebar-content id="sidebar-1">
+        <header class="demo-header">
+            <button (click)="_toggleOpened()" class="demo-header__toggle">Toggle sidebar</button>
+            <span>MENU</span>
+        </header>
+        <section class="demo-contents">
+            <router-outlet *ngIf='true'></router-outlet>
+        </section> 
+        </div>  
+</ng-sidebar-container>

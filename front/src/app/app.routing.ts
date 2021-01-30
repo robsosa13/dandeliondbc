@@ -37,6 +37,7 @@ import { FacturaIndexComponent } from './components/clientes/factura-index/factu
 import { FacturasComponent } from './components/clientes/facturas/facturas.component';
 import { FacturaDetailComponent } from './components/clientes/factura-detail/factura-detail.component';
 import { FacturaAllDetailsComponent } from './components/clientes/factura-all-details/factura-all-details.component';
+import { Sidebar } from "ng-sidebar";
 
 const appRoute: Routes = [
     { path: '', component: LoginComponent },
@@ -78,7 +79,8 @@ const appRoute: Routes = [
     { path: 'about', component: IndexComponent },
     { path: 'facturas', component: FacturasComponent },
     { path: 'factura/:id', component: FacturaDetailComponent },
-    { path: 'factura-detalles', component: FacturaAllDetailsComponent }
+    { path: 'factura-detalles', component: FacturaAllDetailsComponent },
+    { path: 'sidebar' , component:Sidebar}
 ]
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoute);

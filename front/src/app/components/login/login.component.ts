@@ -15,19 +15,25 @@ export class LoginComponent implements OnInit {
   public token;
   public identity;
   public data_error;
-
+  public noMenu = true;
+  
   constructor(
     private _userService : UserService,
     private _router : Router,
+    
+    
   ) { 
     this.user = new User('','','','','');
-    this.identity = this._userService.getIdentity();
+    this.identity = this._userService.getIdentity();  
   }
 
   ngOnInit() {
     if(this.identity){
-      this._router.navigate(['about']);
+      //this._router.navigate(['about']);
+     
     }
+    
+   
   }
 
   close_alert(){

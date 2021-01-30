@@ -51,6 +51,7 @@ import { FacturasComponent } from './components/clientes/facturas/facturas.compo
 import { FacturaDetailComponent } from './components/clientes/factura-detail/factura-detail.component';
 import { FacturaAllDetailsComponent } from './components/clientes/factura-all-details/factura-all-details.component';
 import { TestComponent } from './components/test/test/test.component';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { TestComponent } from './components/test/test/test.component';
     HttpClientModule,
     FormsModule,
     routing,
+    SidebarModule.forRoot(),
     NgxPaginationModule
   ],
   providers: [],
