@@ -113,6 +113,7 @@ public factura_Cliente;
         }
         console.log('data',data)
         this._clienteFacturaService.insert_Factura(data).subscribe(
+          
           response => {
             this._router.navigate(['facturas']);
           },

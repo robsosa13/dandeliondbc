@@ -1,9 +1,12 @@
 var Cliente = require('../models/cliente');
 var FacturaCliente = require('../models/facturaCliente');
 var DetalleFacturaCliente = require('../models/detalleFacturaCliente');
+var CuentaDatosContables = require('../models/cuentaDatosContables')
 
 function registrar(req, res) {
     let data = req.body;
+    console.log('test')
+    var cuentasDatosContables = new CuentaDatosContables()
     var factura = new FacturaCliente();
     factura.idCliente = data.idCliente;
     factura.iduser = data.iduser;
@@ -26,6 +29,11 @@ function registrar(req, res) {
                 detalleFacturaCliente.itItem = element.itItem;
                 detalleFacturaCliente.save((err, detalle_save) => {
                     if (detalle_save) {
+
+                        // cuentasDatosContables.idFactura=factura_save._id
+                        // cuentasDatosContables.debe= (element.precioTotalItem+ ((element.precioTotalItem*11.3)))
+
+
                         console.log(factura_save)
                         console.log(detalle_save)
                         res.end();

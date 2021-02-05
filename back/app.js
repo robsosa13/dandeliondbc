@@ -19,6 +19,7 @@ var profesion_routes = require('./routes/profesion');
 var cliente_routes = require('./routes/cliente');
 var proveedor_routes = require('./routes/proveedor');
 var facturar_routes = require('./routes/facturaCliente');
+var cuentas_contables = require('./routes/cuentaDatosContable');
 
  
 var app = express();
@@ -61,8 +62,7 @@ app.use('/api',profesion_routes);
 app.use('/api',proveedor_routes);
 app.use('/api',cliente_routes);
 app.use('/api',facturar_routes);
-   
-
+app.use('/api',cuentas_contables);
 
 
 

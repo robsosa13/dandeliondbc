@@ -27,6 +27,7 @@ export class ProveedorIndexComponent implements OnInit {
     this._proveedorService.getProveedores().subscribe(
       response => {
         this.proveedores = response.proveedores;
+        console.log(this.proveedores)
       },
       error => {
 

@@ -71,12 +71,12 @@
                                         <div class="col-4 form-group">
                                             <label><b>Numero de Factura</b></label>
                                             <input #numeroFactura="ngModel" name="numeroFactura"
-                                                [(ngModel)]="factura.numeroFactura" type="text" class="form-control">
+                                                [(ngModel)]="factura.numeroFactura" type="text" class="form-control"value="{{factura.numeroFactura}}">
                                         </div>
                                         <div class="col-4 form-group">
                                             <label><b>Concepto Item General</b></label>
                                             <input #conceptoItem="ngModel" name="conceptoItem"
-                                                [(ngModel)]="factura.conceptoItem" type="text" class="form-control">
+                                                [(ngModel)]="factura.conceptoItem" type="text" class="form-control"value="{{factura.conceptoItem}}">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="formaPago">Forma de Pago </label>

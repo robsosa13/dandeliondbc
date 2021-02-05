@@ -34,7 +34,7 @@ export class ProveedorCreateComponent implements OnInit {
     //console.log('numero',  parseInt( this.empresas.length));
     if (proveedorForm.valid) {
       this._proveedorService.insertProveedor({
-        numeroCliente: 'Cliente - '+this.count,
+        numeroProveedor: 'Proveedor - '+this.count,
         nombre: proveedorForm.value.nombre,
         nit: proveedorForm.value.nit,
         direccion: proveedorForm.value.direccion,

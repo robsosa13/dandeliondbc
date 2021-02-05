@@ -34,7 +34,7 @@ export class FacturasComponent implements OnInit {
       this._clienteFacturaService.get_facturas().subscribe(
         response => {
           this.facturas = response.facturas;
-          // console.log(this.facturas);
+          console.log('Facturas',this.facturas);
         },
         error => {
         }

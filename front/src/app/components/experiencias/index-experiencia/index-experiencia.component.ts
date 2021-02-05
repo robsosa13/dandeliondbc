@@ -27,7 +27,7 @@ export class IndexExperienciaComponent implements OnInit {
       this._experienciaService.get_ventas().subscribe(
         response=>{
           this.experiencias = response.experiencias;
-          //console.log(this.experiencias);
+          console.log(this.experiencias);
           
         },
         error=>{

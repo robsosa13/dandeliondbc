@@ -52,6 +52,7 @@ import { FacturaDetailComponent } from './components/clientes/factura-detail/fac
 import { FacturaAllDetailsComponent } from './components/clientes/factura-all-details/factura-all-details.component';
 import { TestComponent } from './components/test/test/test.component';
 import { SidebarModule } from 'ng-sidebar';
+import { CuentasContablesComponent } from './components/cuentas/cuentas-contables/cuentas-contables.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,9 @@ import { SidebarModule } from 'ng-sidebar';
   
     FacturaAllDetailsComponent,
   
-    TestComponent
+    TestComponent,
+  
+    CuentasContablesComponent
   ],
   imports: [
     BrowserModule,
