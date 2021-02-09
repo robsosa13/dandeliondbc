@@ -23,7 +23,6 @@ export class CuentasContablesComponent implements OnInit {
           
         },
         error=>{
-  
         }
       );
     }

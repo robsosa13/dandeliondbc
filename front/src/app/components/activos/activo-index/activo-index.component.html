@@ -1,10 +1,7 @@
 <div class="wrapper">
-    <app-sidebar style="background: white !important;"></app-sidebar>
-
     <div class="main">
         <main class="content">
             <div class="container-fluid">
-
                 <div class="header">
                     <h1 class="header-title">
                         Activos
@@ -44,7 +41,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <h5 class="card-title">Opciones de activos</h5>
                                        
                                         <div class="btn-group">
@@ -59,6 +56,9 @@
                                            
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-outline-warning" (click)='downPDF()'>PDF</button>
                                     </div>
                                 </div>
                                 
@@ -133,8 +133,6 @@
                     previousLabel="Antes"
                     nextLabel="Despues"></pagination-controls>
                 </div>
-
-
                  <!--MODAL AGREGAR CATEGORIA-->
                  <div class="modal fade" id="modal-save-categoria" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
                     <form #categoriaForm="ngForm" (ngSubmit)="save_cat(categoriaForm)">
@@ -192,10 +190,7 @@
                     </div>
                 </div>
                 <!--MODAL LISTAR CATEGORIA-->
-
-               
             </div>
         </main>
-       
     </div>
 </div>

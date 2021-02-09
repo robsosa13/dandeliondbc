@@ -23,7 +23,7 @@ export class AsignacionIndexComponent implements OnInit {
     this.identity = this._userService.getIdentity();
    }
    downPDF(){ 
-    var parsed = this.asignaciones;
+    //var parsed = this.asignaciones;
     var body = [];
    
     for (var j = 0; j < this.asignaciones.length ; j++) {
@@ -32,9 +32,11 @@ export class AsignacionIndexComponent implements OnInit {
           personal: this.asignaciones[j].idpersonal.nombre,
           fecha: new Date(this.asignaciones[j].fecha).toISOString().slice(0,10),
           trabajador: this.asignaciones[j].iduser.apellidos,
+          
       });
+     
   }
-
+  var cantidad = 10;
     var data = this.asignaciones    
     const doc = new jsPDF() 
     
@@ -47,7 +49,7 @@ export class AsignacionIndexComponent implements OnInit {
     autoTable(doc,{
       columns: columnas,
       body:body,
-      //foot: [['Lista de activos']],
+      foot: [['Total  :', '  ', cantidad]],
       theme: 'grid',
       
       didDrawCell: (data) => {

@@ -1,7 +1,6 @@
 <ng-sidebar-container id="sidebar-1">
 	<ng-sidebar [(opened)]="_opened" mode="push" animate="true" closeOnClickOutside="false" autoCollapseWidth=920 style="width: max-content;" >
-        
-            <a class="sidebar-brand" href="/about" style=" outline: none;">
+        <a class="sidebar-brand" href="/about" style=" outline: none;">
           <svg>
             <use xlink:href="#ion-ios-pulse-strong"></use>
           </svg>
@@ -9,9 +8,9 @@
         </a>
             <div class="sidebar-content">
                 <ul id="sidebarNAV" class="sidebar-nav">
-                    <li class="sidebar-header">
-                        Menu
+                    <li class="sidebar-header">Menu
                     </li>
+                        
                     <li class="sidebar-item">
                         <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
                         <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Opciones</span>
@@ -20,7 +19,7 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
-                        </ul>
+                </ul>
                     </li>
                     <li class="sidebar-item" routerLinkActive="sidebar-item active">
                         <a class="sidebar-link" [routerLink]="['/personals']"  >
@@ -111,5 +110,5 @@
         <section class="demo-contents">
             <router-outlet *ngIf='true'></router-outlet>
         </section> 
-        </div>  
+    </div>  
 </ng-sidebar-container>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivoService } from 'src/app/services/activo.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 declare var jQuery:any;
 declare var $:any;
@@ -20,8 +22,52 @@ export class ActivoIndexComponent implements OnInit {
   public activo_stock;
   public activo_id;
   public success_message;
+  public pcompra = 0 ;
   constructor(private _activoService:ActivoService) { 
     this.url = GLOBAL.url;
+  }
+  downPDF(){ 
+    var body = [];
+   
+    for (var j = 0; j < this.activos.length ; j++) {
+      body.push({
+          id: j+1,
+         
+          titulo: this.activos[j].titulo,
+          fecha: new Date(this.activos[j].fechaRegistro).toISOString().slice(0,10),
+          precio: this.activos[j].precio_compra,
+         
+          
+      });
+        this.pcompra =  this.pcompra +  this.activos[j].precio_compra
+     
+  }
+  var cantidad = 10;
+    var data = this.activos    
+    const doc = new jsPDF() 
+    
+    var columnas = [{title: 'Titulo', dataKey: 'titulo'}, {title: 'Fecha', dataKey: 'fecha'},{title: 'Precio de Compra', dataKey:'precio'}]
+    doc.setFontSize(18);
+    doc.text('Lista de Activos', 11, 8);
+    doc.setFontSize(11);
+    doc.setTextColor(10);
+
+    autoTable(doc,{
+      columns: columnas,
+      body:body,
+      foot: [['Total Prueba :', '  ', this.pcompra]],
+      theme: 'grid',
+      
+      didDrawCell: (data) => {
+       // console.log(data.row.raw)
+      },
+      
+    })
+     // below line for Open PDF document in new tab
+     doc.output('dataurlnewwindow')
+     
+     // below line for Download PDF document  
+     //doc.save('table.pdf')
   }
 
   ngOnInit() {
@@ -157,12 +203,7 @@ export class ActivoIndexComponent implements OnInit {
             
           }
         );
-      }
-      
+      }   
     }
   }
-
-
-  
-
 }

@@ -1,10 +1,7 @@
 <div class="wrapper">
-    <app-sidebar style="background: white !important;"></app-sidebar>
-
     <div class="main">
         <main class="content">
             <div class="container-fluid">
-
                 <div class="header">
                     <h1 class="header-title">
                         Cuentas Contables
@@ -56,12 +53,10 @@
                                                 <a class="dropdown-item" [routerLink]="['/activo/registrar']">Registrar activo</a>
                                                 <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver categorias</a>
                                                 <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-categoria">Registrar Categoria</a>
-                                           
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                </div>       
                             </div>
                             <table class="table table-striped table-hover">
                                 <thead>
@@ -69,7 +64,6 @@
                                         <th>Debe</th>
                                         <th>Haber</th>
                                         <th>Fecha</th>
-                                   
                                         <!-- <th>Precio compra</th> -->
                                         <th>Opciones</th>
                                     </tr>
@@ -78,8 +72,6 @@
                                    
                                         <td>{{item.debe}}</td>
                                         <td>{{item.haber}}</td>
-                                      
-                                  
                                         <td>{{item.fechaRegistro  | date: 'dd/MM/yyyy'}}</td>
                                         <td>
                                             <div class="btn-group">
@@ -94,8 +86,6 @@
                                                 </div>
                                             </div>
                                         </td>  
-                           
-                          
                                 </tbody>
                             </table>
                         </div>
@@ -104,16 +94,9 @@
                     previousLabel="Antes"
                     nextLabel="Despues"></pagination-controls>
                 </div>
-
-
                  <!--MODAL AGREGAR CATEGORIA-->
-
                 <!--MODAL AGREGAR CATEGORIA-->
-
-     
-               
             </div>
         </main>
-       
     </div>
 </div>
