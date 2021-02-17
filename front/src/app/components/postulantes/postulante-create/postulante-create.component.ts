@@ -22,7 +22,6 @@ export class PostulanteCreateComponent implements OnInit {
     this.postulante = new Postulante('', '', '', '', 0, '', '', '','', '', '', 0, '', '', '', '','','');
   }
 
-
   ngOnInit() {
     this._personalService.get_profesiones().subscribe(
       response=>{
