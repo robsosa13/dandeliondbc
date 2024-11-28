@@ -24,11 +24,9 @@
               "src/assets"
             ],
             "styles": [
-            
               "src/styles.css"
-             
             ],
-            "scripts": [  ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -90,7 +88,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ 
+            "styles": [
               "src/styles.css"
             ],
             "scripts": [
@@ -124,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front"
+    }
+  },
+  "defaultProject": "front",
+  "cli": {
+    "analytics": "41c81329-7d5b-48e6-96c2-7bb5c8cfd0b6"
+  }
 }

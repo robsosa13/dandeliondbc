@@ -24,21 +24,17 @@ var cuentas_contables = require('./routes/cuentaDatosContable');
  
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/sistemadb',{useUnifiedTopology: true, useNewUrlParser: true},(err,res)=>{
-    if(err){
+mongoose.connect('mongodb+srv://lsrev311:tc1rWZn1x6YgtQQb@clustermongo.v53ws.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMongo', { useUnifiedTopology: true, useNewUrlParser: true }, (err, res) => {
+    if (err) {
         throw err;
-    }
-    else{
-        console.log("Corriendo servidor");
-        app.listen(port, function(){
+    } else {
+        console.log("Conectado a MongoDB Atlas");
+        app.listen(port, function() {
             console.log("Servidor conectado en " + port);
-            
         });
-        
     }
 });
-app.use(bodyparser.urlencoded({extended: true}));
-app.use(bodyparser.json());
+
 
 app.use((req,res,next)=>{
     res.header('Content-Type: application/json');
