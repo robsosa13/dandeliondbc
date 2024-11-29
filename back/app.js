@@ -45,6 +45,18 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get('/test', async (req, res) => {
+    try {
+      const proveedores = await Proveedor.find();
+      console.log(proveedores);  // Verifica los resultados en la consola de EC2
+      res.json(proveedores);
+    } catch (error) {
+      console.error('Error al obtener proveedores:', error);
+      res.status(500).json({ message: 'Error al obtener proveedores' });
+    }
+  });
+  
+
 app.use('/api',user_routes);
 app.use('/api',categoria_routes);
 app.use('/api',producto_routes);
