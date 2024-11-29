@@ -24,16 +24,21 @@ var cuentas_contables = require('./routes/cuentaDatosContable');
  
 var app = express();
 
-mongoose.connect('mongodb+srv://lsrev311:tc1rWZn1x6YgtQQb@clustermongo.v53ws.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMongo', { useUnifiedTopology: true, useNewUrlParser: true }, (err, res) => {
-    if (err) {
-        throw err;
-    } else {
-        console.log("Conectado a MongoDB Atlas");
-        app.listen(port, function() {
-            console.log("Servidor conectado en " + port);
-        });
-    }
+mongoose.connect('mongodb+srv://lsrev311:tc1rWZn1x6YgtQQb@clustermongo.v53ws.mongodb.net/sistemadb?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log("Conectado a MongoDB Atlas");
+  app.listen(port, function() {
+    console.log("Servidor conectado en " + port);
+  });
+})
+.catch(err => {
+  console.error("Error al conectar a MongoDB Atlas:", err.message);
+  process.exit(1); // Salir si no se puede conectar
 });
+
 
 
 app.use((req,res,next)=>{
@@ -47,12 +52,12 @@ app.use((req,res,next)=>{
 
 app.get('/test', async (req, res) => {
     try {
-      const proveedores = await Proveedor.find();
-      console.log(proveedores);  // Verifica los resultados en la consola de EC2
+      const proveedores = await Proveedor.find();  // Cambia 'Proveedor' si el modelo tiene otro nombre
+      console.log(proveedores);  // Muestra los datos en la consola de EC2
       res.json(proveedores);
     } catch (error) {
       console.error('Error al obtener proveedores:', error);
-      res.status(500).json({ message: 'Error al obtener proveedores' });
+      res.status(500).json({ message: 'Error al obtener proveedores', error: error.message });
     }
   });
   
