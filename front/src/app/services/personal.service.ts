@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GLOBAL } from "./global.ts";
+import { GLOBAL } from "./GLOBAL.ts";
 import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 
