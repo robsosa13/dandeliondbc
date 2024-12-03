@@ -1,11 +1,10 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
+var cors = require('cors');  // Importa cors
 var port = process.env.PORT ||  4201;
-/**
- * REPOSITORIO DANDELION
- */
-//ROUTES 
+
+// Rutas
 var user_routes = require('./routes/user');
 var categoria_routes = require('./routes/categoria');
 var producto_routes = require('./routes/producto');
@@ -21,7 +20,6 @@ var proveedor_routes = require('./routes/proveedor');
 var facturar_routes = require('./routes/facturaCliente');
 var cuentas_contables = require('./routes/cuentaDatosContable');
 
- 
 var app = express();
 
 mongoose.connect('mongodb+srv://lsrev311:tc1rWZn1x6YgtQQb@clustermongo.v53ws.mongodb.net/sistemadb?retryWrites=true&w=majority', {
@@ -39,47 +37,26 @@ mongoose.connect('mongodb+srv://lsrev311:tc1rWZn1x6YgtQQb@clustermongo.v53ws.mon
   process.exit(1); // Salir si no se puede conectar
 });
 
+// Usa CORS para permitir solicitudes desde otros orígenes
+app.use(cors());  // Habilita CORS para todas las rutas
 
+// Configura el uso de body-parser para manejar JSON
+app.use(bodyparser.json());
 
-app.use((req,res,next)=>{
-    res.header('Content-Type: application/json');
-    res.header('Access-Control-Allow-Origin','*'); 
-    res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods','GET, PUT, POST, DELETE, OPTIONS');
-    res.header('Allow','GET, PUT, POST, DELETE, OPTIONS');
-    next();
-});
-
-app.get('/test', async (req, res) => {
-    try {
-      const proveedores = await Proveedor.find();  // Cambia 'Proveedor' si el modelo tiene otro nombre
-      console.log(proveedores);  // Muestra los datos en la consola de EC2
-      res.json(proveedores);
-    } catch (error) {
-      console.error('Error al obtener proveedores:', error);
-      res.status(500).json({ message: 'Error al obtener proveedores', error: error.message });
-    }
-  });
-  
-
-app.use('/api',user_routes);
-app.use('/api',categoria_routes);
-app.use('/api',producto_routes);
-app.use('/api',experiencia_routes);
-app.use('/api',activo_routes);
-app.use('/api',empresa_routes); 
-app.use('/api',postulante_routes);
-app.use('/api',personal_routes);
-app.use('/api',asignacion_routes);
-app.use('/api',profesion_routes);
-app.use('/api',proveedor_routes);
-app.use('/api',cliente_routes);
-app.use('/api',facturar_routes);
-app.use('/api',cuentas_contables);
-
-
-
-
-
+// Rutas de la API
+app.use('/api', user_routes);
+app.use('/api', categoria_routes);
+app.use('/api', producto_routes);
+app.use('/api', experiencia_routes);
+app.use('/api', activo_routes);
+app.use('/api', empresa_routes); 
+app.use('/api', postulante_routes);
+app.use('/api', personal_routes);
+app.use('/api', asignacion_routes);
+app.use('/api', profesion_routes);
+app.use('/api', proveedor_routes);
+app.use('/api', cliente_routes);
+app.use('/api', facturar_routes);
+app.use('/api', cuentas_contables);
 
 module.exports = app;
