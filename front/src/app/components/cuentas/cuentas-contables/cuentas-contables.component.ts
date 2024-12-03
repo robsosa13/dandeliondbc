@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CuentaContableService } from 'src/app/services/cuentas_contables.service';
-import { GLOBAL } from 'src/app/services/GLOBAL';
+import { GLOBAL } from 'src/app/services/GLOBAL.TS';
 import Swal from 'sweetalert2';
 
 @Component({

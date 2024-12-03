@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/services/producto.service';
-import { GLOBAL } from 'src/app/services/GLOBAL';
+import { GLOBAL } from 'src/app/services/GLOBAL.TS';
 import Swal from 'sweetalert2';
 
 declare var jQuery:any;
