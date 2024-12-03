@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
-import { GLOBAL } from 'src/app/services/GLOBAL.TS';
+import { GLOBAL } from 'src/app/services/GLOBAL';
 
 interface HtmlInputEvent extends Event{
   target : HTMLInputElement & EventTarget;

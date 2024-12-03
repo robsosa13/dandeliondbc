@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from 'src/app/services/activo.service';
-import { GLOBAL } from 'src/app/services/GLOBAL.TS';
+import { GLOBAL } from 'src/app/services/GLOBAL';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';

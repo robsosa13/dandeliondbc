@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GLOBAL } from "../../../services/GLOBAL.ts";
+import { GLOBAL } from "../../../services/GLOBAL";
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
